@@ -78,7 +78,8 @@ export function Hero(container, character, onNextChar) {
           id="char-frame-img"
           src="${character.frameImage}"
           alt="${character.name} visual"
-          loading="eager"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 

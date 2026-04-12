@@ -67,6 +67,8 @@ export function HeroDetail(container, character, onBack) {
         src="${character.detailArt || character.frameImage}"
         alt="${character.name}"
         loading="eager"
+        fetchpriority="high"
+        decoding="async"
       />
     </div>
 

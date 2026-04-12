@@ -6,13 +6,22 @@
     <title>AETERNA</title>
     <link rel="icon" type="image/svg+xml" href="assets/media/images/backgrounds/logo.svg" />
 
-    <!-- Fonts -->
+    <!-- Fonts (non-blocking: preload → swap to stylesheet after parse) -->
+    <link rel="dns-prefetch" href="https://www.figma.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap"
-      rel="stylesheet"
+      onload="this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -91,7 +100,7 @@
                 class="video-scroll__video"
                 muted
                 playsinline
-                preload="auto"
+                preload="none"
                 aria-label="Cinematic forest background"
               >
                 <source src="assets/media/videos/bgvid-hq.mp4" type="video/mp4" />
@@ -211,7 +220,7 @@
                 class="video-scroll__video"
                 muted
                 playsinline
-                preload="auto"
+                preload="none"
                 aria-label="Cinematic canopy background"
               >
                 <source src="assets/media/videos/bgvid2-hq.mp4" type="video/mp4" />

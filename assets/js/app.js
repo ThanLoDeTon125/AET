@@ -107,9 +107,23 @@ function updateSectionBackground(container, src) {
   });
 }
 
-/* Init: top hero stays on landing key visual, lower section follows active pillar */
+/* Init: hero bg loads immediately (above fold). Slider bg lazy-loads when approaching viewport. */
 initSectionBackground(heroBgEl, heroLanding.bgImage);
-initSectionBackground(sliderBgEl, getActive().bgImage);
+
+(function lazySliderBackground() {
+  const _sec = document.getElementById('slider-section');
+  if (!_sec) { initSectionBackground(sliderBgEl, getActive().bgImage); return; }
+  const _obs = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        initSectionBackground(sliderBgEl, getActive().bgImage);
+        _obs.disconnect();
+      }
+    },
+    { rootMargin: '0px 0px 400px 0px', threshold: 0 }
+  );
+  _obs.observe(_sec);
+})();
 
 /* ============================================================
    4. Mount components
@@ -225,6 +239,19 @@ CharacterSlider(sliderEl, characters, getActive().id, selectCharacter);
         reverseRaf = 0;
       }
     }
+
+    /* Preload observer — start buffering 500 px before the section enters viewport */
+    const preloadObserver = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          videoEl.preload = 'auto';
+          videoEl.load();
+          preloadObserver.unobserve(sectionEl);
+        }
+      },
+      { rootMargin: '0px 0px 500px 0px', threshold: 0 }
+    );
+    preloadObserver.observe(sectionEl);
 
     const observer = new IntersectionObserver(
       (entries) => {
