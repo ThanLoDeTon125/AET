@@ -1,0 +1,588 @@
+/* ================================================
+   main.css — root styles + component imports
+   ================================================ */
+
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./layout/navbar.css');
+@import url('./layout/sidebar.css');
+@import url('./sections/hero.css');
+@import url('./sections/character-slider.css');
+@import url('./sections/hero-detail.css');
+@import url('./sections/world-map.css');
+@import url('./sections/footer.css');
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  background: #1a2820;
+}
+
+body.nav-open {
+  overflow: hidden;
+}
+
+/* ---- App shell — scrollable landing page ---- */
+#app {
+  position: relative;
+  width: 100%;
+  min-height: 220vh;
+  overflow-x: clip;
+  overflow-y: visible;
+  background: #1a2820;
+}
+
+#app::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0.12;
+  mix-blend-mode: soft-light;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.24) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px),
+    radial-gradient(circle at 35% 75%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px);
+  background-size: 180px 180px, 240px 240px, 300px 300px;
+}
+
+/* ---- Top dark gradient overlay for header readability ---- */
+#header-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 22vh;
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  z-index: 19;
+  pointer-events: none;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+#header-overlay.is-light {
+  background: linear-gradient(to bottom,
+    rgba(247, 244, 235, 0.92) 0%,
+    rgba(247, 244, 235, 0.54) 48%,
+    rgba(247, 244, 235, 0.00) 100%
+  );
+}
+
+#landing-page {
+  position: relative;
+  z-index: 5;
+  min-height: 220vh;
+}
+
+.journey-nav {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 22;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 11px 10px 11px 6px;
+  border-radius: 0 18px 18px 0;
+  background: rgba(8, 14, 11, 0.58);
+  border: 1px solid rgba(223, 255, 210, 0.10);
+  border-left: none;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.24);
+}
+
+.journey-nav::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 17px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(223, 255, 210, 0.10) 0%, rgba(223, 255, 210, 0.42) 50%, rgba(223, 255, 210, 0.10) 100%);
+  pointer-events: none;
+}
+
+.journey-nav__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18px auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 26px;
+  padding: 0 6px 0 0;
+  color: rgba(229, 241, 224, 0.66);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.journey-nav__link::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: 7px;
+  border-radius: 50%;
+  background: rgba(236, 247, 230, 0.34);
+  box-shadow: 0 0 0 4px rgba(203, 255, 174, 0.00);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.journey-nav__link:hover {
+  color: rgba(246, 250, 243, 0.92);
+  transform: translateX(2px);
+}
+
+.journey-nav__link.active {
+  color: rgba(246, 250, 243, 0.96);
+}
+
+.journey-nav__link.active::before {
+  background: rgba(205, 255, 192, 0.96);
+  box-shadow: 0 0 0 4px rgba(203, 255, 174, 0.18), 0 0 22px rgba(203, 255, 174, 0.34);
+  transform: scale(1.08);
+}
+
+.journey-nav__index,
+.journey-nav__label {
+  position: relative;
+  z-index: 1;
+}
+
+.journey-nav__index {
+  font-family: var(--font-ui);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.journey-nav__label {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.landing-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+.landing-section--hero {
+  height: 100dvh;
+  min-height: 700px;
+}
+
+.landing-section--slider {
+  min-height: 100dvh;
+}
+
+.journey-bridge {
+  position: relative;
+  min-height: clamp(130px, 18dvh, 190px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  scroll-snap-align: none;
+  overflow: hidden;
+  --bridge-text: rgba(240, 246, 237, 0.92);
+  --bridge-muted: rgba(214, 232, 206, 0.70);
+  --bridge-line: rgba(203, 255, 174, 0.26);
+  --bridge-node: rgba(219, 255, 197, 0.92);
+  --bridge-panel-bg: linear-gradient(180deg, rgba(14, 24, 18, 0.72) 0%, rgba(14, 24, 18, 0.52) 100%);
+  --bridge-panel-border: rgba(223, 255, 210, 0.10);
+}
+
+.journey-bridge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent 0%, var(--bridge-line) 18%, var(--bridge-line) 82%, transparent 100%);
+  background-size: 100% 220%;
+  animation: journeyBridgeFlow 7s linear infinite;
+}
+
+.journey-bridge::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 13px;
+  height: 13px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--bridge-node);
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--bridge-node) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bridge-node) 34%, transparent);
+  animation: journeyBridgePulse 4.4s ease-in-out infinite;
+}
+
+.journey-bridge--dark {
+  background: linear-gradient(180deg, #0a120d 0%, #09110d 100%);
+}
+
+.journey-bridge--toward-light {
+  --bridge-text: rgba(34, 56, 43, 0.94);
+  --bridge-muted: rgba(74, 96, 82, 0.78);
+  --bridge-line: rgba(78, 122, 88, 0.22);
+  --bridge-node: rgba(94, 138, 101, 0.92);
+  --bridge-panel-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(244, 239, 227, 0.82) 100%);
+  --bridge-panel-border: rgba(72, 110, 80, 0.10);
+  background: linear-gradient(180deg, #050809 0%, #f7f4eb 100%);
+}
+
+.journey-bridge--toward-dark {
+  background: linear-gradient(180deg, #f7f4eb 0%, #060a08 100%);
+}
+
+.journey-bridge__content {
+  position: relative;
+  z-index: 1;
+  max-width: min(780px, calc(100% - 32px));
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 22px 28px;
+  border-radius: 28px;
+  background: var(--bridge-panel-bg);
+  border: 1px solid var(--bridge-panel-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: center;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0) scale(0.985);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.journey-bridge.is-visible .journey-bridge__content {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.journey-bridge__chapter {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--bridge-muted);
+}
+
+.journey-bridge__eyebrow,
+.journey-bridge__text {
+  margin: 0;
+}
+
+.journey-bridge__eyebrow {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 1.7vw, 28px);
+  letter-spacing: 0.08em;
+  color: var(--bridge-text);
+}
+
+.journey-bridge__text {
+  max-width: 52ch;
+  font-family: var(--font-ui);
+  font-size: clamp(12px, 0.92vw, 16px);
+  line-height: 1.72;
+  color: var(--bridge-muted);
+  text-wrap: pretty;
+}
+
+.landing-section--video {
+  height: 100dvh;
+  min-height: 540px;
+  scroll-snap-align: start;
+  background: #050809;
+  --video-scale: 1.08;
+}
+
+.video-scroll {
+  position: relative;
+  height: 100%;
+}
+
+.video-scroll__sticky {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: #050809;
+}
+
+.video-scroll__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(var(--video-scale));
+  transform-origin: center center;
+  will-change: transform;
+  filter: brightness(0.86) contrast(1.08) saturate(1.05);
+  pointer-events: none;
+}
+
+.video-scroll__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 66%, rgba(196, 255, 171, 0.20) 0%, rgba(196, 255, 171, 0.00) 30%),
+    radial-gradient(circle at 74% 20%, rgba(235, 247, 214, 0.16) 0%, rgba(235, 247, 214, 0.00) 32%),
+    linear-gradient(180deg, rgba(3, 9, 7, 0.18) 0%, rgba(3, 9, 7, 0.02) 26%, rgba(3, 9, 7, 0.72) 100%),
+    linear-gradient(90deg, rgba(3, 9, 7, 0.56) 0%, rgba(3, 9, 7, 0.14) 34%, rgba(3, 9, 7, 0.58) 100%);
+  pointer-events: none;
+}
+
+.video-scroll__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.24) 0 1px, transparent 1px),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.20) 0 1px, transparent 1px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px);
+  background-size: 170px 170px, 220px 220px, 260px 260px;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.video-scroll__content {
+  position: absolute;
+  left: clamp(26px, 5vw, 86px);
+  bottom: clamp(34px, 7vh, 72px);
+  width: min(44vw, 600px);
+  display: grid;
+  gap: 14px;
+  z-index: 2;
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.landing-section--video.is-visible .video-scroll__content {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.video-scroll--alternate .video-scroll__veil {
+  background:
+    radial-gradient(circle at 78% 58%, rgba(196, 255, 171, 0.18) 0%, rgba(196, 255, 171, 0.00) 30%),
+    radial-gradient(circle at 24% 16%, rgba(235, 247, 214, 0.14) 0%, rgba(235, 247, 214, 0.00) 30%),
+    linear-gradient(180deg, rgba(3, 9, 7, 0.16) 0%, rgba(3, 9, 7, 0.02) 26%, rgba(3, 9, 7, 0.76) 100%),
+    linear-gradient(90deg, rgba(3, 9, 7, 0.52) 0%, rgba(3, 9, 7, 0.12) 40%, rgba(3, 9, 7, 0.62) 100%);
+}
+
+.video-scroll--alternate .video-scroll__content {
+  left: auto;
+  right: clamp(26px, 5vw, 86px);
+  text-align: right;
+  justify-items: end;
+}
+
+.video-scroll--alternate .video-scroll__title,
+.video-scroll--alternate .video-scroll__copy {
+  margin-left: auto;
+}
+
+.video-scroll__eyebrow {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: clamp(11px, 0.86vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(224, 239, 217, 0.72);
+}
+
+.video-scroll__title {
+  margin: 0;
+  max-width: 9ch;
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6vw, 102px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 0.08em;
+  color: rgba(249, 248, 243, 0.95);
+  text-shadow: 0 8px 32px rgba(0, 0, 0, 0.34);
+  text-wrap: balance;
+}
+
+.video-scroll__copy {
+  margin: 0;
+  max-width: 48ch;
+  font-family: var(--font-ui);
+  font-size: clamp(13px, 1vw, 18px);
+  line-height: 1.72;
+  color: rgba(233, 240, 230, 0.82);
+}
+
+@keyframes journeyBridgeFlow {
+  from { background-position: 0 0; }
+  to { background-position: 0 220%; }
+}
+
+@keyframes journeyBridgePulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 8px color-mix(in srgb, var(--bridge-node) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bridge-node) 34%, transparent);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 0 10px color-mix(in srgb, var(--bridge-node) 22%, transparent), 0 0 30px color-mix(in srgb, var(--bridge-node) 42%, transparent);
+  }
+}
+
+@media (max-width: 920px) {
+  #header-overlay {
+    height: 18vh;
+  }
+
+  .journey-nav {
+    display: none;
+  }
+
+  .journey-bridge {
+    min-height: 146px;
+    padding: 18px;
+  }
+
+  .journey-bridge__content {
+    padding: 18px 18px 20px;
+  }
+
+  .video-scroll__content {
+    width: min(72vw, 520px);
+    bottom: clamp(26px, 4vh, 40px);
+  }
+
+  .video-scroll__title {
+    max-width: 10ch;
+    font-size: clamp(36px, 7.8vw, 72px);
+  }
+}
+
+@media (max-width: 640px) {
+  #app::after {
+    opacity: 0.08;
+  }
+
+  #header-overlay {
+    height: 16vh;
+  }
+
+  .journey-bridge__eyebrow {
+    font-size: 18px;
+  }
+
+  .journey-bridge__text {
+    font-size: 12px;
+  }
+
+  .journey-bridge {
+    min-height: 122px;
+    padding: 14px;
+  }
+
+  .journey-bridge__content {
+    gap: 6px;
+    padding: 16px 14px 18px;
+    border-radius: 22px;
+  }
+
+  .video-scroll__content {
+    width: calc(100% - 32px);
+    left: 16px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 18px);
+    gap: 10px;
+  }
+
+  .video-scroll--alternate .video-scroll__content {
+    left: 16px;
+    right: auto;
+    text-align: left;
+    justify-items: start;
+  }
+
+  .video-scroll__title {
+    max-width: 10ch;
+    font-size: clamp(32px, 10vw, 46px);
+    letter-spacing: 0.05em;
+  }
+
+  .video-scroll__copy {
+    max-width: 30ch;
+    font-size: 13px;
+    line-height: 1.68;
+  }
+
+  .fireflies {
+    display: none;
+  }
+}
+
+/* ---- Page-load fade-in ---- */
+#app {
+  animation: appFadeIn 0.8s ease forwards;
+}
+
+@keyframes appFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---- Scrollbar hide (for slider) ---- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ================================================
+   Firefly particles — hero section
+   ================================================ */
+.fireflies {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.firefly {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(194, 255, 178, 0.9) 0%, rgba(194, 255, 178, 0.4) 40%, transparent 70%);
+  box-shadow: 0 0 6px 2px rgba(194, 255, 178, 0.5), 0 0 14px 4px rgba(194, 255, 178, 0.2);
+  animation: fireflyFloat var(--fly-duration) ease-in-out infinite, fireflyGlow var(--glow-duration) ease-in-out infinite;
+  animation-delay: var(--fly-delay), var(--glow-delay);
+  opacity: 0;
+}
+
+@keyframes fireflyFloat {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(var(--dx1), var(--dy1)); }
+  50%  { transform: translate(var(--dx2), var(--dy2)); }
+  75%  { transform: translate(var(--dx3), var(--dy3)); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes fireflyGlow {
+  0%, 100% { opacity: 0; }
+  15%      { opacity: var(--max-opacity); }
+  50%      { opacity: var(--max-opacity, 0.8); }
+  85%      { opacity: var(--max-opacity); }
+  95%      { opacity: 0; }
+}

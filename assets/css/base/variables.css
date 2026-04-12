@@ -1,0 +1,44 @@
+/* ================================================
+   Design Tokens — Genshin Impact Web UI
+   Reference canvas: 1920 × 1080 px
+   ================================================ */
+
+:root {
+  /* ---------- Colors ---------- */
+  --color-text-primary:   #fcfcfc;
+  --color-text-dark:      #151412;
+  --color-border-cream:   #f5ecdb;
+  --color-btn-signin-bg:  #f3e6d4;
+  --color-sidebar-bg:     rgba(234, 237, 232, 0.25);
+  --color-glass-bg:       rgba(255, 255, 255, 0.20);
+  --color-glass-bg-light: rgba(255, 255, 255, 0.92);
+
+  /* ---------- Backdrop blur ---------- */
+  --blur-glass:    blur(2px);
+  --blur-sidebar:  blur(11.042px);
+  --blur-nav-btn:  blur(16.769px);
+  --blur-bg:       blur(28.25px);
+
+  /* ---------- Radii ---------- */
+  --radius-card:   52px;
+  --radius-panel:  24px;
+  --radius-pill:   32px;
+  --radius-badge:  24px;
+  --radius-sidebar-r: 77.758px;
+
+  /* ---------- Inner glow (inset highlight) ---------- */
+  --inset-glow-card:   inset 0.4px 2.1px 0.9px 0px #fcfcfc;
+  --inset-glow-panel:  inset 1.2px 1.1px 0.8px 0px #f8faf0;
+  --inset-glow-sidebar: inset 0px 1.711px 0.778px 0px rgba(248, 249, 248, 0.79);
+
+  /* ---------- Fonts ---------- */
+  --font-display: 'Cinzel', Georgia, serif;
+  --font-ui:      'Montserrat', sans-serif;
+
+  /* ---------- Canvas dimensions ---------- */
+  --canvas-w: 1920;
+  --canvas-h: 1080;
+
+  /* ---------- Transition ---------- */
+  --transition-smooth: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
