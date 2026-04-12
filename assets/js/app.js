@@ -16,6 +16,63 @@ import { CharacterSlider }  from './sections/CharacterSlider.js';
 import { HeroDetail } from './sections/HeroDetail.js';
 
 /* ============================================================
+   0. Preloader — block UI until critical assets are cached
+   ============================================================ */
+(function initPreloader() {
+  const preloaderEl  = document.getElementById('preloader');
+  const fillEl       = document.getElementById('preloader-fill');
+  const statusEl     = document.getElementById('preloader-status');
+  if (!preloaderEl) return;
+
+  /* Collect every image URL that must be ready before the page reveals */
+  const criticalUrls = [
+    heroLanding.bgImage,
+    heroLanding.detailArt,
+    heroLanding.frameImage,
+    'assets/media/images/backgrounds/logo.svg',
+    ...characters.map((c) => c.bgImage),
+    ...characters.map((c) => c.frameImage),
+    ...characters.map((c) => c.cardImage),
+  ].filter((url, idx, arr) => url && arr.indexOf(url) === idx); /* dedupe + remove falsy */
+
+  let loaded = 0;
+  const total = criticalUrls.length;
+
+  function setProgress(n) {
+    const pct = Math.min(Math.round((n / total) * 100), 100);
+    if (fillEl)  fillEl.style.width = pct + '%';
+    if (statusEl) statusEl.textContent = pct < 100 ? `Loading… ${pct}%` : 'Entering world…';
+  }
+
+  function dismiss() {
+    preloaderEl.classList.add('is-done');
+    preloaderEl.addEventListener('transitionend', () => preloaderEl.remove(), { once: true });
+  }
+
+  setProgress(0);
+
+  const imagePromises = criticalUrls.map(
+    (url) =>
+      new Promise((resolve) => {
+        const img = new Image();
+        img.onload = img.onerror = () => {
+          loaded++;
+          setProgress(loaded);
+          resolve();
+        };
+        img.src = url;
+      })
+  );
+
+  const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
+
+  Promise.all([...imagePromises, fontPromise]).then(() => {
+    /* Brief pause so the “Entering world…” label reads properly */
+    setTimeout(dismiss, 360);
+  });
+})();
+
+/* ============================================================
    1. App shell — fills the viewport natively via CSS.
       No JS scaling needed.
    ============================================================ */

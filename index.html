@@ -27,6 +27,25 @@
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body>
+    <!-- ============================================================
+         Preloader — covers screen until all critical assets are ready
+         ============================================================ -->
+    <div id="preloader" role="status" aria-label="Loading AETERNA">
+      <div class="preloader__inner">
+        <img
+          class="preloader__logo-img"
+          src="assets/media/images/backgrounds/logo.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <p class="preloader__wordmark">AETERNA</p>
+        <div class="preloader__track" aria-hidden="true">
+          <div class="preloader__fill" id="preloader-fill"></div>
+        </div>
+        <p class="preloader__status" id="preloader-status">Initialising world…</p>
+      </div>
+    </div>
+
     <div id="app">
       <!-- Dark gradient overlay for header -->
       <div id="header-overlay" aria-hidden="true"></div>
