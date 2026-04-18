@@ -11,7 +11,7 @@
   flex-direction: column;
   overflow: hidden;
   background:
-    url('../../media/images/backgrounds/bg1.png') center 42% / cover no-repeat;
+    url('../../media/images/backgrounds/ae.png') center 42% / cover no-repeat;
   color: rgba(247, 249, 245, 0.94);
 }
 
@@ -22,14 +22,12 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       rgba(6, 10, 8, 0.52) 0%,
       rgba(6, 10, 8, 0.38) 18%,
       rgba(6, 10, 8, 0.52) 52%,
       rgba(6, 10, 8, 0.82) 76%,
-      rgba(6, 10, 8, 0.96) 100%
-    ),
+      rgba(6, 10, 8, 0.96) 100%),
     radial-gradient(ellipse at 50% 46%, rgba(208, 240, 186, 0.14) 0%, transparent 52%);
 }
 
@@ -41,13 +39,11 @@
   pointer-events: none;
   opacity: 0.028;
   mix-blend-mode: overlay;
-  background-image: repeating-linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.6) 0px,
-    rgba(255, 255, 255, 0.6) 1px,
-    transparent 1px,
-    transparent 5px
-  );
+  background-image: repeating-linear-gradient(180deg,
+      rgba(255, 255, 255, 0.6) 0px,
+      rgba(255, 255, 255, 0.6) 1px,
+      transparent 1px,
+      transparent 5px);
 }
 
 /* -- stage: centered lower-third composition ---------------- */

@@ -19,8 +19,8 @@ export const heroLanding = {
     { value: 'AI', label: 'adaptive narrative journeys for every player' },
     { value: 'O2O', label: 'real-world tourism and artisan impact' },
   ],
-  bgImage: ASSETS.bgNahida,
-  detailArt: 'assets/media/images/backgrounds/char1.svg',
+  bgImage: 'assets/media/images/backgrounds/bg.png',
+  detailArt: 'assets/media/images/backgrounds/main.png',
   frameImage: ASSETS.frameNahida,
   detailSections: [
     {

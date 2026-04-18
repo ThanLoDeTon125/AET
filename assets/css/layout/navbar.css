@@ -120,6 +120,9 @@
   text-transform: uppercase;
   color: rgba(219, 238, 210, 0.62);
   transition: color 0.3s ease;
+  position: relative;
+  left: 10px;
+  bottom: 8px;
 }
 
 #navbar.is-light .navbar__logo-word {
@@ -393,6 +396,7 @@
 }
 
 @media (min-width: 961px) {
+
   .navbar__mobile-panel,
   .navbar__mobile-backdrop {
     display: none;

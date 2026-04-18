@@ -117,14 +117,14 @@ export function Hero(container, character, onNextChar) {
 export function updateHero(container, character) {
   const DURATION = 300; // ms
 
-  const chapterEl   = container.querySelector('#hero-chapter');
-  const nameEl      = container.querySelector('#hero-char-name');
-  const aboutEl     = container.querySelector('#hero-about-text');
-  const frameImg    = container.querySelector('#char-frame-img');
-  const frameHudEl  = container.querySelector('#char-frame-hud-name');
+  const chapterEl = container.querySelector('#hero-chapter');
+  const nameEl = container.querySelector('#hero-char-name');
+  const aboutEl = container.querySelector('#hero-about-text');
+  const frameImg = container.querySelector('#char-frame-img');
+  const frameHudEl = container.querySelector('#char-frame-hud-name');
   const elementName = container.querySelector('#hero-element-name');
   const secondaryEl = container.querySelector('#hero-secondary-tag');
-  const moreBtn     = container.querySelector('#hero-more-btn');
+  const moreBtn = container.querySelector('#hero-more-btn');
   const moreLabelEl = container.querySelector('.btn-more__label');
 
   /* Fade out */
@@ -132,16 +132,16 @@ export function updateHero(container, character) {
   container.classList.add('is-transitioning');
 
   setTimeout(() => {
-    if (chapterEl)   chapterEl.textContent   = character.serial || '';
-    if (nameEl)      nameEl.textContent      = character.name;
-    if (aboutEl)     aboutEl.textContent     = character.description;
-    if (frameImg)    frameImg.src            = character.frameImage;
-    if (frameImg)    frameImg.alt            = `${character.name} visual`;
-    if (frameHudEl)  frameHudEl.textContent  = character.primaryTag || '';
+    if (chapterEl) chapterEl.textContent = character.serial || '';
+    if (nameEl) nameEl.textContent = character.name;
+    if (aboutEl) aboutEl.textContent = character.description;
+    if (frameImg) frameImg.src = character.frameImage;
+    if (frameImg) frameImg.alt = `${character.name} visual`;
+    if (frameHudEl) frameHudEl.textContent = character.primaryTag || '';
     if (elementName) elementName.textContent = character.primaryTag || '';
     if (secondaryEl) secondaryEl.textContent = character.secondaryTag || '';
     if (moreLabelEl) moreLabelEl.textContent = character.buttonLabel || 'Project Intro';
-    if (moreBtn)     moreBtn.setAttribute('aria-label', 'Back to project introduction');
+    if (moreBtn) moreBtn.setAttribute('aria-label', 'Back to project introduction');
 
     /* Fade back in */
     [nameEl, aboutEl, frameImg].forEach((el) => el?.classList.remove('transitioning'));

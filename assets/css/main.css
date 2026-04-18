@@ -56,13 +56,14 @@ body.nav-open {
 /* ---- Top dark gradient overlay for header readability ---- */
 #header-overlay {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 22vh;
   background: linear-gradient(to bottom,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    transparent 100%
-  );
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      transparent 100%);
   z-index: 19;
   pointer-events: none;
   transition: background 0.3s ease, opacity 0.3s ease;
@@ -70,10 +71,9 @@ body.nav-open {
 
 #header-overlay.is-light {
   background: linear-gradient(to bottom,
-    rgba(247, 244, 235, 0.92) 0%,
-    rgba(247, 244, 235, 0.54) 48%,
-    rgba(247, 244, 235, 0.00) 100%
-  );
+      rgba(247, 244, 235, 0.92) 0%,
+      rgba(247, 244, 235, 0.54) 48%,
+      rgba(247, 244, 235, 0.00) 100%);
 }
 
 #landing-page {
@@ -433,15 +433,23 @@ body.nav-open {
 }
 
 @keyframes journeyBridgeFlow {
-  from { background-position: 0 0; }
-  to { background-position: 0 220%; }
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 220%;
+  }
 }
 
 @keyframes journeyBridgePulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) scale(1);
     box-shadow: 0 0 0 8px color-mix(in srgb, var(--bridge-node) 18%, transparent), 0 0 24px color-mix(in srgb, var(--bridge-node) 34%, transparent);
   }
+
   50% {
     transform: translate(-50%, -50%) scale(1.08);
     box-shadow: 0 0 0 10px color-mix(in srgb, var(--bridge-node) 22%, transparent), 0 0 30px color-mix(in srgb, var(--bridge-node) 42%, transparent);
@@ -542,13 +550,24 @@ body.nav-open {
 }
 
 @keyframes appFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* ---- Scrollbar hide (for slider) ---- */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* ================================================
    Firefly particles — hero section
@@ -572,19 +591,49 @@ body.nav-open {
 }
 
 @keyframes fireflyFloat {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(var(--dx1), var(--dy1)); }
-  50%  { transform: translate(var(--dx2), var(--dy2)); }
-  75%  { transform: translate(var(--dx3), var(--dy3)); }
-  100% { transform: translate(0, 0); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(var(--dx1), var(--dy1));
+  }
+
+  50% {
+    transform: translate(var(--dx2), var(--dy2));
+  }
+
+  75% {
+    transform: translate(var(--dx3), var(--dy3));
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 @keyframes fireflyGlow {
-  0%, 100% { opacity: 0; }
-  15%      { opacity: var(--max-opacity); }
-  50%      { opacity: var(--max-opacity, 0.8); }
-  85%      { opacity: var(--max-opacity); }
-  95%      { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: var(--max-opacity);
+  }
+
+  50% {
+    opacity: var(--max-opacity, 0.8);
+  }
+
+  85% {
+    opacity: var(--max-opacity);
+  }
+
+  95% {
+    opacity: 0;
+  }
 }
 
 /* ============================================================
@@ -661,6 +710,15 @@ body.nav-open {
 }
 
 @keyframes preloaderPulse {
-  0%, 100% { opacity: 0.92; transform: scale(1); }
-  50%       { opacity: 0.70; transform: scale(0.96); }
+
+  0%,
+  100% {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.70;
+    transform: scale(0.96);
+  }
 }

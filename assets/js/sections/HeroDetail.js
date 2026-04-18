@@ -106,6 +106,8 @@ export function HeroDetail(container, character, onBack) {
 
       ${metricsHTML.length ? `<div class="hero-detail__metrics">${metricsHTML}</div>` : ''}
 
+      ${sectionsHTML.length ? `<div class="hero-detail__sections">${sectionsHTML}</div>` : ''}
+
     </div>
 
     <!-- Back button (hidden, navigation via scroll) -->
