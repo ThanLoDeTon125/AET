@@ -56,35 +56,173 @@
         <span class="journey-nav__index">01</span>
         <span class="journey-nav__label">Intro</span>
       </button>
-      <button class="journey-nav__link" type="button" data-target="slider-section" aria-label="Go to pillars section">
+      <button class="journey-nav__link" type="button" data-target="solution-section"
+        aria-label="Go to solution description section">
         <span class="journey-nav__index">02</span>
+        <span class="journey-nav__label">Vision</span>
+      </button>
+      <button class="journey-nav__link" type="button" data-target="slider-section" aria-label="Go to pillars section">
+        <span class="journey-nav__index">03</span>
         <span class="journey-nav__label">Pillars</span>
       </button>
       <button class="journey-nav__link" type="button" data-target="video-section"
         aria-label="Go to living heritage section">
-        <span class="journey-nav__index">03</span>
+        <span class="journey-nav__index">04</span>
         <span class="journey-nav__label">Living</span>
       </button>
       <button class="journey-nav__link" type="button" data-target="world-section" aria-label="Go to atlas section">
-        <span class="journey-nav__index">04</span>
+        <span class="journey-nav__index">05</span>
         <span class="journey-nav__label">Atlas</span>
       </button>
       <button class="journey-nav__link" type="button" data-target="video-section-2" aria-label="Go to impact section">
-        <span class="journey-nav__index">05</span>
+        <span class="journey-nav__index">06</span>
         <span class="journey-nav__label">Impact</span>
       </button>
     </nav>
 
     <main id="landing-page">
-      <section id="hero-section" class="landing-section landing-section--hero">
-        <div class="section-bg" id="hero-bg" aria-hidden="true"></div>
-        <!-- Hero: full-screen Nahida showcase -->
-        <section id="hero-detail" class="hero-detail"></section>
+      <section id="hero-section" class="landing-section landing-section--hero landing-section--intro-video">
+        <!-- Intro video — fullscreen background -->
+        <video id="intro-video" class="intro-video__video" src="assets/media/videos/4.mp4" autoplay muted playsinline
+          loop preload="auto" aria-label="AETERNA intro cinematic"></video>
+
+        <!-- Gradient veil -->
+        <div class="intro-video__veil" aria-hidden="true"></div>
+        <!-- Film grain -->
+        <div class="intro-video__grain" aria-hidden="true"></div>
+
+        <!-- Centred overlay content -->
+        <div class="intro-video__content">
+          <p class="intro-video__eyebrow">A living world from Southeast Asia</p>
+          <h1 class="intro-video__title">AETERNA</h1>
+          <p class="intro-video__tagline">Myth · Memory · Heritage</p>
+          <button class="intro-video__cta" type="button" data-target="slider-section" aria-label="Explore the world">
+            Explore the World
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 5v14M5 12l7 7 7-7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="intro-video__scroll-cue" aria-hidden="true">
+          <span></span>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           Solution Description / What is AETERNA?
+           ============================================================ -->
+      <section id="solution-section" class="landing-section solution-section">
+        <!-- Background gradient -->
+        <div class="solution-section__bg" aria-hidden="true"></div>
+
+        <div class="solution-section__inner">
+
+          <!-- ── Header ── -->
+          <div class="solution-section__header">
+            <span class="solution-section__kicker">Solution Description</span>
+            <h2 class="solution-section__heading">What is <em>AETERNA?</em></h2>
+          </div>
+
+          <!-- ── Description card ── -->
+          <div class="solution-card solution-card--desc">
+            <p class="solution-card__body">
+              Aeterna is a <strong class="sol-hl sol-hl--gold">Gacha-based gaming ecosystem</strong> that utilizes
+              groundbreaking <strong class="sol-hl sol-hl--gold">artificial intelligence (AI)</strong> to immortalize
+              the <strong class="sol-hl sol-hl--teal">cultural</strong> and
+              <strong class="sol-hl sol-hl--gold">historical heritage</strong> of
+              <strong class="sol-hl sol-hl--teal">Southeast Asian nations</strong> through an open-world
+              role-playing game <strong class="sol-hl sol-hl--gold">(RPG)</strong> experience combined with a promising
+              over-the-air <strong class="sol-hl sol-hl--gold">(O2O)</strong> economy model.
+            </p>
+            <p class="solution-card__core">
+              <span class="sol-hl sol-hl--teal">CORE VALUE:</span> Honoring
+              <strong class="sol-hl sol-hl--gold">heritage</strong> through
+              <strong class="sol-hl sol-hl--teal">human-centric technology</strong> to foster
+              <strong class="sol-hl sol-hl--gold">shared prosperity</strong> and
+              <strong class="sol-hl sol-hl--gold">purposeful entertainment.</strong>
+            </p>
+          </div>
+
+          <!-- ── Formula row ── -->
+          <div class="solution-formula">
+            <div class="solution-formula__block">
+              <span class="solution-formula__verb sol-hl--red">USE</span>
+              <span class="solution-formula__noun sol-hl--gold">Technology</span>
+            </div>
+
+            <div class="solution-formula__arrow">
+              <svg viewBox="0 0 40 12" fill="none" aria-hidden="true"><path d="M0 6h36M30 1l6 5-6 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="solution-formula__sub">to</span>
+              <div class="solution-formula__sub-list">
+                <span>Online-to-Offline</span>
+                <span>Evolutionary Narrative AI</span>
+              </div>
+            </div>
+
+            <div class="solution-formula__block">
+              <span class="solution-formula__verb sol-hl--red">SAVE</span>
+              <span class="solution-formula__noun sol-hl--gold">Heritage</span>
+            </div>
+
+            <div class="solution-formula__arrow">
+              <svg viewBox="0 0 40 12" fill="none" aria-hidden="true"><path d="M0 6h36M30 1l6 5-6 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="solution-formula__sub">by</span>
+            </div>
+
+            <div class="solution-formula__block">
+              <span class="solution-formula__verb sol-hl--red">TRANSFORM</span>
+              <div class="solution-formula__stack">
+                <span class="solution-formula__noun sol-hl--gold">Digital Assets</span>
+                <span class="solution-formula__noun--sm">Heritage Metaverse</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Vision + Mission grid ── -->
+          <div class="solution-vm">
+            <!-- Vision -->
+            <div class="solution-vm__card solution-vm__card--vision">
+              <p class="solution-vm__label">Vision</p>
+              <p class="solution-vm__text">
+                Becoming the world's leading
+                <strong class="sol-hl sol-hl--gold">digital heritage ecosystem</strong>,
+                where all of humanity's cultural values are immortalized and brilliantly
+                reborn in the <strong class="sol-hl sol-hl--teal">Metaverse</strong> era.
+              </p>
+            </div>
+
+            <!-- Mission -->
+            <div class="solution-vm__card solution-vm__card--mission">
+              <p class="solution-vm__label">Mission</p>
+              <ul class="solution-mission">
+                <li>
+                  <strong class="sol-hl sol-hl--gold">Rejuvenating Heritage:</strong>
+                  Utilizing artificial intelligence to bridge the generational gap, transforming
+                  dry historical documents into captivating interactive experiences for young people.
+                </li>
+                <li>
+                  <strong class="sol-hl sol-hl--gold">Immortalizing Values:</strong>
+                  Digitizing and preserving the soul of ASEAN culture in the digital space,
+                  ensuring it never fades away over time.
+                </li>
+                <li>
+                  <strong class="sol-hl sol-hl--gold">Promoting Sustainable Economy:</strong>
+                  Creating a Hybrid (O2O) economic model that converts online users into real
+                  tourists, directly supporting local communities and heritage sites.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
       </section>
 
       <section class="journey-bridge journey-bridge--dark" aria-label="Introduction to pillars transition">
         <div class="journey-bridge__content">
-          <span class="journey-bridge__chapter">01 → 02</span>
+          <span class="journey-bridge__chapter">02 → 03</span>
           <p class="journey-bridge__eyebrow">from manifesto to experience</p>
           <p class="journey-bridge__text">The platform resolves into five playable pillars that define how AETERNA is
             learned, felt and lived.</p>
@@ -245,7 +383,7 @@
           <p class="site-footer__tagline">A living world built from myth, memory and the real routes of Southeast Asia.
           </p>
           <div class="site-footer__download">
-            <p class="site-footer__download-label">Available on</p>
+            <p class="site-footer__download-label">Coming Soon</p>
             <div class="site-footer__download-row">
               <button class="site-footer__dl-btn" type="button" aria-label="Download on App Store">
                 <svg class="site-footer__dl-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -284,12 +422,19 @@
             <button type="button" class="site-footer__nav-btn" data-scroll-target="video-section-2">Impact</button>
             <button type="button" class="site-footer__nav-btn" data-scroll-target="world-section">Atlas</button>
           </nav>
-          <button class="site-footer__top" type="button" data-scroll-target="hero-section">&#8593; Top</button>
+
         </div>
 
       </footer>
     </main>
   </div>
+
+  <!-- Fixed scroll-to-top button -->
+  <button id="scroll-top-fab" class="scroll-top-fab" type="button" aria-label="Scroll to top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
 
   <script type="module" src="assets/js/app.js"></script>
 </body>

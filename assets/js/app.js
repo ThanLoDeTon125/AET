@@ -8,12 +8,11 @@
  *  3. Manage the shared "current character" state and wire up inter-component events.
  */
 
-import { characters, heroLanding } from './content/characters.js';
+import { characters } from './content/characters.js';
 import { Navbar }           from './navigation/Navbar.js';
 import { Sidebar }          from './navigation/Sidebar.js';
 import { Hero, updateHero } from './sections/Hero.js';
 import { CharacterSlider }  from './sections/CharacterSlider.js';
-import { HeroDetail } from './sections/HeroDetail.js';
 
 /* ============================================================
    0. Preloader — block UI until critical assets are cached
@@ -26,9 +25,6 @@ import { HeroDetail } from './sections/HeroDetail.js';
 
   /* Collect every image URL that must be ready before the page reveals */
   const criticalUrls = [
-    heroLanding.bgImage,
-    heroLanding.detailArt,
-    heroLanding.frameImage,
     'assets/media/images/backgrounds/logo.svg',
     ...characters.map((c) => c.bgImage),
     ...characters.map((c) => c.frameImage),
@@ -130,7 +126,6 @@ function handleCharacterChange() {
 /* ============================================================
    3. Per-section background layers
    ============================================================ */
-const heroBgEl   = document.getElementById('hero-bg');
 const sliderBgEl = document.getElementById('slider-bg');
 
 function initSectionBackground(container, src) {
@@ -164,8 +159,7 @@ function updateSectionBackground(container, src) {
   });
 }
 
-/* Init: hero bg loads immediately (above fold). Slider bg lazy-loads when approaching viewport. */
-initSectionBackground(heroBgEl, heroLanding.bgImage);
+/* Slider bg lazy-loads when approaching viewport. */
 
 (function lazySliderBackground() {
   const _sec = document.getElementById('slider-section');
@@ -196,13 +190,18 @@ Sidebar(document.getElementById('sidebar'));
 const heroEl = document.getElementById('hero');
 Hero(heroEl, getActive(), nextCharacter);
 
-/* — Top Hero Showcase — */
-const heroDetailEl = document.getElementById('hero-detail');
+/* — Section references — */
 const heroSectionEl   = document.getElementById('hero-section');
 const sliderSectionEl = document.getElementById('slider-section');
 const worldSectionEl  = document.getElementById('world-section');
 const impactSectionEl = document.getElementById('video-section-2');
-HeroDetail(heroDetailEl, heroLanding, scrollToSliderSection);
+
+/* — Intro video CTA — scroll to pillars on click — */
+(function initIntroVideoCta() {
+  const ctaBtn = document.querySelector('.intro-video__cta');
+  if (!ctaBtn) return;
+  ctaBtn.addEventListener('click', () => smoothScrollToSection('slider-section'));
+})();
 
 /* — Scroll-scrub video sections — */
 const scrollVideoSections = Array.from(document.querySelectorAll('.landing-section--video'));
@@ -213,40 +212,17 @@ const sliderEl = document.getElementById('character-slider');
 CharacterSlider(sliderEl, characters, getActive().id, selectCharacter);
 
 /* ============================================================
-   4b. Firefly particles — hero section
+   4b. Intro video section — ensure autoplay muted on iOS
    ============================================================ */
-(function spawnFireflies() {
-  const container = document.createElement('div');
-  container.className = 'fireflies';
-  heroSectionEl.appendChild(container); /* hero-section = Nahida showcase */
-
-  const COUNT = 28;
-  for (let i = 0; i < COUNT; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'firefly';
-
-    const size = 3 + Math.random() * 5;
-    dot.style.width  = size + 'px';
-    dot.style.height = size + 'px';
-    dot.style.left   = Math.random() * 100 + '%';
-    dot.style.top    = Math.random() * 100 + '%';
-
-    const r = () => (Math.random() > 0.5 ? '' : '-') + (20 + Math.random() * 80) + 'px';
-    dot.style.setProperty('--dx1', r());
-    dot.style.setProperty('--dy1', r());
-    dot.style.setProperty('--dx2', r());
-    dot.style.setProperty('--dy2', r());
-    dot.style.setProperty('--dx3', r());
-    dot.style.setProperty('--dy3', r());
-
-    dot.style.setProperty('--fly-duration',  (10 + Math.random() * 18) + 's');
-    dot.style.setProperty('--fly-delay',     (Math.random() * -20) + 's');
-    dot.style.setProperty('--glow-duration', (3 + Math.random() * 5) + 's');
-    dot.style.setProperty('--glow-delay',    (Math.random() * -6) + 's');
-    dot.style.setProperty('--max-opacity',   (0.4 + Math.random() * 0.5).toFixed(2));
-
-    container.appendChild(dot);
-  }
+(function ensureIntroVideoAutoplay() {
+  const vid = document.getElementById('intro-video');
+  if (!vid) return;
+  vid.muted = true;
+  vid.play().catch(() => {
+    /* Autoplay blocked — wait for first user interaction */
+    const resume = () => { vid.play().catch(() => {}); document.removeEventListener('click', resume); };
+    document.addEventListener('click', resume, { once: true });
+  });
 })();
 
 /* ============================================================
@@ -508,6 +484,7 @@ CharacterSlider(sliderEl, characters, getActive().id, selectCharacter);
    ============================================================ */
 (function initNarrativeMotion() {
   const revealTargets = [
+    document.getElementById('solution-section'),
     sliderSectionEl,
     document.getElementById('video-section'),
     document.getElementById('world-section'),
@@ -517,8 +494,6 @@ CharacterSlider(sliderEl, characters, getActive().id, selectCharacter);
   ].filter(Boolean);
 
   if (!revealTargets.length) return;
-
-  heroSectionEl?.classList.add('is-visible');
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -562,3 +537,19 @@ document.addEventListener('keydown', (e) => {
     handleCharacterChange();
   }
 });
+
+/* ============================================================
+   7. Scroll-to-top FAB
+   ============================================================ */
+(function initScrollTopFab() {
+  const fab = document.getElementById('scroll-top-fab');
+  if (!fab) return;
+
+  window.addEventListener('scroll', () => {
+    fab.classList.toggle('is-visible', window.scrollY > 400);
+  }, { passive: true });
+
+  fab.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();

@@ -36,34 +36,7 @@ export function Hero(container, character, onNextChar) {
         </p>
       </div>
 
-      <!-- Tags row -->
-      <div class="hero__tags">
-
-        <!-- Primary tag -->
-        <div class="badge-element" id="hero-element-badge">
-          <span class="badge-element__name" id="hero-element-name">
-            ${character.primaryTag || ''}
-          </span>
-        </div>
-
-        <!-- Secondary tag -->
-        <div class="badge-stars">
-          <span class="badge-stars__label" id="hero-secondary-tag">${character.secondaryTag || ''}</span>
-        </div>
-
-        <!-- Intro button -->
-        <button class="btn-more" type="button" id="hero-more-btn" aria-label="Back to project introduction">
-          <span class="btn-more__label">${character.buttonLabel || 'Project Intro'}</span>
-          <img
-            class="btn-more__arrow"
-            src="${ASSETS.iconArrow}"
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-          />
-        </button>
-
-      </div>
+      
     </div>
 
     <!-- Right visual frame -->
