@@ -1,43 +1,50 @@
 /**
- * main.js
- * Application entry point.
+ * app.js — AET
+ * Application entry point — i18n-aware.
  *
- * Responsibilities:
- *  1. Scale the fixed 1920×1080 canvas to fit any viewport (letterbox).
- *  2. Mount all components.
- *  3. Manage the shared "current character" state and wire up inter-component events.
+ * Boot sequence:
+ *   1. Init i18n (detect locale, load strings)
+ *   2. Mount all components with translated data
+ *   3. Listen to 'localechange' → re-render text in all components
  */
 
-import { characters } from './content/characters.js';
-import { Navbar }           from './navigation/Navbar.js';
-import { Sidebar }          from './navigation/Sidebar.js';
-import { Hero, updateHero } from './sections/Hero.js';
-import { CharacterSlider }  from './sections/CharacterSlider.js';
+import { initI18n, t, applyDOMTranslations } from './i18n/i18n.js';
+import { getCharacters, getHeroLanding }     from './content/characters.js';
+import { Navbar, updateNavbarLocale }        from './navigation/Navbar.js';
+import { Sidebar }                           from './navigation/Sidebar.js';
+import { Hero, updateHero }                  from './sections/Hero.js';
+import { CharacterSlider }                   from './sections/CharacterSlider.js';
+
+/* ── i18n must boot before any component renders ─────────── */
+await initI18n();
 
 /* ============================================================
-   0. Preloader — block UI until critical assets are cached
+   0. Preloader
    ============================================================ */
 (function initPreloader() {
-  const preloaderEl  = document.getElementById('preloader');
-  const fillEl       = document.getElementById('preloader-fill');
-  const statusEl     = document.getElementById('preloader-status');
+  const preloaderEl = document.getElementById('preloader');
+  const fillEl      = document.getElementById('preloader-fill');
+  const statusEl    = document.getElementById('preloader-status');
   if (!preloaderEl) return;
 
-  /* Collect every image URL that must be ready before the page reveals */
+  const chars = getCharacters();
+
   const criticalUrls = [
     'assets/media/images/backgrounds/logo.svg',
-    ...characters.map((c) => c.bgImage),
-    ...characters.map((c) => c.frameImage),
-    ...characters.map((c) => c.cardImage),
-  ].filter((url, idx, arr) => url && arr.indexOf(url) === idx); /* dedupe + remove falsy */
+    ...chars.map((c) => c.bgImage),
+    ...chars.map((c) => c.frameImage),
+    ...chars.map((c) => c.cardImage),
+  ].filter((url, idx, arr) => url && arr.indexOf(url) === idx);
 
   let loaded = 0;
   const total = criticalUrls.length;
 
+  if (statusEl) statusEl.textContent = t('preloader.initialising');
+
   function setProgress(n) {
     const pct = Math.min(Math.round((n / total) * 100), 100);
-    if (fillEl)  fillEl.style.width = pct + '%';
-    if (statusEl) statusEl.textContent = pct < 100 ? `Loading… ${pct}%` : 'Entering world…';
+    if (fillEl)   fillEl.style.width   = pct + '%';
+    if (statusEl) statusEl.textContent = pct < 100 ? t('preloader.loading', { pct }) : t('preloader.entering');
   }
 
   function dismiss() {
@@ -48,63 +55,44 @@ import { CharacterSlider }  from './sections/CharacterSlider.js';
   setProgress(0);
 
   const imagePromises = criticalUrls.map(
-    (url) =>
-      new Promise((resolve) => {
-        const img = new Image();
-        img.onload = img.onerror = () => {
-          loaded++;
-          setProgress(loaded);
-          resolve();
-        };
-        img.src = url;
-      })
+    (url) => new Promise((resolve) => {
+      const img = new Image();
+      img.onload = img.onerror = () => { loaded++; setProgress(loaded); resolve(); };
+      img.src = url;
+    })
   );
 
   const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
-
-  Promise.all([...imagePromises, fontPromise]).then(() => {
-    /* Brief pause so the “Entering world…” label reads properly */
-    setTimeout(dismiss, 360);
-  });
+  Promise.all([...imagePromises, fontPromise]).then(() => setTimeout(dismiss, 360));
 })();
 
 /* ============================================================
-   1. App shell — fills the viewport natively via CSS.
-      No JS scaling needed.
+   1. App shell
    ============================================================ */
-const appEl = document.getElementById('app');
-
-/* Keep landing page from restoring midway between full-screen sections. */
-if ('scrollRestoration' in window.history) {
-  window.history.scrollRestoration = 'manual';
-}
+if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
 
 /* ============================================================
-  2. State
-  ============================================================ */
-let currentIndex = 0; /* index into pillar cards[] */
+   2. State
+   ============================================================ */
+let currentIndex = 0;
 
-function getActive() {
-  return characters[currentIndex];
-}
+function getActive() { return getCharacters()[currentIndex]; }
 
 function smoothScrollToSection(id) {
   const target = document.getElementById(id);
   if (!target) return;
-
   const headerOffset = window.innerWidth <= 960 ? 92 : 108;
-  const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
-  window.scrollTo({ top, behavior: 'smooth' });
+  window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerOffset, behavior: 'smooth' });
 }
 
 function nextCharacter() {
-  currentIndex = (currentIndex + 1) % characters.length;
+  currentIndex = (currentIndex + 1) % getCharacters().length;
   handleCharacterChange();
 }
 
 function selectCharacter(id) {
-  const idx = characters.findIndex((c) => c.id === id);
+  const idx = getCharacters().findIndex((c) => c.id === id);
   if (idx === -1 || idx === currentIndex) return;
   currentIndex = idx;
   handleCharacterChange();
@@ -112,14 +100,8 @@ function selectCharacter(id) {
 
 function handleCharacterChange() {
   const char = getActive();
-
-  /* Update slider section background when character changes */
   updateSectionBackground(sliderBgEl, char.bgImage);
-
-  /* Update lower preview section content to match selected card */
   updateHero(heroEl, char);
-
-  /* Update slider active indicator */
   sliderEl.setActive?.(char.id);
 }
 
@@ -130,401 +112,244 @@ const sliderBgEl = document.getElementById('slider-bg');
 
 function initSectionBackground(container, src) {
   const img = document.createElement('img');
-  img.src = src;
-  img.alt = '';
-  img.setAttribute('aria-hidden', 'true');
+  img.src = src; img.alt = ''; img.setAttribute('aria-hidden', 'true');
   container.appendChild(img);
 }
 
 function updateSectionBackground(container, src) {
   const prevImg = container.querySelector('img');
-
-  const newImg = document.createElement('img');
-  newImg.src = src;
-  newImg.alt = '';
-  newImg.setAttribute('aria-hidden', 'true');
+  const newImg  = document.createElement('img');
+  newImg.src    = src; newImg.alt = ''; newImg.setAttribute('aria-hidden', 'true');
   newImg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.6s ease;';
-
   container.appendChild(newImg);
-
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      newImg.style.opacity = '1';
-      if (prevImg) {
-        prevImg.style.transition = 'opacity 0.6s ease';
-        prevImg.style.opacity = '0';
-        prevImg.addEventListener('transitionend', () => prevImg.remove(), { once: true });
-      }
-    });
-  });
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    newImg.style.opacity = '1';
+    if (prevImg) {
+      prevImg.style.transition = 'opacity 0.6s ease';
+      prevImg.style.opacity = '0';
+      prevImg.addEventListener('transitionend', () => prevImg.remove(), { once: true });
+    }
+  }));
 }
-
-/* Slider bg lazy-loads when approaching viewport. */
 
 (function lazySliderBackground() {
   const _sec = document.getElementById('slider-section');
   if (!_sec) { initSectionBackground(sliderBgEl, getActive().bgImage); return; }
-  const _obs = new IntersectionObserver(
-    (entries) => {
-      if (entries[0].isIntersecting) {
-        initSectionBackground(sliderBgEl, getActive().bgImage);
-        _obs.disconnect();
-      }
-    },
-    { rootMargin: '0px 0px 400px 0px', threshold: 0 }
-  );
+  const _obs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) { initSectionBackground(sliderBgEl, getActive().bgImage); _obs.disconnect(); }
+  }, { rootMargin: '0px 0px 400px 0px', threshold: 0 });
   _obs.observe(_sec);
 })();
 
 /* ============================================================
    4. Mount components
    ============================================================ */
-
-/* — Navbar — */
-Navbar(document.getElementById('navbar'));
-
-/* — Sidebar — */
+const navbarEl = document.getElementById('navbar');
+Navbar(navbarEl);
 Sidebar(document.getElementById('sidebar'));
 
-/* — Hero — */
-const heroEl = document.getElementById('hero');
+const heroEl   = document.getElementById('hero');
 Hero(heroEl, getActive(), nextCharacter);
 
-/* — Section references — */
 const heroSectionEl   = document.getElementById('hero-section');
 const sliderSectionEl = document.getElementById('slider-section');
 const worldSectionEl  = document.getElementById('world-section');
 const impactSectionEl = document.getElementById('video-section-2');
+const scrollVideoSections = Array.from(document.querySelectorAll('.landing-section--video'));
+const journeyNavLinks     = Array.from(document.querySelectorAll('.journey-nav__link'));
 
-/* — Intro video CTA — scroll to pillars on click — */
+const sliderEl = document.getElementById('character-slider');
+CharacterSlider(sliderEl, getCharacters(), getActive().id, selectCharacter);
+
+/* ── Intro video CTA ─────────────────────────────────────── */
 (function initIntroVideoCta() {
   const ctaBtn = document.querySelector('.intro-video__cta');
   if (!ctaBtn) return;
   ctaBtn.addEventListener('click', () => smoothScrollToSection('slider-section'));
 })();
 
-/* — Scroll-scrub video sections — */
-const scrollVideoSections = Array.from(document.querySelectorAll('.landing-section--video'));
-const journeyNavLinks = Array.from(document.querySelectorAll('.journey-nav__link'));
-
-/* — Character Slider — */
-const sliderEl = document.getElementById('character-slider');
-CharacterSlider(sliderEl, characters, getActive().id, selectCharacter);
-
-/* ============================================================
-   4b. Intro video section — ensure autoplay muted on iOS
-   ============================================================ */
+/* ── Ensure intro video autoplay ────────────────────────── */
 (function ensureIntroVideoAutoplay() {
   const vid = document.getElementById('intro-video');
   if (!vid) return;
   vid.muted = true;
   vid.play().catch(() => {
-    /* Autoplay blocked — wait for first user interaction */
     const resume = () => { vid.play().catch(() => {}); document.removeEventListener('click', resume); };
     document.addEventListener('click', resume, { once: true });
   });
 })();
 
-/* ============================================================
-   4c. Auto-play video sections — forward on enter, reverse on leave
-   ============================================================ */
+/* ── Auto-play video sections ────────────────────────────── */
 (function initAutoPlayVideoSections() {
   if (!scrollVideoSections.length) return;
-
   scrollVideoSections.forEach((sectionEl) => {
     const videoEl = sectionEl.querySelector('.video-scroll__video');
     if (!videoEl) return;
-
     const startOffset = Number(sectionEl.dataset.videoStart || 0);
-    let reverseRaf = 0;
-    let hasEnded = false;
-
-    videoEl.pause();
-    videoEl.muted = true;
-    videoEl.playsInline = true;
-
-    function setupVideo() {
-      if (videoEl.duration > startOffset) {
-        videoEl.currentTime = startOffset;
-      }
-    }
-
+    let reverseRaf = 0, hasEnded = false;
+    videoEl.pause(); videoEl.muted = true; videoEl.playsInline = true;
+    function setupVideo() { if (videoEl.duration > startOffset) videoEl.currentTime = startOffset; }
     const STOP_BEFORE = 0.3;
     videoEl.addEventListener('timeupdate', () => {
-      if (!hasEnded && videoEl.duration && videoEl.currentTime >= videoEl.duration - STOP_BEFORE) {
-        videoEl.pause();
-        hasEnded = true;
-      }
+      if (!hasEnded && videoEl.duration && videoEl.currentTime >= videoEl.duration - STOP_BEFORE) { videoEl.pause(); hasEnded = true; }
     });
     videoEl.addEventListener('loadedmetadata', setupVideo);
     if (videoEl.readyState >= 1) setupVideo();
-
-    function stopReverse() {
-      if (reverseRaf) { cancelAnimationFrame(reverseRaf); reverseRaf = 0; }
-    }
-
+    function stopReverse() { if (reverseRaf) { cancelAnimationFrame(reverseRaf); reverseRaf = 0; } }
     function reversePlay() {
-      const step = 1 / 60; /* ~1 frame at 60fps */
-      videoEl.currentTime = Math.max(videoEl.currentTime - step, startOffset);
-      if (videoEl.currentTime > startOffset) {
-        reverseRaf = requestAnimationFrame(reversePlay);
-      } else {
-        reverseRaf = 0;
-      }
+      videoEl.currentTime = Math.max(videoEl.currentTime - 1/60, startOffset);
+      reverseRaf = videoEl.currentTime > startOffset ? requestAnimationFrame(reversePlay) : 0;
     }
-
-    /* Preload observer — start buffering 500 px before the section enters viewport */
-    const preloadObserver = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          videoEl.preload = 'auto';
-          videoEl.load();
-          preloadObserver.unobserve(sectionEl);
+    const preloadObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) { videoEl.preload = 'auto'; videoEl.load(); preloadObs.unobserve(sectionEl); }
+    }, { rootMargin: '0px 0px 500px 0px', threshold: 0 });
+    preloadObs.observe(sectionEl);
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          stopReverse(); hasEnded = false;
+          if (videoEl.duration > startOffset) videoEl.currentTime = startOffset;
+          videoEl.play().catch(() => {});
+        } else {
+          videoEl.pause(); stopReverse();
+          if (!hasEnded && videoEl.currentTime > startOffset) reverseRaf = requestAnimationFrame(reversePlay);
         }
-      },
-      { rootMargin: '0px 0px 500px 0px', threshold: 0 }
-    );
-    preloadObserver.observe(sectionEl);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            /* Scrolled into view → reset and play forward */
-            stopReverse();
-            hasEnded = false;
-            if (videoEl.duration > startOffset) {
-              videoEl.currentTime = startOffset;
-            }
-            videoEl.play().catch(() => {});
-          } else {
-            /* Scrolled out → reverse only if video hasn't reached its end */
-            videoEl.pause();
-            stopReverse();
-            if (!hasEnded && videoEl.currentTime > startOffset) {
-              reverseRaf = requestAnimationFrame(reversePlay);
-            }
-          }
-        });
-      },
-      { threshold: 0.35 }
-    );
-
-    observer.observe(sectionEl);
+      });
+    }, { threshold: 0.35 });
+    obs.observe(sectionEl);
   });
 })();
 
-/* ============================================================
-   4d. Journey rail — active section state + click scroll
-   ============================================================ */
+/* ── Journey rail ────────────────────────────────────────── */
 (function initJourneyRail() {
   if (!journeyNavLinks.length) return;
-
-  const journeyTargets = journeyNavLinks
-    .map((link) => {
-      const target = document.getElementById(link.dataset.target);
-      return target ? { link, target } : null;
-    })
-    .filter(Boolean);
-
+  const journeyTargets = journeyNavLinks.map((link) => {
+    const target = document.getElementById(link.dataset.target);
+    return target ? { link, target } : null;
+  }).filter(Boolean);
   function setActive(id) {
-    journeyNavLinks.forEach((link) => {
-      link.classList.toggle('active', link.dataset.target === id);
-    });
+    journeyNavLinks.forEach((link) => link.classList.toggle('active', link.dataset.target === id));
   }
-
   journeyTargets.forEach(({ link, target }) => {
-    link.addEventListener('click', () => {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+    link.addEventListener('click', () => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   });
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visibleEntries = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-      if (visibleEntries[0]) {
-        setActive(visibleEntries[0].target.id);
-      }
-    },
-    {
-      threshold: [0.35, 0.55, 0.75],
-    }
-  );
-
-  journeyTargets.forEach(({ target }) => observer.observe(target));
+  const obs = new IntersectionObserver((entries) => {
+    const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    if (visible[0]) setActive(visible[0].target.id);
+  }, { threshold: [0.35, 0.55, 0.75] });
+  journeyTargets.forEach(({ target }) => obs.observe(target));
 })();
 
-/* ============================================================
-   4e. Header navigation — live links + mobile drawer
-   ============================================================ */
+/* ── Header navigation ───────────────────────────────────── */
 (function initHeaderNavigation() {
-  const navbarEl = document.getElementById('navbar');
   const headerOverlayEl = document.getElementById('header-overlay');
   if (!navbarEl) return;
-
   const mobileMenuButton = navbarEl.querySelector('.navbar__menu-btn');
-  const mobileBackdrop = navbarEl.querySelector('.navbar__mobile-backdrop');
+  const mobileBackdrop   = navbarEl.querySelector('.navbar__mobile-backdrop');
   const clickableTargets = Array.from(navbarEl.querySelectorAll('[data-target]'));
-  const desktopLinks = Array.from(navbarEl.querySelectorAll('.navbar__link'));
-  const mobileLinks = Array.from(navbarEl.querySelectorAll('.navbar__mobile-link'));
-  const navSections = [heroSectionEl, sliderSectionEl, document.getElementById('video-section'), worldSectionEl, impactSectionEl].filter(Boolean);
+  const desktopLinks     = Array.from(navbarEl.querySelectorAll('.navbar__link'));
+  const mobileLinks      = Array.from(navbarEl.querySelectorAll('.navbar__mobile-link'));
+  const navSections = [
+    heroSectionEl,
+    document.getElementById('solution-section'),
+    sliderSectionEl,
+    document.getElementById('video-section'),
+    worldSectionEl,
+    impactSectionEl,
+  ].filter(Boolean);
 
   function closeMenu() {
     navbarEl.classList.remove('is-menu-open');
     document.body.classList.remove('nav-open');
-    if (mobileMenuButton) {
-      mobileMenuButton.setAttribute('aria-expanded', 'false');
-      mobileMenuButton.setAttribute('aria-label', 'Open navigation');
-    }
-    const mobilePanel = navbarEl.querySelector('.navbar__mobile-panel');
-    mobilePanel?.setAttribute('aria-hidden', 'true');
+    mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    mobileMenuButton?.setAttribute('aria-label', t('nav.openNav'));
+    navbarEl.querySelector('.navbar__mobile-panel')?.setAttribute('aria-hidden', 'true');
   }
-
   function openMenu() {
     navbarEl.classList.add('is-menu-open');
     document.body.classList.add('nav-open');
-    if (mobileMenuButton) {
-      mobileMenuButton.setAttribute('aria-expanded', 'true');
-      mobileMenuButton.setAttribute('aria-label', 'Close navigation');
-    }
-    const mobilePanel = navbarEl.querySelector('.navbar__mobile-panel');
-    mobilePanel?.setAttribute('aria-hidden', 'false');
+    mobileMenuButton?.setAttribute('aria-expanded', 'true');
+    mobileMenuButton?.setAttribute('aria-label', t('nav.closeNav'));
+    navbarEl.querySelector('.navbar__mobile-panel')?.setAttribute('aria-hidden', 'false');
   }
-
-  function toggleMenu() {
-    if (navbarEl.classList.contains('is-menu-open')) closeMenu();
-    else openMenu();
-  }
-
-  function scrollToSectionById(id) {
-    smoothScrollToSection(id);
-  }
+  function toggleMenu() { navbarEl.classList.contains('is-menu-open') ? closeMenu() : openMenu(); }
 
   function setHeaderActive(id) {
     desktopLinks.forEach((link) => {
       const ids = (link.dataset.activeFor || link.dataset.target || '').split(',');
       link.classList.toggle('active', ids.includes(id));
     });
-
-    mobileLinks.forEach((link) => {
-      link.classList.toggle('active', link.dataset.target === id);
-    });
-
+    mobileLinks.forEach((link) => link.classList.toggle('active', link.dataset.target === id));
     const isLightSection = id === 'world-section';
     navbarEl.classList.toggle('is-light', isLightSection);
     headerOverlayEl?.classList.toggle('is-light', isLightSection);
   }
 
-  function syncScrolledState() {
-    navbarEl.classList.toggle('is-scrolled', window.scrollY > 24);
-  }
+  function syncScrolledState() { navbarEl.classList.toggle('is-scrolled', window.scrollY > 24); }
 
   clickableTargets.forEach((trigger) => {
     trigger.addEventListener('click', () => {
-      const { target } = trigger.dataset;
-      if (!target) return;
+      if (!trigger.dataset.target || trigger.closest('#lang-switcher')) return;
       closeMenu();
-      scrollToSectionById(target);
+      smoothScrollToSection(trigger.dataset.target);
     });
   });
 
   mobileMenuButton?.addEventListener('click', toggleMenu);
   mobileBackdrop?.addEventListener('click', closeMenu);
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMenu();
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 960) closeMenu();
-  });
-
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 960) closeMenu(); });
   window.addEventListener('scroll', syncScrolledState, { passive: true });
   syncScrolledState();
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visibleEntries = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-      if (visibleEntries[0]) {
-        setHeaderActive(visibleEntries[0].target.id);
-      }
-    },
-    {
-      threshold: [0.3, 0.55, 0.75],
-    }
-  );
-
-  navSections.forEach((section) => observer.observe(section));
+  const obs = new IntersectionObserver((entries) => {
+    const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    if (visible[0]) setHeaderActive(visible[0].target.id);
+  }, { threshold: [0.3, 0.55, 0.75] });
+  navSections.forEach((section) => obs.observe(section));
 })();
 
-/* ============================================================
-   4g. Footer actions — CTA buttons and quick links
-   ============================================================ */
+/* ── Footer actions ──────────────────────────────────────── */
 (function initFooterActions() {
-  const footerTriggers = Array.from(document.querySelectorAll('#site-footer [data-scroll-target]'));
-  if (!footerTriggers.length) return;
-
-  footerTriggers.forEach((trigger) => {
+  Array.from(document.querySelectorAll('#site-footer [data-scroll-target]')).forEach((trigger) => {
     trigger.addEventListener('click', () => {
-      const { scrollTarget } = trigger.dataset;
-      if (!scrollTarget) return;
-      smoothScrollToSection(scrollTarget);
+      if (trigger.dataset.scrollTarget) smoothScrollToSection(trigger.dataset.scrollTarget);
     });
   });
 })();
 
-/* ============================================================
-   4h. Narrative motion — section reveal states
-   ============================================================ */
+/* ── Narrative motion ────────────────────────────────────── */
 (function initNarrativeMotion() {
   const revealTargets = [
     document.getElementById('solution-section'),
     sliderSectionEl,
     document.getElementById('video-section'),
-    document.getElementById('world-section'),
-    document.getElementById('video-section-2'),
+    worldSectionEl,
+    impactSectionEl,
     document.getElementById('site-footer'),
     ...Array.from(document.querySelectorAll('.journey-bridge')),
   ].filter(Boolean);
-
   if (!revealTargets.length) return;
+  heroSectionEl?.classList.add('is-visible');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => entry.target.classList.toggle('is-visible', entry.isIntersecting));
+  }, { threshold: 0.22 });
+  revealTargets.forEach((target) => obs.observe(target));
+})();
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle('is-visible', entry.isIntersecting);
-      });
-    },
-    {
-      threshold: 0.22,
-    }
-  );
-
-  revealTargets.forEach((target) => observer.observe(target));
+/* ── Scroll-to-top FAB ───────────────────────────────────── */
+(function initScrollTopFab() {
+  const fab = document.getElementById('scroll-top-fab');
+  if (!fab) return;
+  window.addEventListener('scroll', () => { fab.classList.toggle('is-visible', window.scrollY > 400); }, { passive: true });
+  fab.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 })();
 
 /* ============================================================
-   5. Section navigation
+   5. Section navigation helpers
    ============================================================ */
-function scrollToHeroSection() {
-  smoothScrollToSection('hero-section');
-}
-
-function scrollToSliderSection() {
-  smoothScrollToSection('slider-section');
-}
-
-/* Wire "More" button in slider section → scroll up to hero showcase */
 heroEl.addEventListener('click', (e) => {
-  if (e.target.closest('#hero-more-btn')) {
-    scrollToHeroSection();
-  }
+  if (e.target.closest('#hero-more-btn')) smoothScrollToSection('hero-section');
 });
 
 /* ============================================================
@@ -533,23 +358,17 @@ heroEl.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') nextCharacter();
   if (e.key === 'ArrowLeft') {
-    currentIndex = (currentIndex - 1 + characters.length) % characters.length;
+    currentIndex = (currentIndex - 1 + getCharacters().length) % getCharacters().length;
     handleCharacterChange();
   }
 });
 
 /* ============================================================
-   7. Scroll-to-top FAB
+   7. Locale change → update all components
    ============================================================ */
-(function initScrollTopFab() {
-  const fab = document.getElementById('scroll-top-fab');
-  if (!fab) return;
-
-  window.addEventListener('scroll', () => {
-    fab.classList.toggle('is-visible', window.scrollY > 400);
-  }, { passive: true });
-
-  fab.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-})();
+window.addEventListener('localechange', () => {
+  applyDOMTranslations();
+  updateNavbarLocale(navbarEl);
+  updateHero(heroEl, getActive());
+  CharacterSlider(sliderEl, getCharacters(), getActive().id, selectCharacter);
+});

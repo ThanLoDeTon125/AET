@@ -1,150 +1,96 @@
 /**
- * Navbar.js
- * Functional desktop/mobile navigation shell.
- * - Fixed nav order to match page section sequence.
- * - Added language toggle EN / VI with full i18n map.
+ * Navbar.js — AET
+ * Full i18n-aware navigation with 15-language globe switcher.
+ * Replaces the old EN/VI toggle system.
  */
 
-/* ── i18n translation map ── */
-const I18N = {
-  en: {
-    logoSub:       'ASEAN Heritage RPG',
-    nav: {
-      vision:   'Vision',
-      pillars:  'Pillars',
-      living:   'Living',
-      atlas:    'Atlas',
-      impact:   'Impact',
-    },
-    manifesto:     'Manifesto',
-    partner:       'Partner',
-    mobileEyebrow: 'Journey Map',
-    mobileSections: [
-      { index: '01', label: 'Intro',   target: 'hero-section' },
-      { index: '02', label: 'Vision',  target: 'solution-section' },
-      { index: '03', label: 'Pillars', target: 'slider-section' },
-      { index: '04', label: 'Living',  target: 'video-section' },
-      { index: '05', label: 'Atlas',   target: 'world-section' },
-      { index: '06', label: 'Impact',  target: 'video-section-2' },
-    ],
-  },
-  vi: {
-    logoSub:       'Game RPG Di Sản ASEAN',
-    nav: {
-      vision:   'Tầm Nhìn',
-      pillars:  'Trụ Cột',
-      living:   'Di Sản',
-      atlas:    'Bản Đồ',
-      impact:   'Tác Động',
-    },
-    manifesto:     'Tuyên Ngôn',
-    partner:       'Đối Tác',
-    mobileEyebrow: 'Hành Trình',
-    mobileSections: [
-      { index: '01', label: 'Giới Thiệu', target: 'hero-section' },
-      { index: '02', label: 'Tầm Nhìn',  target: 'solution-section' },
-      { index: '03', label: 'Trụ Cột',   target: 'slider-section' },
-      { index: '04', label: 'Di Sản',    target: 'video-section' },
-      { index: '05', label: 'Bản Đồ',   target: 'world-section' },
-      { index: '06', label: 'Tác Động',  target: 'video-section-2' },
-    ],
-  },
-};
+import { t, getLocale, setLocale, SUPPORTED_LOCALES } from '../i18n/i18n.js';
 
-/* Desktop nav links — in page order */
+/* Desktop nav — note: AET has 'solution-section' as extra section */
 const DESKTOP_LINKS = [
-  { key: 'vision',  target: 'solution-section', activeFor: ['solution-section'] },
-  { key: 'pillars', target: 'slider-section',   activeFor: ['slider-section'] },
-  { key: 'living',  target: 'video-section',    activeFor: ['video-section'] },
-  { key: 'atlas',   target: 'world-section',    activeFor: ['world-section'] },
-  { key: 'impact',  target: 'video-section-2',  activeFor: ['video-section-2'] },
+  { key: 'nav.platform', target: 'solution-section', activeFor: ['solution-section'] },
+  { key: 'nav.atlas',    target: 'world-section',    activeFor: ['world-section'] },
+  { key: 'nav.impact',   target: 'video-section-2',  activeFor: ['video-section-2'] },
 ];
 
-let currentLang = localStorage.getItem('aet-lang') || 'en';
+/* Mobile nav — AET has 6 sections */
+const MOBILE_LINKS = [
+  { index: '01', key: 'journeyNav.intro',    target: 'hero-section' },
+  { index: '02', key: 'journeyNav.pillars',  target: 'solution-section' },
+  { index: '03', key: 'journeyNav.pillars',  target: 'slider-section' },
+  { index: '04', key: 'journeyNav.living',   target: 'video-section' },
+  { index: '05', key: 'journeyNav.atlas',    target: 'world-section' },
+  { index: '06', key: 'journeyNav.impact',   target: 'video-section-2' },
+];
 
-function applyLang(container, lang) {
-  const t = I18N[lang];
+/* ── Lang Switcher HTML ───────────────────────────────────── */
+function buildLangSwitcher() {
+  const current = SUPPORTED_LOCALES.find((l) => l.code === getLocale()) || SUPPORTED_LOCALES[0];
+  const globalOpts = SUPPORTED_LOCALES.filter((l) => l.group === 'global').map(optHTML).join('');
+  const aseanOpts  = SUPPORTED_LOCALES.filter((l) => l.group === 'asean').map(optHTML).join('');
 
-  /* Logo subtitle */
-  const logoSub = container.querySelector('.navbar__logo-sub');
-  if (logoSub) logoSub.textContent = t.logoSub;
-
-  /* Desktop nav links */
-  DESKTOP_LINKS.forEach(({ key, target }) => {
-    const btn = container.querySelector(`.navbar__link[data-target="${target}"]`);
-    if (btn) btn.textContent = t.nav[key];
-  });
-
-  /* Auth buttons */
-  const manifestoBtn = container.querySelector('.btn-login');
-  const partnerBtn   = container.querySelector('.btn-signin');
-  if (manifestoBtn) manifestoBtn.textContent = t.manifesto;
-  if (partnerBtn)   partnerBtn.textContent   = t.partner;
-
-  /* Mobile eyebrow */
-  const eyebrow = container.querySelector('.navbar__mobile-eyebrow');
-  if (eyebrow) eyebrow.textContent = t.mobileEyebrow;
-
-  /* Mobile nav links */
-  t.mobileSections.forEach(({ index, label, target }) => {
-    const btn = container.querySelector(`.navbar__mobile-link[data-target="${target}"]`);
-    if (btn) {
-      const txt = btn.querySelector('.navbar__mobile-text');
-      if (txt) txt.textContent = label;
-    }
-  });
-
-  /* Mobile action buttons */
-  const mobileManifesto = container.querySelector('.navbar__mobile-action--ghost');
-  const mobilePartner   = container.querySelector('.navbar__mobile-action--solid');
-  if (mobileManifesto) mobileManifesto.textContent = t.manifesto;
-  if (mobilePartner)   mobilePartner.textContent   = t.partner;
-
-  /* Toggle button label */
-  const langToggle = container.querySelector('.navbar__lang-toggle');
-  if (langToggle) {
-    langToggle.setAttribute('aria-label', lang === 'en' ? 'Switch to Vietnamese' : 'Chuyển sang tiếng Anh');
-    langToggle.querySelector('.navbar__lang-active').textContent  = lang.toUpperCase();
-    langToggle.querySelector('.navbar__lang-other').textContent   = lang === 'en' ? 'VI' : 'EN';
-  }
-
-  /* Update html lang attribute */
-  document.documentElement.lang = lang;
+  return `
+    <div class="lang-switcher" id="lang-switcher" role="listbox" aria-label="${t('nav.changeLanguage')}">
+      <button class="lang-switcher__toggle" type="button" id="lang-switcher-toggle"
+        aria-haspopup="listbox" aria-expanded="false" aria-label="${t('nav.changeLanguage')}">
+        <svg class="lang-switcher__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <span class="lang-switcher__current" id="lang-switcher-label">${current.code.toUpperCase()}</span>
+        <svg class="lang-switcher__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+      <div class="lang-switcher__menu" id="lang-switcher-menu" aria-hidden="true">
+        <div class="lang-switcher__group-label">Global</div>
+        ${globalOpts}
+        <div class="lang-switcher__divider"></div>
+        <div class="lang-switcher__group-label">Southeast Asia</div>
+        ${aseanOpts}
+      </div>
+    </div>
+  `;
 }
 
+function optHTML(locale) {
+  const active = locale.code === getLocale();
+  return `
+    <button class="lang-switcher__option${active ? ' active' : ''}" type="button"
+      role="option" aria-selected="${active}" data-lang="${locale.code}">
+      <span class="lang-switcher__flag">${locale.flag}</span>
+      <span class="lang-switcher__native">${locale.native}</span>
+      ${active ? '<span class="lang-switcher__check">✓</span>' : ''}
+    </button>`;
+}
+
+/* ── Main Navbar render ─────────────────────────────────── */
 export function Navbar(container) {
-  const t = I18N[currentLang];
+  const desktopLinksHTML = DESKTOP_LINKS.map((link) => `
+    <button class="navbar__link" type="button"
+      data-target="${link.target}"
+      data-active-for="${link.activeFor.join(',')}"
+      data-i18n-key="${link.key}">
+      ${t(link.key)}
+    </button>`).join('');
 
-  const desktopLinksHTML = DESKTOP_LINKS.map(({ key, target }) => `
-    <button
-      class="navbar__link"
-      type="button"
-      data-target="${target}"
-    >
-      ${t.nav[key]}
-    </button>
-  `).join('');
-
-  const mobileLinksHTML = t.mobileSections.map(({ index, label, target }) => `
-    <button
-      class="navbar__mobile-link ${target === 'hero-section' ? 'active' : ''}"
-      type="button"
-      data-target="${target}"
-    >
-      <span class="navbar__mobile-index">${index}</span>
-      <span class="navbar__mobile-text">${label}</span>
-    </button>
-  `).join('');
+  const mobileLinksHTML = MOBILE_LINKS.map((link, i) => `
+    <button class="navbar__mobile-link ${i === 0 ? 'active' : ''}" type="button"
+      data-target="${link.target}"
+      data-i18n-key="${link.key}">
+      <span class="navbar__mobile-index">${link.index}</span>
+      <span class="navbar__mobile-text">${t(link.key)}</span>
+    </button>`).join('');
 
   container.innerHTML = `
-    <button class="navbar__mobile-backdrop" type="button" aria-label="Close navigation"></button>
+    <button class="navbar__mobile-backdrop" type="button" aria-label="${t('nav.closeNav')}"></button>
 
     <div class="navbar__shell">
-      <button class="navbar__logo" type="button" data-target="hero-section" aria-label="Go to introduction">
+      <button class="navbar__logo" type="button" data-target="hero-section" aria-label="${t('nav.goToIntro')}">
         <img class="navbar__logo-img" src="assets/media/images/backgrounds/logo.svg" alt="" aria-hidden="true" />
         <span class="navbar__logo-text">
           <span class="navbar__logo-word">AETERNA</span>
-          <span class="navbar__logo-sub">${t.logoSub}</span>
+          <span class="navbar__logo-sub">${t('nav.logoSub')}</span>
         </span>
       </button>
 
@@ -154,23 +100,13 @@ export function Navbar(container) {
         </nav>
 
         <div class="navbar__auth">
-          <button class="btn-login" type="button" data-target="hero-section" aria-label="Read manifesto">${t.manifesto}</button>
-          <button class="btn-signin" type="button" data-target="video-section-2" aria-label="Partner with AETERNA">${t.partner}</button>
+          ${buildLangSwitcher()}
+          <button class="btn-login"  type="button" data-target="hero-section"   aria-label="${t('nav.readManifesto')}">${t('nav.manifesto')}</button>
+          <button class="btn-signin" type="button" data-target="video-section-2" aria-label="${t('nav.partnerWithUs')}">${t('nav.partner')}</button>
         </div>
 
-        <!-- Language toggle -->
-        <button
-          class="navbar__lang-toggle"
-          type="button"
-          id="lang-toggle-btn"
-          aria-label="${currentLang === 'en' ? 'Switch to Vietnamese' : 'Chuyển sang tiếng Anh'}"
-        >
-          <span class="navbar__lang-active">${currentLang.toUpperCase()}</span>
-          <span class="navbar__lang-sep" aria-hidden="true">/</span>
-          <span class="navbar__lang-other">${currentLang === 'en' ? 'VI' : 'EN'}</span>
-        </button>
-
-        <button class="navbar__menu-btn" type="button" aria-expanded="false" aria-controls="navbar-mobile-panel" aria-label="Open navigation">
+        <button class="navbar__menu-btn" type="button" aria-expanded="false"
+          aria-controls="navbar-mobile-panel" aria-label="${t('nav.openNav')}">
           <span class="navbar__menu-line"></span>
           <span class="navbar__menu-line"></span>
           <span class="navbar__menu-line"></span>
@@ -180,27 +116,84 @@ export function Navbar(container) {
 
     <div class="navbar__mobile-panel" id="navbar-mobile-panel" aria-hidden="true">
       <div class="navbar__mobile-panel-inner">
-        <p class="navbar__mobile-eyebrow">${t.mobileEyebrow}</p>
-
-        <nav class="navbar__mobile-nav" role="navigation" aria-label="Mobile navigation">
+        <p class="navbar__mobile-eyebrow">${t('nav.journeyMap')}</p>
+        <nav class="navbar__mobile-nav" role="navigation" aria-label="${t('nav.journeyMap')}">
           ${mobileLinksHTML}
         </nav>
-
         <div class="navbar__mobile-actions">
-          <button class="navbar__mobile-action navbar__mobile-action--ghost" type="button" data-target="hero-section">${t.manifesto}</button>
-          <button class="navbar__mobile-action navbar__mobile-action--solid" type="button" data-target="video-section-2">${t.partner}</button>
+          <button class="navbar__mobile-action navbar__mobile-action--ghost" type="button" data-target="hero-section">${t('nav.manifesto')}</button>
+          <button class="navbar__mobile-action navbar__mobile-action--solid" type="button" data-target="video-section-2">${t('nav.partner')}</button>
         </div>
       </div>
     </div>
   `;
 
-  /* ── Language toggle handler ── */
-  const langBtn = container.querySelector('#lang-toggle-btn');
-  if (langBtn) {
-    langBtn.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'vi' : 'en';
-      localStorage.setItem('aet-lang', currentLang);
-      applyLang(container, currentLang);
+  _initLangSwitcher(container);
+}
+
+/* ── Lang switcher interaction ─────────────────────────── */
+function _initLangSwitcher(container) {
+  const wrapper = container.querySelector('#lang-switcher');
+  const toggle  = container.querySelector('#lang-switcher-toggle');
+  const menu    = container.querySelector('#lang-switcher-menu');
+  if (!wrapper || !toggle || !menu) return;
+
+  const open  = () => { menu.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');  wrapper.classList.add('is-open'); };
+  const close = () => { menu.setAttribute('aria-hidden','true');  toggle.setAttribute('aria-expanded','false'); wrapper.classList.remove('is-open'); };
+
+  toggle.addEventListener('click', (e) => { e.stopPropagation(); wrapper.classList.contains('is-open') ? close() : open(); });
+  menu.addEventListener('click', async (e) => {
+    const btn = e.target.closest('[data-lang]');
+    if (!btn) return;
+    close();
+    await setLocale(btn.dataset.lang);
+  });
+  document.addEventListener('click', (e) => { if (!wrapper.contains(e.target)) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+}
+
+/* ── In-place locale update (called on localechange) ──── */
+export function updateNavbarLocale(container) {
+  container.querySelectorAll('.navbar__link[data-i18n-key]').forEach((btn) => {
+    btn.textContent = t(btn.dataset.i18nKey);
+  });
+  container.querySelectorAll('.navbar__mobile-link[data-i18n-key]').forEach((btn) => {
+    const el = btn.querySelector('.navbar__mobile-text');
+    if (el) el.textContent = t(btn.dataset.i18nKey);
+  });
+
+  const logoSub = container.querySelector('.navbar__logo-sub');
+  if (logoSub) logoSub.textContent = t('nav.logoSub');
+
+  const eyebrow = container.querySelector('.navbar__mobile-eyebrow');
+  if (eyebrow) eyebrow.textContent = t('nav.journeyMap');
+
+  const btnLogin  = container.querySelector('.btn-login');
+  const btnSignin = container.querySelector('.btn-signin');
+  if (btnLogin)  { btnLogin.textContent  = t('nav.manifesto'); btnLogin.setAttribute('aria-label',  t('nav.readManifesto')); }
+  if (btnSignin) { btnSignin.textContent = t('nav.partner');   btnSignin.setAttribute('aria-label', t('nav.partnerWithUs')); }
+
+  const mobileGhost = container.querySelector('.navbar__mobile-action--ghost');
+  const mobileSolid = container.querySelector('.navbar__mobile-action--solid');
+  if (mobileGhost) mobileGhost.textContent = t('nav.manifesto');
+  if (mobileSolid) mobileSolid.textContent = t('nav.partner');
+
+  const langSwitcher = container.querySelector('#lang-switcher');
+  if (langSwitcher) {
+    const label = langSwitcher.querySelector('#lang-switcher-label');
+    if (label) label.textContent = getLocale().toUpperCase();
+
+    langSwitcher.querySelectorAll('.lang-switcher__option').forEach((btn) => {
+      const isActive = btn.dataset.lang === getLocale();
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', String(isActive));
+      const locale = SUPPORTED_LOCALES.find((l) => l.code === btn.dataset.lang);
+      if (locale) {
+        btn.innerHTML = `
+          <span class="lang-switcher__flag">${locale.flag}</span>
+          <span class="lang-switcher__native">${locale.native}</span>
+          ${isActive ? '<span class="lang-switcher__check">✓</span>' : ''}`;
+      }
     });
   }
 }
