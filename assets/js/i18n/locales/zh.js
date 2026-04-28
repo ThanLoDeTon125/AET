@@ -26,11 +26,13 @@ const zh = {
   },
   journeyNav: {
     ariaIntro: '前往介绍部分',
+    ariaVision: '前往解决方案部分',
     ariaPillars: '前往支柱部分',
     ariaLiving: '前往活态遗产部分',
     ariaAtlas: '前往地图册部分',
     ariaImpact: '前往影响部分',
     intro: '介绍',
+    vision: '平台',
     pillars: '支柱',
     living: '活态',
     atlas: '地图',
@@ -153,6 +155,101 @@ const zh = {
       description: 'AETERNA 将年轻社区、机构和政府联系在一起，形成由文化合作、数据洞察和可持续使命驱动的共同遗产网络。',
     },
   },
-};
+  solution: {
+    kicker: '解决方案描述',
+    heading: '<em>AETERNA</em> 是什么？',
+    bodyP1: 'Aeterna 是一个<strong class="sol-hl sol-hl--gold">Gacha游戏生态系统</strong>，利用革命性的<strong class="sol-hl sol-hl--gold">人工智能 (AI)</strong>将<strong class="sol-hl sol-hl--teal">东南亚各国</strong>的<strong class="sol-hl sol-hl--teal">文化</strong>与<strong class="sol-hl sol-hl--gold">历史遗产</strong>永久保存，展现为开放世界<strong class="sol-hl sol-hl--gold">RPG</strong>与 O2O 经济模型。',
+    coreValue: '<span class="sol-hl sol-hl--teal">核心价值：</span>通过<strong class="sol-hl sol-hl--teal">以人为本的技术</strong>弘扬<strong class="sol-hl sol-hl--gold">遗产</strong>，促进<strong class="sol-hl sol-hl--gold">共同繁荣</strong>和<strong class="sol-hl sol-hl--gold">有意义的娱乐。</strong>',
+    formulaVerb1: '使用',
+    formulaNoun1: '技术',
+    formulaSub1: '为了',
+    formulaSubList1: 'Online-to-Offline',
+    formulaSubList2: '进化叙事 AI',
+    formulaVerb2: '保护',
+    formulaNoun2: '遗产',
+    formulaSub2: '通过',
+    formulaVerb3: '转化',
+    formulaNoun3: '数字资产',
+    formulaNounSm: '遗产元宇宙',
+    visionLabel: '愿景',
+    visionText: '成为世界领先的<strong class="sol-hl sol-hl--gold">数字遗产生态系统</strong>，让人类所有文化价值在 <strong class="sol-hl sol-hl--teal">Metaverse</strong> 时代得以永久保存和重生。',
+    missionLabel: '使命',
+    mission1: '<strong class="sol-hl sol-hl--gold">活化遗产：</strong>利用 AI 弥合代际差距，将枟燥的历史文献转化为引人入胜的互动体验。',
+    mission2: '<strong class="sol-hl sol-hl--gold">永久保存价值：</strong>将 ASEAN 文化灵魂数字化保存于数字空间，确保其永不消逃。',
+    mission3: '<strong class="sol-hl sol-hl--gold">推动可持续经济：</strong>构建混合 O2O 经济模型，将线上用户转化为真实游客，支持本地社区和遗址。',
+  },
+  heroIntro: {
+    eyebrow: '一个来自东南亚的鸿活世界',
+    title: 'AETERNA',
+    tagline: '神话 · 记忆 · 遗产',
+    cta: '探索世界',
+  },
 
+  
+  sliderSection: {
+    kicker: "AETERNA · ASEAN CHRONICLES",
+    questLabel: "QUEST",
+    prev: "Previous nation",
+    next: "Next nation",
+    select: "Select {{name}}",
+    aria: "ASEAN Chronicles — 11 Nations"
+},
+  countries: {
+    "vietnam": {
+        "name": "越南",
+        "realm": "气息与龙脉的次元",
+        "story": "龙脉正在石化。玩家必须寻找祖先的“初息”以融化岩层，让生命之流——水稻文化与坚韧——再次运转。"
+    },
+    "thailand": {
+        "name": "泰国",
+        "realm": "重生金光的王国",
+        "story": "外层的黄金正变成囚禁民族灵魂的陷阱。潜入“太阳核心”，唤醒浮华之下的内在力量。"
+    },
+    "cambodia": {
+        "name": "柬埔寨",
+        "realm": "石之巨人的回声",
+        "story": "石神正在忘记自己的名字，导致大地崩塌。用古老的音乐和舞蹈唤醒石神的身份。"
+    },
+    "indonesia": {
+        "name": "印度尼西亚",
+        "realm": "千魂倒影的群岛",
+        "story": "影子脱离主人创造出混沌（混沌巴龙）。玩家必须重新平衡光与暗，以免世界被吞噬。"
+    },
+    "philippines": {
+        "name": "菲律宾",
+        "realm": "陨星群岛",
+        "story": "灰烬之海正在上涨以熄灭星星的光芒。结合Bayanihan精神，重新点燃神圣之火。"
+    },
+    "malaysia": {
+        "name": "马来西亚",
+        "realm": "三风交汇之地",
+        "story": "一种“单色”寄生虫试图将一切变成灰色。保护多元种族，帮助三风合一创造世界树护盾。"
+    },
+    "singapore": {
+        "name": "新加坡",
+        "realm": "时间水晶堡垒",
+        "story": "时间泄露入海。寻找时间流的源头，了解未来必须建立在现代水晶玻璃下的坚实根基上。"
+    },
+    "myanmar": {
+        "name": "缅甸",
+        "realm": "无尽钟声之地",
+        "story": "“静默实体”正在吞噬所有声音。从大地中收集虔诚与智慧的振动频率，谱写交响乐粉碎死寂。"
+    },
+    "laos": {
+        "name": "老挝",
+        "realm": "百万纯白梦想之河",
+        "story": "河流被冷漠所冻结。找回平静与善良的“暖心之火”，融化冰层，孕育民族梦想。"
+    },
+    "brunei": {
+        "name": "文莱",
+        "realm": "荣誉与黑金的深井",
+        "story": "贪婪污染了记忆之油。用“荣誉誓言”净化河流，确保王国在保持繁荣的同时恪守古老的道德。"
+    },
+    "timorLeste": {
+        "name": "东帝汶",
+        "realm": "祖先鳄龟神之摇篮",
+        "story": "鳄鱼想要陷入永恒的沉睡。牺牲个人利益唤醒鳄鱼神的求生欲，证明这个国家依然充满生机。"
+    }
+},
+};
 export default zh;

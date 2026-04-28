@@ -6,9 +6,11 @@
 
 import { t, getLocale, setLocale, SUPPORTED_LOCALES } from '../i18n/i18n.js';
 
-/* Desktop nav — note: AET has 'solution-section' as extra section */
+/* Desktop nav — all 5 major sections */
 const DESKTOP_LINKS = [
   { key: 'nav.platform', target: 'solution-section', activeFor: ['solution-section'] },
+  { key: 'nav.pillars',  target: 'slider-section',   activeFor: ['slider-section'] },
+  { key: 'nav.living',   target: 'video-section',    activeFor: ['video-section'] },
   { key: 'nav.atlas',    target: 'world-section',    activeFor: ['world-section'] },
   { key: 'nav.impact',   target: 'video-section-2',  activeFor: ['video-section-2'] },
 ];
@@ -16,7 +18,7 @@ const DESKTOP_LINKS = [
 /* Mobile nav — AET has 6 sections */
 const MOBILE_LINKS = [
   { index: '01', key: 'journeyNav.intro',    target: 'hero-section' },
-  { index: '02', key: 'journeyNav.pillars',  target: 'solution-section' },
+  { index: '02', key: 'nav.platform',        target: 'solution-section' },
   { index: '03', key: 'journeyNav.pillars',  target: 'slider-section' },
   { index: '04', key: 'journeyNav.living',   target: 'video-section' },
   { index: '05', key: 'journeyNav.atlas',    target: 'world-section' },
@@ -101,8 +103,8 @@ export function Navbar(container) {
 
         <div class="navbar__auth">
           ${buildLangSwitcher()}
-          <button class="btn-login"  type="button" data-target="hero-section"   aria-label="${t('nav.readManifesto')}">${t('nav.manifesto')}</button>
-          <button class="btn-signin" type="button" data-target="video-section-2" aria-label="${t('nav.partnerWithUs')}">${t('nav.partner')}</button>
+          <button class="btn-login"  type="button" data-target="solution-section" aria-label="${t('nav.readManifesto')}">${t('nav.manifesto')}</button>
+          <button class="btn-signin" type="button" data-target="video-section-2"  aria-label="${t('nav.partnerWithUs')}">${t('nav.partner')}</button>
         </div>
 
         <button class="navbar__menu-btn" type="button" aria-expanded="false"
@@ -121,7 +123,7 @@ export function Navbar(container) {
           ${mobileLinksHTML}
         </nav>
         <div class="navbar__mobile-actions">
-          <button class="navbar__mobile-action navbar__mobile-action--ghost" type="button" data-target="hero-section">${t('nav.manifesto')}</button>
+          <button class="navbar__mobile-action navbar__mobile-action--ghost" type="button" data-target="solution-section">${t('nav.manifesto')}</button>
           <button class="navbar__mobile-action navbar__mobile-action--solid" type="button" data-target="video-section-2">${t('nav.partner')}</button>
         </div>
       </div>

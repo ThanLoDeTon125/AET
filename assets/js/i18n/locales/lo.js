@@ -20,7 +20,7 @@ const lo = {
     language: 'ພາສາ',
     changeLanguage: 'ປ່ຽນພາສາ',
   },
-  journeyNav: { ariaIntro: 'ໄປສ່ວນແນະນຳ', ariaPillars: 'ໄປສ່ວນເສົາ', ariaLiving: 'ໄປສ່ວນມໍລະດົກ', ariaAtlas: 'ໄປສ່ວນແຜນທີ່', ariaImpact: 'ໄປສ່ວນຜົນກະທົບ', intro: 'ແນະນຳ', pillars: 'ເສົາ', living: 'ມີຊີວິດ', atlas: 'ແຜນທີ່', impact: 'ຜົນກະທົບ' },
+  journeyNav: { ariaIntro: 'ໄປສ່ວນແນະນຳ', ariaVision: 'ໄປສ່ວນແນວທາງ', ariaPillars: 'ໄປສ່ວນເສົາ', ariaLiving: 'ໄປສ່ວນມໍລະດົກ', ariaAtlas: 'ໄປສ່ວນແຜນທີ່', ariaImpact: 'ໄປສ່ວນຜົນກະທົບ', intro: 'ແນະນຳ', vision: 'ເວທີ', pillars: 'ເສົາ', living: 'ມີຊີວິດ', atlas: 'ແຜນທີ່', impact: 'ຜົນກະທົບ' },
   hero: { kicker: 'ເສົາປະສົບການຫຼັກ', hudLabel: 'ເອກະສານ AETERNA', nextPillar: 'ເສົາຕໍ່ໄປ', backToIntro: 'ກັບໄປການແນະນຳໂຄງການ', projectIntro: 'ແນະນຳໂຄງການ', ariaLabel: 'ເສົາ AETERNA', openPillar: 'ເປີດເສົາ {{name}}' },
   bridge01: { eyebrow: 'ຈາກຄຳປະກາດສູ່ປະສົບການ', text: 'ເວທີໄດ້ກາຍເປັນເສົາທີ່ສາມາດຫຼິ້ນໄດ້ 5 ເສົາທີ່ກຳນົດວິທີການຮຽນ ຮູ້ສຶກ ແລະ ດຳລົງຊີວິດ AETERNA.', aria: 'ການປ່ຽນຜ່ານຈາກການແນະນຳສູ່ເສົາ' },
   bridge02: { eyebrow: 'ຈາກເສົາສູ່ໂລກ', text: 'ສິ່ງທີ່ເລີ່ມຕົ້ນເປັນການອອກແບບລະບົບໄດ້ກາຍເປັນໂລກມໍລະດົກທີ່ມີຊີວິດທີ່ຜູ້ຫຼິ້ນສາມາດຜ່ານ ມີອິດທິພົນ ແລະ ຈຳໄດ້.', aria: 'ການປ່ຽນຜ່ານຈາກເສົາສູ່ມໍລະດົກ' },
@@ -90,5 +90,101 @@ const lo = {
     o2o_impact: { name: 'ຜົນກະທົບ O2O', primaryTag: 'ຈາກເກມສູ່ຄວາມເປັນຈິງ', secondaryTag: 'ການທ່ອງທ່ຽວ + SMEs', buttonLabel: 'ແນະນຳໂຄງການ', description: 'ລາງວັນຫາຍາກໃນເກມ ເຊື່ອມຕໍ່ກັບ voucher ທ່ອງທ່ຽວ ປະສົບການມໍລະດົກ ແລະ ຜະລິດຕະພັນຊ່າງ ປ່ຽນການຄົ້ນພົບໃນໂລກສົມມຸດໃຫ້ເປັນຄຸນຄ່າຈິງ.' },
     global_reach: { name: 'ການເຂົ້າເຖິງທົ່ວໂລກ', primaryTag: 'Guild ຂ້າມ ASEAN', secondaryTag: 'ການອະນຸລັກທີ່ຍືນຍົງ', buttonLabel: 'ແນະນຳໂຄງການ', description: 'AETERNA ເຊື່ອມຕໍ່ຊຸມຊົນໄວໜຸ່ມ ສະຖາບັນ ແລະ ລັດຖະບານໃນເຄືອຂ່າຍມໍລະດົກທີ່ແບ່ງປັນ ທີ່ຂັບເຄື່ອນໂດຍການຮ່ວມມືວັດທະນະທຳ ຄວາມເຂົ້າໃຈຂໍ້ມູນ ແລະ ພັນກິດຄວາມຍືນຍົງ.' },
   },
+  solution: {
+    kicker: 'ຄຳອທິບາຍແນວທາງ',
+    heading: '<em>AETERNA</em> ມັນແມ່ນຫຍັງ?',
+    bodyP1: 'Aeterna ມັນເປັນ<strong class="sol-hl sol-hl--gold">ລະບົບນິເວດເກມ Gacha</strong> ທີ່ໃຊ້<strong class="sol-hl sol-hl--gold">ປັຍຍາປະດິດ (AI)</strong> ເພື່ອຜື້ນຟູມົລະດົກ<strong class="sol-hl sol-hl--teal">ວັດທະນະທຳ</strong> ແລະ<strong class="sol-hl sol-hl--gold">ປະຫວັດສາດ</strong> ຂອງ<strong class="sol-hl sol-hl--teal">ປະເທດ ASEAN</strong>.',
+    coreValue: '<span class="sol-hl sol-hl--teal">ຄຸນຄ່າຫລັກ:</span> ໃຫ້ເກີດຕິກັນ<strong class="sol-hl sol-hl--gold">ມົລະດົກ</strong> ຜ່ານ<strong class="sol-hl sol-hl--teal">ເທກໂນໂລຍີ</strong> ເພື່ອ<strong class="sol-hl sol-hl--gold">ຄວາມເຈຣິຍຮຸ່ງຮ່ວມກັນ</strong>.',
+    formulaVerb1: 'ໃຊ້',
+    formulaNoun1: 'ເທກໂນໂລຍີ',
+    formulaSub1: 'ເພື່ອ',
+    formulaSubList1: 'Online-to-Offline',
+    formulaSubList2: 'AI ເລ່າເລື່ອງ',
+    formulaVerb2: 'ອນຸລັກ',
+    formulaNoun2: 'ມົລະດົກ',
+    formulaSub2: 'ດ້ວຍ',
+    formulaVerb3: 'ປ່ຽນ',
+    formulaNoun3: 'ທາດດີຈີຕອນ',
+    formulaNounSm: 'Metaverse ມົລະດົກ',
+    visionLabel: 'ວິໄສທັດ',
+    visionText: 'ກາຍເປັນ<strong class="sol-hl sol-hl--gold">ລະບົບນິເວດມົລະດົກດີຈີຕອນ</strong>ຊັນນຳຂອງໂລກໃນ<strong class="sol-hl sol-hl--teal">Metaverse</strong>.',
+    missionLabel: 'ພັນກິດ',
+    mission1: '<strong class="sol-hl sol-hl--gold">ຟື້ນຟູມົລະດົກ:</strong> ໃຊ້ AI ເຊື່ອມຊ່ອງວ່າງກະນຸ່ນ ປ່ຽນເອກະສານປະຫວັດສາດໃຫ້ເປັນປະສົບການທີ່ນ່າສະໃຈ.',
+    mission2: '<strong class="sol-hl sol-hl--gold">ຄຸນຄ່າຍືນຍັງ:</strong> ຈັດເກັບວັດທະນະທຳ ASEAN ເຂົ້າໄປໃນດີຈີຕອນອຍ່າງຖາວະ.',
+    mission3: '<strong class="sol-hl sol-hl--gold">ເສດຖະກິດຍືນຍັງ:</strong> ສ້າງບົດບົດ O2O ທີ່ປ່ຽນຜູ້ໃຊ້ງານອອນໄລນໃຫ້ເປັນນັກທ່ອງທ່ຽວຈິງ.',
+  },
+  heroIntro: {
+    eyebrow: 'ໂລກທີ່ມີຊີວິດຈາກອາຊີຕາເວັນອອກສ່ຽງໃຕ້',
+    title: 'AETERNA',
+    tagline: 'ຕຳນານ · ຄວາມຊົງຈຳ · ມົລະດົກ',
+    cta: 'ສຳຫລວດໂລກ',
+  },
+
+  
+  sliderSection: {
+    kicker: "AETERNA · ASEAN CHRONICLES",
+    questLabel: "QUEST",
+    prev: "Previous nation",
+    next: "Next nation",
+    select: "Select {{name}}",
+    aria: "ASEAN Chronicles — 11 Nations"
+},
+  countries: {
+    "vietnam": {
+        "name": "ຫວຽດນາມ",
+        "realm": "ມິຕິແຫ່ງລົມຫາຍໃຈ",
+        "story": "ເສັ້ນເລືອດມັງກອນພວມກາຍເປັນຫີນ. ຊອກຫາລົມຫາຍໃຈທໍາອິດຂອງບັນພະບຸລຸດເພື່ອລະລາຍຊັ້ນຫີນແລະຟື້ນຟູຊີວິດ."
+    },
+    "thailand": {
+        "name": "ໄທ",
+        "realm": "ອານາຈັກແຫ່ງແສງທອງຄືນຊີບ",
+        "story": "ຊັ້ນທອງກຳລັງຂັງຈິດວິນຍານ. ເຂົ້າໄປທີ່ແກນກາງດວງອາທິດເພື່ອປຸກພະລັງທີ່ແທ້ຈິງທີ່ເຊື່ອງຢູ່."
+    },
+    "cambodia": {
+        "name": "ກຳປູເຈຍ",
+        "realm": "ສຽງສະທ້ອນຈາກຍັກຫີນ",
+        "story": "ເທວະດາຫີນລືມຊື່ຂອງຕົນເອງ ເຮັດໃຫ້ແຜ່ນດິນສັ່ນສະເທືອນ. ໃຊ້ດົນຕີບູຮານເພື່ອເຕືອນຄວາມຊົງຈຳຂອງພວກເຂົາ."
+    },
+    "indonesia": {
+        "name": "ອິນໂດເນເຊຍ",
+        "realm": "ໝູ່ເກາະແຫ່ງພັນວິນຍານສະທ້ອນ",
+        "story": "ເງົາຖືກເລີຍດ້ວຍໝອກສີເທົາ. ຮັກສາຄວາມສົມດຸນແສງແລະຄວາມມືດເພື່ອປົກປ້ອງໂລກຈາກ Chaos Barong."
+    },
+    "philippines": {
+        "name": "ຟີລິບປິນ",
+        "realm": "ໝູ່ເກາະແຫ່ງດວງດາວທີ່ຕົກລົງມາ",
+        "story": "ທະເລເທົ່າກຳລັງຂຶ້ນ. ເຊື່ອມຕໍ່ພະລັງຊຸມຊົນເພື່ອຈູດໄຟສັກສິດອີກຄັ້ງແລະຂັບໄລ່ຄວາມມືດ."
+    },
+    "malaysia": {
+        "name": "ມາເລເຊຍ",
+        "realm": "ສະຖານທີ່ທີ່ສາຍລົມມາບັນຈົບກັນ",
+        "story": "ກາຝາກພະຍາຍາມປ່ຽນທຸກສິ່ງເປັນສີເທົາ. ປົກປ້ອງຄວາມຫຼາກຫຼາຍທາງຊົນເຜົ່າເພື່ອສ້າງກຳລັງປ້ອງກັນຕົ້ນໄມ້."
+    },
+    "singapore": {
+        "name": "ສິງກະໂປ",
+        "realm": "ປ້ອມປາການຄຣິສຕัลແຫ່ງການເວລາ",
+        "story": "ເວລາຮົ່ວໄຫຼລົງສູ່ທະເລ. ຊອກຫາຕົ້ນກຳເນີດເພື່ອເຂົ້າໃຈວ່າອະນາຄົດຕ້ອງການຮາກທີ່ໝັ້ນຄົງພາຍໃຕ້ຄວາມທັນສະໄໝ."
+    },
+    "myanmar": {
+        "name": "ມຽນມາ",
+        "realm": "ດິນແດນແຫ່ງລະຄັງນິລັນດອນ",
+        "story": "ຄວາມງຽບສະຫງົບກືນກິນສຽງ. ລວບລວມການສັ່ນສະເທືອນຈາກດິນເພື່ອສ້າງບົດເພງທຳລາຍຄວາມງຽບເປັນຕາຍ."
+    },
+    "laos": {
+        "name": "ລາວ",
+        "realm": "ແມ່ນ້ຳແຫ່ງລ້ານຄວາມຝັນ",
+        "story": "ແມ່ນ້ຳຖືກແຊ່ແຂງດ້ວຍຄວາມເມີນເສີຍ. ຊອກຫາແປວໄຟທີ່ອົບອຸ່ນຈິດວິນຍານເພື່ອລະລາຍນ້ຳກ້ອນແລະບຳລຸງລ້ຽງຄວາມຝັນ."
+    },
+    "brunei": {
+        "name": "ບຣູໄນ",
+        "realm": "ນ້ຳສ້າງເລິກແຫ່ງກຽດຕິຍົດ",
+        "story": "ຄວາມໂລບສ້າງມົນລະພິດໃຫ້ກັບນ້ຳມັນ. ຊຳລະດ້ວຍຄຳປະຕິຍານແຫ່ງກຽດຕິຍົດເພື່ອຮັກສາຄວາມຈະເລີນຮຸ່ງເຮືອງແລະສິນທຳ."
+    },
+    "timorLeste": {
+        "name": "ຕີມໍເຫຼດເຕ",
+        "realm": "ແຫຼ່ງກຳເນີດຂອງເທບພະເຈົ້າແຂ້",
+        "story": "ແຂ້ຢາກຈົມລົງສູ່ຄວາມຕາຍ. ເສຍສະຫຼະຜົນປະໂຫຍດສ່ວນຕົວເພື່ອປຸກຄວາມປາຖະໜາທີ່ຈະຢູ່ລອດຂອງແຂ້."
+    }
+},
 };
 export default lo;

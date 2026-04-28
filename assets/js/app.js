@@ -9,11 +9,9 @@
  */
 
 import { initI18n, t, applyDOMTranslations } from './i18n/i18n.js';
-import { getCharacters, getHeroLanding }     from './content/characters.js';
 import { Navbar, updateNavbarLocale }        from './navigation/Navbar.js';
 import { Sidebar }                           from './navigation/Sidebar.js';
-import { Hero, updateHero }                  from './sections/Hero.js';
-import { CharacterSlider }                   from './sections/CharacterSlider.js';
+import { CountryStorySlider }                from './sections/CountryStorySlider.js';
 
 /* ── i18n must boot before any component renders ─────────── */
 await initI18n();
@@ -27,43 +25,28 @@ await initI18n();
   const statusEl    = document.getElementById('preloader-status');
   if (!preloaderEl) return;
 
-  const chars = getCharacters();
-
-  const criticalUrls = [
-    'assets/media/images/backgrounds/logo.svg',
-    ...chars.map((c) => c.bgImage),
-    ...chars.map((c) => c.frameImage),
-    ...chars.map((c) => c.cardImage),
-  ].filter((url, idx, arr) => url && arr.indexOf(url) === idx);
-
-  let loaded = 0;
-  const total = criticalUrls.length;
-
   if (statusEl) statusEl.textContent = t('preloader.initialising');
+  const fillEl2 = fillEl;
 
-  function setProgress(n) {
-    const pct = Math.min(Math.round((n / total) * 100), 100);
-    if (fillEl)   fillEl.style.width   = pct + '%';
-    if (statusEl) statusEl.textContent = pct < 100 ? t('preloader.loading', { pct }) : t('preloader.entering');
-  }
+  let pct = 0;
+  const interval = setInterval(() => {
+    pct = Math.min(pct + Math.random() * 18, 92);
+    if (fillEl2) fillEl2.style.width = Math.round(pct) + '%';
+    if (statusEl) statusEl.textContent = t('preloader.loading', { pct: Math.round(pct) });
+  }, 200);
 
   function dismiss() {
-    preloaderEl.classList.add('is-done');
-    preloaderEl.addEventListener('transitionend', () => preloaderEl.remove(), { once: true });
+    clearInterval(interval);
+    if (fillEl2) fillEl2.style.width = '100%';
+    if (statusEl) statusEl.textContent = t('preloader.entering');
+    setTimeout(() => {
+      preloaderEl.classList.add('is-done');
+      preloaderEl.addEventListener('transitionend', () => preloaderEl.remove(), { once: true });
+    }, 320);
   }
 
-  setProgress(0);
-
-  const imagePromises = criticalUrls.map(
-    (url) => new Promise((resolve) => {
-      const img = new Image();
-      img.onload = img.onerror = () => { loaded++; setProgress(loaded); resolve(); };
-      img.src = url;
-    })
-  );
-
   const fontPromise = document.fonts ? document.fonts.ready : Promise.resolve();
-  Promise.all([...imagePromises, fontPromise]).then(() => setTimeout(dismiss, 360));
+  fontPromise.then(() => setTimeout(dismiss, 600));
 })();
 
 /* ============================================================
@@ -72,13 +55,10 @@ await initI18n();
 if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
 
+
 /* ============================================================
-   2. State
+   2. Scroll helper
    ============================================================ */
-let currentIndex = 0;
-
-function getActive() { return getCharacters()[currentIndex]; }
-
 function smoothScrollToSection(id) {
   const target = document.getElementById(id);
   if (!target) return;
@@ -86,80 +66,20 @@ function smoothScrollToSection(id) {
   window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerOffset, behavior: 'smooth' });
 }
 
-function nextCharacter() {
-  currentIndex = (currentIndex + 1) % getCharacters().length;
-  handleCharacterChange();
-}
-
-function selectCharacter(id) {
-  const idx = getCharacters().findIndex((c) => c.id === id);
-  if (idx === -1 || idx === currentIndex) return;
-  currentIndex = idx;
-  handleCharacterChange();
-}
-
-function handleCharacterChange() {
-  const char = getActive();
-  updateSectionBackground(sliderBgEl, char.bgImage);
-  updateHero(heroEl, char);
-  sliderEl.setActive?.(char.id);
-}
-
 /* ============================================================
-   3. Per-section background layers
-   ============================================================ */
-const sliderBgEl = document.getElementById('slider-bg');
-
-function initSectionBackground(container, src) {
-  const img = document.createElement('img');
-  img.src = src; img.alt = ''; img.setAttribute('aria-hidden', 'true');
-  container.appendChild(img);
-}
-
-function updateSectionBackground(container, src) {
-  const prevImg = container.querySelector('img');
-  const newImg  = document.createElement('img');
-  newImg.src    = src; newImg.alt = ''; newImg.setAttribute('aria-hidden', 'true');
-  newImg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.6s ease;';
-  container.appendChild(newImg);
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    newImg.style.opacity = '1';
-    if (prevImg) {
-      prevImg.style.transition = 'opacity 0.6s ease';
-      prevImg.style.opacity = '0';
-      prevImg.addEventListener('transitionend', () => prevImg.remove(), { once: true });
-    }
-  }));
-}
-
-(function lazySliderBackground() {
-  const _sec = document.getElementById('slider-section');
-  if (!_sec) { initSectionBackground(sliderBgEl, getActive().bgImage); return; }
-  const _obs = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) { initSectionBackground(sliderBgEl, getActive().bgImage); _obs.disconnect(); }
-  }, { rootMargin: '0px 0px 400px 0px', threshold: 0 });
-  _obs.observe(_sec);
-})();
-
-/* ============================================================
-   4. Mount components
+   3. Mount components
    ============================================================ */
 const navbarEl = document.getElementById('navbar');
 Navbar(navbarEl);
 Sidebar(document.getElementById('sidebar'));
 
-const heroEl   = document.getElementById('hero');
-Hero(heroEl, getActive(), nextCharacter);
-
-const heroSectionEl   = document.getElementById('hero-section');
 const sliderSectionEl = document.getElementById('slider-section');
+CountryStorySlider(sliderSectionEl);
 const worldSectionEl  = document.getElementById('world-section');
 const impactSectionEl = document.getElementById('video-section-2');
 const scrollVideoSections = Array.from(document.querySelectorAll('.landing-section--video'));
 const journeyNavLinks     = Array.from(document.querySelectorAll('.journey-nav__link'));
 
-const sliderEl = document.getElementById('character-slider');
-CharacterSlider(sliderEl, getCharacters(), getActive().id, selectCharacter);
 
 /* ── Intro video CTA ─────────────────────────────────────── */
 (function initIntroVideoCta() {
@@ -250,7 +170,7 @@ CharacterSlider(sliderEl, getCharacters(), getActive().id, selectCharacter);
   const desktopLinks     = Array.from(navbarEl.querySelectorAll('.navbar__link'));
   const mobileLinks      = Array.from(navbarEl.querySelectorAll('.navbar__mobile-link'));
   const navSections = [
-    heroSectionEl,
+    document.getElementById('hero-section'),
     document.getElementById('solution-section'),
     sliderSectionEl,
     document.getElementById('video-section'),
@@ -330,7 +250,7 @@ CharacterSlider(sliderEl, getCharacters(), getActive().id, selectCharacter);
     ...Array.from(document.querySelectorAll('.journey-bridge')),
   ].filter(Boolean);
   if (!revealTargets.length) return;
-  heroSectionEl?.classList.add('is-visible');
+  document.getElementById('hero-section')?.classList.add('is-visible');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((entry) => entry.target.classList.toggle('is-visible', entry.isIntersecting));
   }, { threshold: 0.22 });
@@ -345,23 +265,11 @@ CharacterSlider(sliderEl, getCharacters(), getActive().id, selectCharacter);
   fab.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 })();
 
-/* ============================================================
-   5. Section navigation helpers
-   ============================================================ */
-heroEl.addEventListener('click', (e) => {
-  if (e.target.closest('#hero-more-btn')) smoothScrollToSection('hero-section');
-});
 
 /* ============================================================
    6. Keyboard navigation
    ============================================================ */
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight') nextCharacter();
-  if (e.key === 'ArrowLeft') {
-    currentIndex = (currentIndex - 1 + getCharacters().length) % getCharacters().length;
-    handleCharacterChange();
-  }
-});
+// (Country story slider handles its own keyboard events internally)
 
 /* ============================================================
    7. Locale change → update all components
@@ -369,6 +277,4 @@ document.addEventListener('keydown', (e) => {
 window.addEventListener('localechange', () => {
   applyDOMTranslations();
   updateNavbarLocale(navbarEl);
-  updateHero(heroEl, getActive());
-  CharacterSlider(sliderEl, getCharacters(), getActive().id, selectCharacter);
 });
