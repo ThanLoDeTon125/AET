@@ -75,10 +75,9 @@ Sidebar(document.getElementById('sidebar'));
 
 const sliderSectionEl = document.getElementById('slider-section');
 CountryStorySlider(sliderSectionEl);
-const worldSectionEl  = document.getElementById('world-section');
-const impactSectionEl = document.getElementById('video-section-2');
-const scrollVideoSections = Array.from(document.querySelectorAll('.landing-section--video'));
-const journeyNavLinks     = Array.from(document.querySelectorAll('.journey-nav__link'));
+const worldSectionEl    = document.getElementById('world-section');
+const featuresSectionEl = document.getElementById('features-section');
+const journeyNavLinks   = Array.from(document.querySelectorAll('.journey-nav__link'));
 
 
 /* ── Intro video CTA ─────────────────────────────────────── */
@@ -99,44 +98,49 @@ const journeyNavLinks     = Array.from(document.querySelectorAll('.journey-nav__
   });
 })();
 
-/* ── Auto-play video sections ────────────────────────────── */
-(function initAutoPlayVideoSections() {
-  if (!scrollVideoSections.length) return;
-  scrollVideoSections.forEach((sectionEl) => {
-    const videoEl = sectionEl.querySelector('.video-scroll__video');
-    if (!videoEl) return;
-    const startOffset = Number(sectionEl.dataset.videoStart || 0);
-    let reverseRaf = 0, hasEnded = false;
-    videoEl.pause(); videoEl.muted = true; videoEl.playsInline = true;
-    function setupVideo() { if (videoEl.duration > startOffset) videoEl.currentTime = startOffset; }
-    const STOP_BEFORE = 0.3;
-    videoEl.addEventListener('timeupdate', () => {
-      if (!hasEnded && videoEl.duration && videoEl.currentTime >= videoEl.duration - STOP_BEFORE) { videoEl.pause(); hasEnded = true; }
+/* ── Feature card video autoplay + reveal ────────────────── */
+(function initFeatureCards() {
+  const cards = Array.from(document.querySelectorAll('.feature-card'));
+  if (!cards.length) return;
+
+  // Stagger reveal animation
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
     });
-    videoEl.addEventListener('loadedmetadata', setupVideo);
-    if (videoEl.readyState >= 1) setupVideo();
-    function stopReverse() { if (reverseRaf) { cancelAnimationFrame(reverseRaf); reverseRaf = 0; } }
-    function reversePlay() {
-      videoEl.currentTime = Math.max(videoEl.currentTime - 1/60, startOffset);
-      reverseRaf = videoEl.currentTime > startOffset ? requestAnimationFrame(reversePlay) : 0;
-    }
+  }, { threshold: 0.15 });
+
+  cards.forEach((card) => {
+    revealObs.observe(card);
+
+    const videoEl = card.querySelector('.feature-card__video');
+    if (!videoEl) return;
+    videoEl.muted = true;
+    videoEl.playsInline = true;
+
+    // Preload when nearby
     const preloadObs = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) { videoEl.preload = 'auto'; videoEl.load(); preloadObs.unobserve(sectionEl); }
-    }, { rootMargin: '0px 0px 500px 0px', threshold: 0 });
-    preloadObs.observe(sectionEl);
-    const obs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        videoEl.preload = 'auto';
+        videoEl.load();
+        preloadObs.unobserve(card);
+      }
+    }, { rootMargin: '0px 0px 400px 0px', threshold: 0 });
+    preloadObs.observe(card);
+
+    // Play/pause on visibility
+    const playObs = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          stopReverse(); hasEnded = false;
-          if (videoEl.duration > startOffset) videoEl.currentTime = startOffset;
           videoEl.play().catch(() => {});
         } else {
-          videoEl.pause(); stopReverse();
-          if (!hasEnded && videoEl.currentTime > startOffset) reverseRaf = requestAnimationFrame(reversePlay);
+          videoEl.pause();
         }
       });
-    }, { threshold: 0.35 });
-    obs.observe(sectionEl);
+    }, { threshold: 0.25 });
+    playObs.observe(card);
   });
 })();
 
@@ -173,9 +177,8 @@ const journeyNavLinks     = Array.from(document.querySelectorAll('.journey-nav__
     document.getElementById('hero-section'),
     document.getElementById('solution-section'),
     sliderSectionEl,
-    document.getElementById('video-section'),
+    featuresSectionEl,
     worldSectionEl,
-    impactSectionEl,
   ].filter(Boolean);
 
   function closeMenu() {
@@ -243,9 +246,8 @@ const journeyNavLinks     = Array.from(document.querySelectorAll('.journey-nav__
   const revealTargets = [
     document.getElementById('solution-section'),
     sliderSectionEl,
-    document.getElementById('video-section'),
+    featuresSectionEl,
     worldSectionEl,
-    impactSectionEl,
     document.getElementById('site-footer'),
     ...Array.from(document.querySelectorAll('.journey-bridge')),
   ].filter(Boolean);

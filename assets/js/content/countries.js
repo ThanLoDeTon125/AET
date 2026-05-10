@@ -13,7 +13,7 @@ export function getCountries() {
       name: t('countries.vietnam.name'),
       realm: t('countries.vietnam.realm'),
       story: t('countries.vietnam.story'),
-      image: 'assets/media/images/backgrounds/vn.png',
+      image: 'assets/media/images/backgrounds/VietNam.png',
     },
     {
       id: 'thailand',
@@ -21,7 +21,7 @@ export function getCountries() {
       name: t('countries.thailand.name'),
       realm: t('countries.thailand.realm'),
       story: t('countries.thailand.story'),
-      image: 'assets/media/images/backgrounds/thai.png',
+      image: 'assets/media/images/backgrounds/ThaiLand.png',
     },
     {
       id: 'cambodia',
@@ -29,7 +29,7 @@ export function getCountries() {
       name: t('countries.cambodia.name'),
       realm: t('countries.cambodia.realm'),
       story: t('countries.cambodia.story'),
-      image: 'assets/media/images/backgrounds/cambodia.png',
+      image: 'assets/media/images/backgrounds/Cambodia.png',
     },
     {
       id: 'indonesia',
@@ -37,7 +37,7 @@ export function getCountries() {
       name: t('countries.indonesia.name'),
       realm: t('countries.indonesia.realm'),
       story: t('countries.indonesia.story'),
-      image: 'assets/media/images/backgrounds/indo.png',
+      image: 'assets/media/images/backgrounds/Indonesia.png',
     },
     {
       id: 'philippines',
@@ -45,7 +45,7 @@ export function getCountries() {
       name: t('countries.philippines.name'),
       realm: t('countries.philippines.realm'),
       story: t('countries.philippines.story'),
-      image: 'assets/media/images/backgrounds/philip.png',
+      image: 'assets/media/images/backgrounds/Philipines.png',
     },
     {
       id: 'malaysia',
@@ -53,7 +53,7 @@ export function getCountries() {
       name: t('countries.malaysia.name'),
       realm: t('countries.malaysia.realm'),
       story: t('countries.malaysia.story'),
-      image: 'assets/media/images/backgrounds/malay.png',
+      image: 'assets/media/images/backgrounds/Malaysia.png',
     },
     {
       id: 'singapore',
@@ -61,7 +61,7 @@ export function getCountries() {
       name: t('countries.singapore.name'),
       realm: t('countries.singapore.realm'),
       story: t('countries.singapore.story'),
-      image: 'assets/media/images/backgrounds/sing.png',
+      image: 'assets/media/images/backgrounds/Singapore.png',
     },
     {
       id: 'myanmar',
@@ -69,7 +69,7 @@ export function getCountries() {
       name: t('countries.myanmar.name'),
       realm: t('countries.myanmar.realm'),
       story: t('countries.myanmar.story'),
-      image: 'assets/media/images/backgrounds/myanmar.png',
+      image: 'assets/media/images/backgrounds/Myanmar.png',
     },
     {
       id: 'laos',
@@ -77,7 +77,7 @@ export function getCountries() {
       name: t('countries.laos.name'),
       realm: t('countries.laos.realm'),
       story: t('countries.laos.story'),
-      image: 'assets/media/images/backgrounds/lao.png',
+      image: 'assets/media/images/backgrounds/Laooo.png',
     },
     {
       id: 'brunei',
@@ -85,7 +85,7 @@ export function getCountries() {
       name: t('countries.brunei.name'),
       realm: t('countries.brunei.realm'),
       story: t('countries.brunei.story'),
-      image: 'assets/media/images/backgrounds/brunei.png',
+      image: 'assets/media/images/backgrounds/Brunei.png',
     },
     {
       id: 'timor-leste',
@@ -93,7 +93,7 @@ export function getCountries() {
       name: t('countries.timorLeste.name'),
       realm: t('countries.timorLeste.realm'),
       story: t('countries.timorLeste.story'),
-      image: 'assets/media/images/backgrounds/dongtimor.png',
+      image: 'assets/media/images/backgrounds/Timor Leste.png',
     },
   ];
 }
