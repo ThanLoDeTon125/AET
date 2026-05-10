@@ -9,27 +9,25 @@ import { t, getLocale, setLocale, SUPPORTED_LOCALES } from '../i18n/i18n.js';
 /* Desktop nav — all 5 major sections */
 const DESKTOP_LINKS = [
   { key: 'nav.platform', target: 'solution-section', activeFor: ['solution-section'] },
-  { key: 'nav.pillars',  target: 'slider-section',   activeFor: ['slider-section'] },
-  { key: 'nav.features',  target: 'features-section', activeFor: ['features-section'] },
-  { key: 'nav.atlas',    target: 'world-section',    activeFor: ['world-section'] },
-  { key: 'nav.partner',  target: 'site-footer',      activeFor: ['site-footer'] },
+  { key: 'nav.pillars', target: 'slider-section', activeFor: ['slider-section'] },
+  { key: 'nav.features', target: 'features-section', activeFor: ['features-section'] },
+  { key: 'nav.atlas', target: 'world-section', activeFor: ['world-section'] },
 ];
 
 /* Mobile nav — Updated to 5 sections */
 const MOBILE_LINKS = [
-  { index: '01', key: 'journeyNav.intro',    target: 'hero-section' },
-  { index: '02', key: 'nav.platform',        target: 'solution-section' },
-  { index: '03', key: 'journeyNav.pillars',  target: 'slider-section' },
-  { index: '04', key: 'nav.features',         target: 'features-section' },
-  { index: '05', key: 'journeyNav.atlas',    target: 'world-section' },
-  { index: '06', key: 'nav.partner',         target: 'site-footer' },
+  { index: '01', key: 'journeyNav.intro', target: 'hero-section' },
+  { index: '02', key: 'nav.platform', target: 'solution-section' },
+  { index: '03', key: 'journeyNav.pillars', target: 'slider-section' },
+  { index: '04', key: 'nav.features', target: 'features-section' },
+  { index: '05', key: 'journeyNav.atlas', target: 'world-section' },
 ];
 
 /* ── Lang Switcher HTML ───────────────────────────────────── */
 function buildLangSwitcher() {
   const current = SUPPORTED_LOCALES.find((l) => l.code === getLocale()) || SUPPORTED_LOCALES[0];
   const globalOpts = SUPPORTED_LOCALES.filter((l) => l.group === 'global').map(optHTML).join('');
-  const aseanOpts  = SUPPORTED_LOCALES.filter((l) => l.group === 'asean').map(optHTML).join('');
+  const aseanOpts = SUPPORTED_LOCALES.filter((l) => l.group === 'asean').map(optHTML).join('');
 
   return `
     <div class="lang-switcher" id="lang-switcher" role="listbox" aria-label="${t('nav.changeLanguage')}">
@@ -104,7 +102,6 @@ export function Navbar(container) {
         <div class="navbar__auth">
           ${buildLangSwitcher()}
           <button class="btn-login"  type="button" data-target="solution-section" aria-label="${t('nav.readManifesto')}">${t('nav.manifesto')}</button>
-          <button class="btn-signin" type="button" data-target="site-footer"  aria-label="${t('nav.partnerWithUs')}">${t('nav.partner')}</button>
         </div>
 
         <button class="navbar__menu-btn" type="button" aria-expanded="false"
@@ -124,7 +121,6 @@ export function Navbar(container) {
         </nav>
         <div class="navbar__mobile-actions">
           <button class="navbar__mobile-action navbar__mobile-action--ghost" type="button" data-target="solution-section">${t('nav.manifesto')}</button>
-          <button class="navbar__mobile-action navbar__mobile-action--solid" type="button" data-target="site-footer">${t('nav.partner')}</button>
         </div>
       </div>
     </div>
@@ -136,12 +132,12 @@ export function Navbar(container) {
 /* ── Lang switcher interaction ─────────────────────────── */
 function _initLangSwitcher(container) {
   const wrapper = container.querySelector('#lang-switcher');
-  const toggle  = container.querySelector('#lang-switcher-toggle');
-  const menu    = container.querySelector('#lang-switcher-menu');
+  const toggle = container.querySelector('#lang-switcher-toggle');
+  const menu = container.querySelector('#lang-switcher-menu');
   if (!wrapper || !toggle || !menu) return;
 
-  const open  = () => { menu.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true');  wrapper.classList.add('is-open'); };
-  const close = () => { menu.setAttribute('aria-hidden','true');  toggle.setAttribute('aria-expanded','false'); wrapper.classList.remove('is-open'); };
+  const open = () => { menu.setAttribute('aria-hidden', 'false'); toggle.setAttribute('aria-expanded', 'true'); wrapper.classList.add('is-open'); };
+  const close = () => { menu.setAttribute('aria-hidden', 'true'); toggle.setAttribute('aria-expanded', 'false'); wrapper.classList.remove('is-open'); };
 
   toggle.addEventListener('click', (e) => { e.stopPropagation(); wrapper.classList.contains('is-open') ? close() : open(); });
   menu.addEventListener('click', async (e) => {
@@ -170,10 +166,10 @@ export function updateNavbarLocale(container) {
   const eyebrow = container.querySelector('.navbar__mobile-eyebrow');
   if (eyebrow) eyebrow.textContent = t('nav.journeyMap');
 
-  const btnLogin  = container.querySelector('.btn-login');
+  const btnLogin = container.querySelector('.btn-login');
   const btnSignin = container.querySelector('.btn-signin');
-  if (btnLogin)  { btnLogin.textContent  = t('nav.manifesto'); btnLogin.setAttribute('aria-label',  t('nav.readManifesto')); }
-  if (btnSignin) { btnSignin.textContent = t('nav.partner');   btnSignin.setAttribute('aria-label', t('nav.partnerWithUs')); }
+  if (btnLogin) { btnLogin.textContent = t('nav.manifesto'); btnLogin.setAttribute('aria-label', t('nav.readManifesto')); }
+  if (btnSignin) { btnSignin.textContent = t('nav.partner'); btnSignin.setAttribute('aria-label', t('nav.partnerWithUs')); }
 
   const mobileGhost = container.querySelector('.navbar__mobile-action--ghost');
   const mobileSolid = container.querySelector('.navbar__mobile-action--solid');
