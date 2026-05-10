@@ -93,7 +93,7 @@ const ar = {
   solution: {
     kicker: 'وصف الحل',
     heading: 'ما هو <em>AETERNA؟</em>',
-    bodyP1: 'Aeterna هو <strong class="sol-hl sol-hl--gold">نظام بيئي لألعاب Gacha</strong> يستخدم <strong class="sol-hl sol-hl--gold">الذكاء الاصطناعي (AI)</strong> الرائد لخلود <strong class="sol-hl sol-hl--teal">التراث الثقافي</strong> و<strong class="sol-hl sol-hl--gold">التاريخي</strong> لـ<strong class="sol-hl sol-hl--teal">دول جنوب شرق آسيا</strong> عبر RPG ونموذج O2O.',
+    bodyP1: 'أيتيرنا (Aeterna) هي منصة ألعاب تقمص أدوار للتراث الرقمي من فئة AAA تستخدم الذكاء الاصطناعي السردي لتخليد روح الآسيان. نحن نتجاوز الألعاب التقليدية من خلال دمج آليات اللعب العادل مع اقتصاد O2O المستدام.',
     coreValue: '<span class="sol-hl sol-hl--teal">القيمة الجوهرية:</span> تكريم <strong class="sol-hl sol-hl--gold">التراث</strong> عبر <strong class="sol-hl sol-hl--teal">تكنولوجيا متمحورة حول الإنسان</strong> لتعزيز <strong class="sol-hl sol-hl--gold">الرخاء المشترك</strong> و<strong class="sol-hl sol-hl--gold">ترفيه هادف.</strong>',
     formulaVerb1: 'استخدم',
     formulaNoun1: 'التكنولوجيا',

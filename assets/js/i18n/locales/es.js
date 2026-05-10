@@ -93,7 +93,7 @@ const es = {
   solution: {
     kicker: 'Descripción de la Solución',
     heading: '¿Qué es <em>AETERNA?</em>',
-    bodyP1: 'Aeterna es un <strong class="sol-hl sol-hl--gold">ecosistema de juego Gacha</strong> que utiliza una revolucionaria <strong class="sol-hl sol-hl--gold">inteligencia artificial (IA)</strong> para inmortalizar el <strong class="sol-hl sol-hl--teal">patrimonio cultural</strong> e <strong class="sol-hl sol-hl--gold">histórico</strong> de las <strong class="sol-hl sol-hl--teal">naciones del Sudeste Asiático</strong> mediante un RPG de mundo abierto y un prometedor modelo económico O2O.',
+    bodyP1: 'Aeterna es una plataforma RPG de patrimonio digital AAA que utiliza IA narrativa para inmortalizar el alma de la ASEAN. Trascendemos los juegos tradicionales fusionando mecánicas RPG de juego limpio con una economía O2O sostenible.',
     coreValue: '<span class="sol-hl sol-hl--teal">VALOR CLAVE:</span> Honrar el <strong class="sol-hl sol-hl--gold">patrimonio</strong> a través de la <strong class="sol-hl sol-hl--teal">tecnología centrada en el ser humano</strong> para fomentar la <strong class="sol-hl sol-hl--gold">prosperidad compartida</strong> y el <strong class="sol-hl sol-hl--gold">entretenimiento con propósito.</strong>',
     formulaVerb1: 'USAR',
     formulaNoun1: 'Tecnología',

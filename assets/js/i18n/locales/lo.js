@@ -93,7 +93,7 @@ const lo = {
   solution: {
     kicker: 'ຄຳອທິບາຍແນວທາງ',
     heading: '<em>AETERNA</em> ມັນແມ່ນຫຍັງ?',
-    bodyP1: 'Aeterna ມັນເປັນ<strong class="sol-hl sol-hl--gold">ລະບົບນິເວດເກມ Gacha</strong> ທີ່ໃຊ້<strong class="sol-hl sol-hl--gold">ປັຍຍາປະດິດ (AI)</strong> ເພື່ອຜື້ນຟູມົລະດົກ<strong class="sol-hl sol-hl--teal">ວັດທະນະທຳ</strong> ແລະ<strong class="sol-hl sol-hl--gold">ປະຫວັດສາດ</strong> ຂອງ<strong class="sol-hl sol-hl--teal">ປະເທດ ASEAN</strong>.',
+    bodyP1: 'Aeterna ແມ່ນແພລດຟອມ RPG ມໍລະດົກດິຈິຕອລລະດັບ AAA ທີ່ໃຊ້ AI ການເລົ່າເລື່ອງເພື່ອເຮັດໃຫ້ຈິດວິນຍານຂອງອາຊຽນເປັນອະມະຕະ. ພວກເຮົາກ້າວຂ້າມເກມແບບດັ້ງເດີມໂດຍການລວມກົນໄກ RPG ທີ່ຍຸດຕິທຳເຂົ້າກັບເສດຖະກິດ O2O ທີ່ຍືນຍົງ.',
     coreValue: '<span class="sol-hl sol-hl--teal">ຄຸນຄ່າຫລັກ:</span> ໃຫ້ເກີດຕິກັນ<strong class="sol-hl sol-hl--gold">ມົລະດົກ</strong> ຜ່ານ<strong class="sol-hl sol-hl--teal">ເທກໂນໂລຍີ</strong> ເພື່ອ<strong class="sol-hl sol-hl--gold">ຄວາມເຈຣິຍຮຸ່ງຮ່ວມກັນ</strong>.',
     formulaVerb1: 'ໃຊ້',
     formulaNoun1: 'ເທກໂນໂລຍີ',

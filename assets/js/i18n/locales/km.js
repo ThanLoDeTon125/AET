@@ -93,7 +93,7 @@ const km = {
   solution: {
     kicker: 'ការពិពណ្ណនអ្វីការតកក្រមដ័លស័កម័ល',
     heading: '<em>AETERNA</em> គឺជាគ៝?',
-    bodyP1: 'Aeterna ជា<strong class="sol-hl sol-hl--gold">សកត្តិជនការលើងឡីគ្រើ Gacha</strong> ដើលប្រើសប័ញ<strong class="sol-hl sol-hl--gold">ប័ញញាតិត្រការប័ញញា (AI)</strong> ដើម្ទុនកើរ័ត្ណន័លវប្បធម្មដ័ល<strong class="sol-hl sol-hl--teal">ប័ឥពហសថាន ASEAN</strong>.',
+    bodyP1: 'Aeterna គឺជាវេទិកាហ្គេម RPG បេតិកភណ្ឌឌីជីថលកម្រិត AAA ដែលប្រើប្រាស់ AI និទានកថាដើម្បីធ្វើឱ្យព្រលឹងនៃអាស៊ានអមតៈ។ យើងផ្លាស់ប្តូរហ្គេមប្រពៃណីដោយការបញ្ចូលគ្នានូវយន្តការ RPG លេងដោយយុត្តិធម៌ជាមួយនឹងសេដ្ឋកិច្ច O2O ប្រកបដោយនិរន្តរភាព។',
     coreValue: '<span class="sol-hl sol-hl--teal">តម្ល័ប់ស្នួម:</span> តករឌត្ល<strong class="sol-hl sol-hl--gold">កើរ័ត្ណន័ល</strong> តាមរយ:កត្តិកាលកែសងស្កមលក្ឞនា័ ដើបញ័ឈ កើរញេរិញស្តិបភាពដែហួរគ្នាម្ណកម្មទដឹលតាមថ្ញឃ.',
     formulaVerb1: 'ប្រើប្រាស់',
     formulaNoun1: 'កត្តិកាល',

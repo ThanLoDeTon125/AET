@@ -93,7 +93,7 @@ const ko = {
   solution: {
     kicker: '솔루션 설명',
     heading: '<em>AETERNA</em>는 무엇인가요?',
-    bodyP1: 'Aeterna는 혁신적인 <strong class="sol-hl sol-hl--gold">인공지능 (AI)</strong>을 활용하여 <strong class="sol-hl sol-hl--teal">동남아시아 국가들</strong>의 <strong class="sol-hl sol-hl--teal">문화</strong>와 <strong class="sol-hl sol-hl--gold">역사적 유산</strong>을 영원히 보존하는 <strong class="sol-hl sol-hl--gold">Gacha 게임 에코시스템</strong>입니다.',
+    bodyP1: 'Aeterna는 내러티브 AI를 활용하여 아세안의 영혼을 불멸하게 만드는 AAA 디지털 헤리티지 RPG 플랫폼입니다. 우리는 공정한 플레이의 RPG 메커니즘과 지속 가능한 O2O 경제를 융합하여 전통적인 게임을 초월합니다.',
     coreValue: '<span class="sol-hl sol-hl--teal">핵심 가치:</span> <strong class="sol-hl sol-hl--teal">인간 중심 기술</strong>로 <strong class="sol-hl sol-hl--gold">유산</strong>을 존중하여 <strong class="sol-hl sol-hl--gold">공유 번영</strong>과 <strong class="sol-hl sol-hl--gold">의미 있는 오라</strong>을 추구합니다.',
     formulaVerb1: '활용',
     formulaNoun1: '기술',

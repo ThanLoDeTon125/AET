@@ -102,7 +102,7 @@ const vi = {
   solution: {
     kicker: 'Mô Tả Giải Pháp',
     heading: '<em>AETERNA</em> là gì?',
-    bodyP1: 'Aeterna là một <strong class="sol-hl sol-hl--gold">hệ sinh thái game Gacha</strong> sử dụng <strong class="sol-hl sol-hl--gold">trí tuệ nhân tạo (AI)</strong> tiên tiến để bất tử hóa <strong class="sol-hl sol-hl--teal">di sản văn hóa</strong> và <strong class="sol-hl sol-hl--gold">lịch sử</strong> của <strong class="sol-hl sol-hl--teal">các quốc gia Đông Nam Á</strong> qua trải nghiệm nhập vai thế giới mở <strong class="sol-hl sol-hl--gold">(RPG)</strong> kết hợp mô hình kinh tế O2O đầy hứa hẹn.',
+    bodyP1: 'Aeterna là nền tảng RPG Di sản Số AAA sử dụng AI Tự sự để bất tử hóa linh hồn của ASEAN. Chúng tôi vượt ra ngoài giới hạn của game truyền thống bằng cách kết hợp cơ chế RPG Công bằng với Nền kinh tế O2O Bền vững.',
     coreValue: '<span class="sol-hl sol-hl--teal">GIÁ TRỊ CỐT LÕI:</span> Tôn vinh <strong class="sol-hl sol-hl--gold">di sản</strong> qua <strong class="sol-hl sol-hl--teal">công nghệ lấy con người làm trung tâm</strong> để thúc đẩy <strong class="sol-hl sol-hl--gold">thịnh vượng chung</strong> và <strong class="sol-hl sol-hl--gold">giải trí có mục đích.</strong>',
     formulaVerb1: 'DÙNG',
     formulaNoun1: 'Công Nghệ',

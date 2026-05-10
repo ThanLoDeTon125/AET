@@ -93,7 +93,7 @@ const ms = {
   solution: {
     kicker: 'Penerangan Penyelesaian',
     heading: 'Apakah itu <em>AETERNA?</em>',
-    bodyP1: 'Aeterna ialah <strong class="sol-hl sol-hl--gold">ekosistem permainan Gacha</strong> yang menggunakan <strong class="sol-hl sol-hl--gold">kecerdasan buatan (AI)</strong> terkini untuk mengabadikan <strong class="sol-hl sol-hl--teal">warisan budaya</strong> dan <strong class="sol-hl sol-hl--gold">sejarah</strong> <strong class="sol-hl sol-hl--teal">negara-negara Asia Tenggara</strong> menerusi RPG dunia terbuka dan model ekonomi O2O.',
+    bodyP1: 'Aeterna ialah Platform RPG Warisan Digital AAA yang menggunakan AI Naratif untuk mengabadikan jiwa ASEAN. Kami mengatasi permainan tradisional dengan menggabungkan mekanik RPG yang adil dengan Ekonomi O2O yang mampan.',
     coreValue: '<span class="sol-hl sol-hl--teal">NILAI TERAS:</span> Menghormati <strong class="sol-hl sol-hl--gold">warisan</strong> melalui <strong class="sol-hl sol-hl--teal">teknologi berpusatkan manusia</strong> untuk mendorong <strong class="sol-hl sol-hl--gold">kemakmuran bersama</strong> dan <strong class="sol-hl sol-hl--gold">hiburan bermakna.</strong>',
     formulaVerb1: 'GUNA',
     formulaNoun1: 'Teknologi',

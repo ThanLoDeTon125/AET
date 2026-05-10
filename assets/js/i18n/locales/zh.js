@@ -158,7 +158,7 @@ const zh = {
   solution: {
     kicker: '解决方案描述',
     heading: '<em>AETERNA</em> 是什么？',
-    bodyP1: 'Aeterna 是一个<strong class="sol-hl sol-hl--gold">Gacha游戏生态系统</strong>，利用革命性的<strong class="sol-hl sol-hl--gold">人工智能 (AI)</strong>将<strong class="sol-hl sol-hl--teal">东南亚各国</strong>的<strong class="sol-hl sol-hl--teal">文化</strong>与<strong class="sol-hl sol-hl--gold">历史遗产</strong>永久保存，展现为开放世界<strong class="sol-hl sol-hl--gold">RPG</strong>与 O2O 经济模型。',
+    bodyP1: 'Aeterna 是一个 3A 级数字遗产 RPG 平台，利用叙事 AI 使东盟的灵魂不朽。我们通过将公平竞技的 RPG 机制与可持续的 O2O 经济相结合，超越了传统游戏。',
     coreValue: '<span class="sol-hl sol-hl--teal">核心价值：</span>通过<strong class="sol-hl sol-hl--teal">以人为本的技术</strong>弘扬<strong class="sol-hl sol-hl--gold">遗产</strong>，促进<strong class="sol-hl sol-hl--gold">共同繁荣</strong>和<strong class="sol-hl sol-hl--gold">有意义的娱乐。</strong>',
     formulaVerb1: '使用',
     formulaNoun1: '技术',

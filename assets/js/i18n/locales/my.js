@@ -93,7 +93,7 @@ const my = {
   solution: {
     kicker: 'အဢးနည်မြု မိတ်ဆက်',
     heading: '<em>AETERNA</em> ဆိုဇဆြင်းဓည့်?',
-    bodyP1: 'Aeterna သည်<strong class="sol-hl sol-hl--gold">Gacha ဂိမ် နိလးယန်စန်</strong> ဖြစ်ሀအသဆ်ရောက်မြု<strong class="sol-hl sol-hl--gold">အမြေအနှစ်</strong>ကို<strong class="sol-hl sol-hl--teal">ASEAN နိုင်ငံများ</strong>မှ သာအားအနှစ်သောယောအားတကိုအပိုင်းသို့သည့် RPGသည့် O2O စန်“မည်သဆ်မြုမြု”.',
+    bodyP1: 'Aeterna သည် အာဆီယံ၏ ဝိညာဉ်ကို ထာဝရတည်တံ့စေရန် Narrative AI ကို အသုံးပြုထားသော AAA Digital Heritage RPG Platform တစ်ခုဖြစ်သည်။ တရားမျှတသော RPG စနစ်များနှင့် ရေရှည်တည်တံ့သော O2O စီးပွားရေးကို ပေါင်းစပ်ခြင်းဖြင့် ရိုးရာဂိမ်းများကို ကျော်လွန်သွားပါသည်။',
     coreValue: '<span class="sol-hl sol-hl--teal">အဖြာခြန်ခြကွတ်ရား:</span> <strong class="sol-hl sol-hl--gold">အမြေအနှစ်</strong>ကို<strong class="sol-hl sol-hl--teal">မနုစ်အခ်မြုပလက်ဖောင်း</strong>ᅑသို့ <strong class="sol-hl sol-hl--gold">အမြသိုတ်ရောက်မြု</strong>အခ်သည့် <strong class="sol-hl sol-hl--gold">ရည်သောယော အပန်ခ်မြုကို</strong>နန်ဆုပမ်.',
     formulaVerb1: 'ခ်ပိုစ်',
     formulaNoun1: 'ပလက်ဖောင်းအသဆ်မြု',
