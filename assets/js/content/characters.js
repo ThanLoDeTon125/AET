@@ -30,7 +30,7 @@ export function getHeroLanding() {
       { value: t('heroLanding.metric2Value'), label: t('heroLanding.metric2Label') },
       { value: t('heroLanding.metric3Value'), label: t('heroLanding.metric3Label') },
     ],
-    bgImage: 'assets/media/images/backgrounds/Backgroud slides.png',
+    bgImage: 'assets/media/images/backgrounds/bg.png',
     detailArt: 'assets/media/images/backgrounds/main.png',
     frameImage: ASSETS.frameNahida,
     detailSections: [
