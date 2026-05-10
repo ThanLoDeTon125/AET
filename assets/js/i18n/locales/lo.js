@@ -1,17 +1,16 @@
-﻿/** lo.js — ພາສາລາວ (Lao) */
+/** lo.js — ພາສາລາວ (Lao) */
 const lo = {
   preloader: { initialising: 'ກຳລັງເລີ່ມຕົ້ນໂລກ…', loading: 'ກຳລັງໂຫລດ… {{pct}}%', entering: 'ກຳລັງເຂົ້າສູ່ໂລກ…' },
   nav: {
     logoSub: 'ASEAN Heritage RPG',
     platform: 'ເວທີ',
+    features: 'ຄຸນສົມບັດ',
     atlas: 'ແຜນທີ່',
-    impact: 'ຜົນກະທົບ',
     manifesto: 'ຄຳປະກາດ',
     partner: 'ຄູ່ຮ່ວມງານ',
     journeyMap: 'ແຜນທີ່ການເດີນທາງ',
     intro: 'ແນະນຳ',
     pillars: 'ເສົາ',
-    living: 'ມີຊີວິດ',
     openNav: 'ເປີດການນຳທາງ',
     closeNav: 'ປິດການນຳທາງ',
     goToIntro: 'ໄປທີ່ການແນະນຳ',
@@ -20,7 +19,7 @@ const lo = {
     language: 'ພາສາ',
     changeLanguage: 'ປ່ຽນພາສາ',
   },
-  journeyNav: { ariaIntro: 'ໄປສ່ວນແນະນຳ', ariaVision: 'ໄປສ່ວນແນວທາງ', ariaPillars: 'ໄປສ່ວນເສົາ', ariaLiving: 'ໄປສ່ວນມໍລະດົກ', ariaAtlas: 'ໄປສ່ວນແຜນທີ່', ariaImpact: 'ໄປສ່ວນຜົນກະທົບ', intro: 'ແນະນຳ', vision: 'ເວທີ', pillars: 'ເສົາ', living: 'ມີຊີວິດ', atlas: 'ແຜນທີ່', impact: 'ຜົນກະທົບ' },
+  journeyNav: { ariaIntro: 'ໄປສ່ວນແນະນຳ', ariaVision: 'ໄປສ່ວນແນວທາງ', ariaPillars: 'ໄປສ່ວນເສົາ', ariaFeatures: 'ໄປສ່ວນຄຸນສົມບັດ', ariaAtlas: 'ໄປສ່ວນແຜນທີ່', intro: 'ແນະນຳ', vision: 'ເວທີ', pillars: 'ເສົາ', features: 'ຄຸນສົມບັດ', atlas: 'ແຜນທີ່' },
   hero: { kicker: 'ເສົາປະສົບການຫຼັກ', hudLabel: 'ເອກະສານ AETERNA', nextPillar: 'ເສົາຕໍ່ໄປ', backToIntro: 'ກັບໄປການແນະນຳໂຄງການ', projectIntro: 'ແນະນຳໂຄງການ', ariaLabel: 'ເສົາ AETERNA', openPillar: 'ເປີດເສົາ {{name}}' },
   bridge01: { eyebrow: 'ຈາກຄຳປະກາດສູ່ປະສົບການ', text: 'ເວທີໄດ້ກາຍເປັນເສົາທີ່ສາມາດຫຼິ້ນໄດ້ 5 ເສົາທີ່ກຳນົດວິທີການຮຽນ ຮູ້ສຶກ ແລະ ດຳລົງຊີວິດ AETERNA.', aria: 'ການປ່ຽນຜ່ານຈາກການແນະນຳສູ່ເສົາ' },
   bridge02: { eyebrow: 'ຈາກເສົາສູ່ໂລກ', text: 'ສິ່ງທີ່ເລີ່ມຕົ້ນເປັນການອອກແບບລະບົບໄດ້ກາຍເປັນໂລກມໍລະດົກທີ່ມີຊີວິດທີ່ຜູ້ຫຼິ້ນສາມາດຜ່ານ ມີອິດທິພົນ ແລະ ຈຳໄດ້.', aria: 'ການປ່ຽນຜ່ານຈາກເສົາສູ່ມໍລະດົກ' },
@@ -59,8 +58,7 @@ const lo = {
     replayIntro: 'ຫຼິ້ນຄືນການແນະນຳ',
     enterAtlas: 'ເຂົ້າແຜນທີ່',
     navPillars: 'ເສົາ',
-    navHeritage: 'ມໍລະດົກ',
-    navImpact: 'ຜົນກະທົບ',
+    navFeatures: 'ຄຸນສົມບັດ',
     navAtlas: 'ແຜນທີ່',
     scrollTop: '↑ ດ້ານເທິງ',
     ariaFooter: 'ຕອນຈົບ AETERNA',

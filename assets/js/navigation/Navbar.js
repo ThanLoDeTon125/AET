@@ -10,19 +10,19 @@ import { t, getLocale, setLocale, SUPPORTED_LOCALES } from '../i18n/i18n.js';
 const DESKTOP_LINKS = [
   { key: 'nav.platform', target: 'solution-section', activeFor: ['solution-section'] },
   { key: 'nav.pillars',  target: 'slider-section',   activeFor: ['slider-section'] },
-  { key: 'nav.living',   target: 'video-section',    activeFor: ['video-section'] },
+  { key: 'nav.features',  target: 'features-section', activeFor: ['features-section'] },
   { key: 'nav.atlas',    target: 'world-section',    activeFor: ['world-section'] },
-  { key: 'nav.impact',   target: 'video-section-2',  activeFor: ['video-section-2'] },
+  { key: 'nav.partner',  target: 'site-footer',      activeFor: ['site-footer'] },
 ];
 
-/* Mobile nav — AET has 6 sections */
+/* Mobile nav — Updated to 5 sections */
 const MOBILE_LINKS = [
   { index: '01', key: 'journeyNav.intro',    target: 'hero-section' },
   { index: '02', key: 'nav.platform',        target: 'solution-section' },
   { index: '03', key: 'journeyNav.pillars',  target: 'slider-section' },
-  { index: '04', key: 'journeyNav.living',   target: 'video-section' },
+  { index: '04', key: 'nav.features',         target: 'features-section' },
   { index: '05', key: 'journeyNav.atlas',    target: 'world-section' },
-  { index: '06', key: 'journeyNav.impact',   target: 'video-section-2' },
+  { index: '06', key: 'nav.partner',         target: 'site-footer' },
 ];
 
 /* ── Lang Switcher HTML ───────────────────────────────────── */
@@ -81,7 +81,7 @@ export function Navbar(container) {
       data-target="${link.target}"
       data-i18n-key="${link.key}">
       <span class="navbar__mobile-index">${link.index}</span>
-      <span class="navbar__mobile-text">${t(link.key)}</span>
+      <span class="navbar__mobile-link-text">${t(link.key)}</span>
     </button>`).join('');
 
   container.innerHTML = `
@@ -104,7 +104,7 @@ export function Navbar(container) {
         <div class="navbar__auth">
           ${buildLangSwitcher()}
           <button class="btn-login"  type="button" data-target="solution-section" aria-label="${t('nav.readManifesto')}">${t('nav.manifesto')}</button>
-          <button class="btn-signin" type="button" data-target="video-section-2"  aria-label="${t('nav.partnerWithUs')}">${t('nav.partner')}</button>
+          <button class="btn-signin" type="button" data-target="site-footer"  aria-label="${t('nav.partnerWithUs')}">${t('nav.partner')}</button>
         </div>
 
         <button class="navbar__menu-btn" type="button" aria-expanded="false"
@@ -124,7 +124,7 @@ export function Navbar(container) {
         </nav>
         <div class="navbar__mobile-actions">
           <button class="navbar__mobile-action navbar__mobile-action--ghost" type="button" data-target="solution-section">${t('nav.manifesto')}</button>
-          <button class="navbar__mobile-action navbar__mobile-action--solid" type="button" data-target="video-section-2">${t('nav.partner')}</button>
+          <button class="navbar__mobile-action navbar__mobile-action--solid" type="button" data-target="site-footer">${t('nav.partner')}</button>
         </div>
       </div>
     </div>

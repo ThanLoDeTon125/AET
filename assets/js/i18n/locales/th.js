@@ -1,17 +1,16 @@
-﻿/** th.js — ภาษาไทย */
+/** th.js — ภาษาไทย */
 const th = {
   preloader: { initialising: 'กำลังเริ่มต้นโลก…', loading: 'กำลังโหลด… {{pct}}%', entering: 'กำลังเข้าสู่โลก…' },
   nav: {
     logoSub: 'ASEAN Heritage RPG',
     platform: 'แพลตฟอร์ม',
+    features: 'ฟีเจอร์',
     atlas: 'แผนที่',
-    impact: 'ผลกระทบ',
     manifesto: 'แถลงการณ์',
     partner: 'พันธมิตร',
     journeyMap: 'แผนที่การเดินทาง',
     intro: 'แนะนำ',
     pillars: 'เสาหลัก',
-    living: 'มีชีวิต',
     openNav: 'เปิดการนำทาง',
     closeNav: 'ปิดการนำทาง',
     goToIntro: 'ไปที่บทนำ',
@@ -20,7 +19,7 @@ const th = {
     language: 'ภาษา',
     changeLanguage: 'เปลี่ยนภาษา',
   },
-  journeyNav: { ariaIntro: 'ไปที่ส่วนแนะนำ', ariaVision: 'ไปที่ส่วนอธิบายแนวทาง', ariaPillars: 'ไปที่ส่วนเสาหลัก', ariaLiving: 'ไปที่ส่วนมรดกมีชีวิต', ariaAtlas: 'ไปที่ส่วนแผนที่', ariaImpact: 'ไปที่ส่วนผลกระทบ', intro: 'แนะนำ', vision: 'แพลตฟอร์ม', pillars: 'เสาหลัก', living: 'มีชีวิต', atlas: 'แผนที่', impact: 'ผลกระทบ' },
+  journeyNav: { ariaIntro: 'ไปที่ส่วนแนะนำ', ariaVision: 'ไปที่ส่วนอธิบายแนวทาง', ariaPillars: 'ไปที่ส่วนเสาหลัก', ariaFeatures: 'ไปที่ส่วนฟีเจอร์', ariaAtlas: 'ไปที่ส่วนแผนที่', intro: 'แนะนำ', vision: 'แพลตฟอร์ม', pillars: 'เสาหลัก', features: 'ฟีเจอร์', atlas: 'แผนที่' },
   hero: { kicker: 'เสาหลักแห่งประสบการณ์', hudLabel: 'แฟ้ม AETERNA', nextPillar: 'เสาหลักถัดไป', backToIntro: 'กลับไปที่บทนำโครงการ', projectIntro: 'บทนำโครงการ', ariaLabel: 'เสาหลัก AETERNA', openPillar: 'เปิดเสาหลัก {{name}}' },
   bridge01: { eyebrow: 'จากแถลงการณ์สู่ประสบการณ์', text: 'แพลตฟอร์มประกอบด้วยเสาหลักที่เล่นได้ห้าประการ ซึ่งกำหนดวิธีที่ AETERNA ถูกเรียนรู้ รู้สึก และดำเนินชีวิต', aria: 'การเปลี่ยนผ่านจากบทนำสู่เสาหลัก' },
   bridge02: { eyebrow: 'จากเสาหลักสู่โลก', text: 'สิ่งที่เริ่มต้นเป็นการออกแบบระบบกลายเป็นโลกมรดกมีชีวิตที่ผู้เล่นสามารถเคลื่อนที่ มีอิทธิพล และจดจำได้', aria: 'การเปลี่ยนผ่านจากเสาหลักสู่มรดกมีชีวิต' },
@@ -59,8 +58,7 @@ const th = {
     replayIntro: 'เล่นบทนำอีกครั้ง',
     enterAtlas: 'เข้าสู่แผนที่',
     navPillars: 'เสาหลัก',
-    navHeritage: 'มรดก',
-    navImpact: 'ผลกระทบ',
+    navFeatures: 'คุณสมบัติ',
     navAtlas: 'แผนที่',
     scrollTop: '↑ ด้านบน',
     ariaFooter: 'บทสุดท้าย AETERNA',

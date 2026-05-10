@@ -1,17 +1,16 @@
-﻿/** ar.js — العربية (RTL) */
+/** ar.js — العربية (RTL) */
 const ar = {
   preloader: { initialising: 'جارٍ تهيئة العالم…', loading: 'جارٍ التحميل… {{pct}}%', entering: 'الدخول إلى العالم…' },
   nav: {
     logoSub: 'RPG تراث آسيان',
     platform: 'المنصة',
+    features: 'الميزات',
     atlas: 'الأطلس',
-    impact: 'الأثر',
     manifesto: 'البيان',
     partner: 'شريك',
     journeyMap: 'خريطة الرحلة',
     intro: 'مقدمة',
     pillars: 'الركائز',
-    living: 'حيّ',
     openNav: 'فتح التنقل',
     closeNav: 'إغلاق التنقل',
     goToIntro: 'الذهاب إلى المقدمة',
@@ -20,7 +19,7 @@ const ar = {
     language: 'اللغة',
     changeLanguage: 'تغيير اللغة',
   },
-  journeyNav: { ariaIntro: 'الذهاب إلى قسم المقدمة', ariaVision: 'الذهاب إلى قسم الوصف', ariaPillars: 'الذهاب إلى قسم الركائز', ariaLiving: 'الذهاب إلى قسم التراث الحيّ', ariaAtlas: 'الذهاب إلى قسم الأطلس', ariaImpact: 'الذهاب إلى قسم الأثر', intro: 'مقدمة', vision: 'المنصة', pillars: 'الركائز', living: 'حيّ', atlas: 'الأطلس', impact: 'الأثر' },
+  journeyNav: { ariaIntro: 'الذهاب إلى قسم المقدمة', ariaVision: 'الذهاب إلى قسم الوصف', ariaPillars: 'الذهاب إلى قسم الركائز', ariaFeatures: 'الذهاب إلى قسم الميزات', ariaAtlas: 'الذهاب إلى قسم الأطلس', intro: 'مقدمة', vision: 'المنصة', pillars: 'الركائز', features: 'الميزات', atlas: 'الأطلس' },
   hero: { kicker: 'ركيزة التجربة الأساسية', hudLabel: 'ملف AETERNA', nextPillar: 'الركيزة التالية', backToIntro: 'العودة إلى مقدمة المشروع', projectIntro: 'مقدمة المشروع', ariaLabel: 'ركائز AETERNA', openPillar: 'فتح ركيزة {{name}}' },
   bridge01: { eyebrow: 'من البيان إلى التجربة', text: 'تتجسد المنصة في خمس ركائز قابلة للعب تحدد كيف يُتعلَّم AETERNA ويُحسّ ويُعاش.', aria: 'الانتقال من المقدمة إلى الركائز' },
   bridge02: { eyebrow: 'من الركائز إلى العالم', text: 'ما يبدأ كتصميم نظام يتحول إلى عالم تراث حيّ يمكن للاعبين التنقل فيه والتأثير عليه وتذكّره.', aria: 'الانتقال من الركائز إلى التراث الحيّ' },
@@ -59,8 +58,7 @@ const ar = {
     replayIntro: 'إعادة المقدمة',
     enterAtlas: 'دخول الأطلس',
     navPillars: 'الركائز',
-    navHeritage: 'التراث',
-    navImpact: 'الأثر',
+    navFeatures: 'الميزات',
     navAtlas: 'الأطلس',
     scrollTop: '↑ الأعلى',
     ariaFooter: 'خاتمة AETERNA',

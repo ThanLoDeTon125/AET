@@ -1,17 +1,16 @@
-﻿/** id.js — Bahasa Indonesia */
+/** id.js — Bahasa Indonesia */
 const id = {
   preloader: { initialising: 'Menginisialisasi dunia…', loading: 'Memuat… {{pct}}%', entering: 'Memasuki dunia…' },
   nav: {
     logoSub: 'ASEAN Heritage RPG',
     platform: 'Platform',
+    features: 'Fitur',
     atlas: 'Atlas',
-    impact: 'Dampak',
     manifesto: 'Manifesto',
     partner: 'Mitra',
     journeyMap: 'Peta Perjalanan',
     intro: 'Intro',
     pillars: 'Pilar',
-    living: 'Hidup',
     openNav: 'Buka navigasi',
     closeNav: 'Tutup navigasi',
     goToIntro: 'Pergi ke pengantar',
@@ -20,7 +19,7 @@ const id = {
     language: 'Bahasa',
     changeLanguage: 'Ganti bahasa',
   },
-  journeyNav: { ariaIntro: 'Pergi ke bagian pengantar', ariaVision: 'Pergi ke bagian solusi', ariaPillars: 'Pergi ke bagian pilar', ariaLiving: 'Pergi ke bagian warisan hidup', ariaAtlas: 'Pergi ke bagian atlas', ariaImpact: 'Pergi ke bagian dampak', intro: 'Intro', vision: 'Platform', pillars: 'Pilar', living: 'Hidup', atlas: 'Atlas', impact: 'Dampak' },
+  journeyNav: { ariaIntro: 'Pergi ke bagian pengantar', ariaVision: 'Pergi ke bagian solusi', ariaPillars: 'Pergi ke bagian pilar', ariaFeatures: 'Pergi ke bagian fitur', ariaAtlas: 'Pergi ke bagian atlas', intro: 'Intro', vision: 'Platform', pillars: 'Pilar', features: 'Fitur', atlas: 'Atlas' },
   hero: { kicker: 'Pilar pengalaman inti', hudLabel: 'DOSSIER AETERNA', nextPillar: 'Pilar berikutnya', backToIntro: 'Kembali ke pengantar proyek', projectIntro: 'Pengantar Proyek', ariaLabel: 'Pilar AETERNA', openPillar: 'Buka pilar {{name}}' },
   bridge01: { eyebrow: 'dari manifesto ke pengalaman', text: 'Platform ini terwujud menjadi lima pilar yang dapat dimainkan yang mendefinisikan bagaimana AETERNA dipelajari, dirasakan, dan dihidupi.', aria: 'Transisi dari pengantar ke pilar' },
   bridge02: { eyebrow: 'dari pilar ke dunia', text: 'Yang dimulai sebagai desain sistem menjadi dunia warisan hidup tempat pemain dapat bergerak, memengaruhi, dan mengingat.', aria: 'Transisi dari pilar ke warisan hidup' },
@@ -59,8 +58,7 @@ const id = {
     replayIntro: 'Putar ulang pengantar',
     enterAtlas: 'Masuk atlas',
     navPillars: 'Pilar',
-    navHeritage: 'Warisan',
-    navImpact: 'Dampak',
+    navFeatures: 'Fitur',
     navAtlas: 'Atlas',
     scrollTop: '↑ Atas',
     ariaFooter: 'Finale AETERNA',

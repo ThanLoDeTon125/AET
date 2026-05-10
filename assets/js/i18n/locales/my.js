@@ -1,17 +1,16 @@
-﻿/** my.js — မြန်မာဘာသာ (Burmese) — inherits EN for long content, translates UI */
+/** my.js — မြန်မာဘာသာ (Burmese) — inherits EN for long content, translates UI */
 const my = {
   preloader: { initialising: 'ကမ္ဘာကို စတင်နေသည်…', loading: 'တင်နေသည်… {{pct}}%', entering: 'ကမ္ဘာသို့ ဝင်ရောက်နေသည်…' },
   nav: {
     logoSub: 'ASEAN Heritage RPG',
     platform: 'ပလပ်ဖောင်း',
+    features: 'အင်္ဂါရပ်များ',
     atlas: 'မြေပုံစာအုပ်',
-    impact: 'သက်ရောက်မှု',
     manifesto: 'ကြေညာချက်',
     partner: 'မိတ်ဖက်',
     journeyMap: 'ခရီးမြေပုံ',
     intro: 'မိတ်ဆက်',
     pillars: 'စစိုင်',
-    living: 'အသက်ရှင်',
     openNav: 'လမ်းညွှန်ဖွင့်ရန်',
     closeNav: 'လမ်းညွှန်ပိတ်ရန်',
     goToIntro: 'မိတ်ဆက်သို့ သွားရန်',
@@ -20,7 +19,7 @@ const my = {
     language: 'ဘာသာစကား',
     changeLanguage: 'ဘာသာစကားပြောင်းရန်',
   },
-  journeyNav: { ariaIntro: 'မိတ်ဆက်အပိုင်းသို့', ariaVision: 'အဘိဓမ္မာ အပိုင်းသို့', ariaPillars: 'စစိုင်အပိုင်းသို့', ariaLiving: 'အမွေအနှစ်အပိုင်းသို့', ariaAtlas: 'မြေပုံအပိုင်းသို့', ariaImpact: 'သက်ရောက်မှုအပိုင်းသို့', intro: 'မိတ်ဆက်', vision: 'ပလပ်ဖောင်း', pillars: 'စစိုင်', living: 'အသက်ရှင်', atlas: 'မြေပုံ', impact: 'သက်ရောက်မှု' },
+  journeyNav: { ariaIntro: 'မိတ်ဆက်အပိုင်းသို့', ariaVision: 'အဘိဓမ္မာ အပိုင်းသို့', ariaPillars: 'စစိုင်အပိုင်းသို့', ariaFeatures: 'အင်္ဂါရပ်များအပိုင်းသို့', ariaAtlas: 'မြေပုံအပိုင်းသို့', intro: 'မိတ်ဆက်', vision: 'ပလပ်ဖောင်း', pillars: 'စစိုင်', features: 'အင်္ဂါရပ်များ', atlas: 'မြေပုံ' },
   hero: { kicker: 'အဓိက အတွေ့အကြုံ စစိုင်', hudLabel: 'AETERNA မှတ်တမ်း', nextPillar: 'နောက် စစိုင်', backToIntro: 'ပရောဂျက် မိတ်ဆက်သို့ ပြန်သွားရန်', projectIntro: 'ပရောဂျက် မိတ်ဆက်', ariaLabel: 'AETERNA စစိုင်များ', openPillar: '{{name}} စစိုင် ဖွင့်ရန်' },
   bridge01: { eyebrow: 'ကြေညာချက်မှ အတွေ့အကြုံသို့', text: 'Platform သည် AETERNA ကို မည်သို့ သင်ယူ၊ ခံစား နှင့် နေထိုင်သည်ကို သတ်မှတ်သည့် ကစားနိုင်သော စစိုင် ငါးခုအဖြစ် ဖြစ်ထွန်းသည်။', aria: 'မိတ်ဆက်မှ စစိုင်သို့ ကူးပြောင်းမှု' },
   bridge02: { eyebrow: 'စစိုင်မှ ကမ္ဘာသို့', text: 'စနစ် ဒီဇိုင်းအဖြစ် စတင်သောအရာသည် ကစားသူများ ဖြတ်သန်း မှတ်မိနိုင်သော အသက်ရှင်သော အမွေအနှစ် ကမ္ဘာတစ်ခုဖြစ်လာသည်။', aria: 'စစိုင်မှ အမွေအနှစ်သို့ ကူးပြောင်းမှု' },
@@ -59,8 +58,7 @@ const my = {
     replayIntro: 'မိတ်ဆက် ပြန်ကြည့်ရန်',
     enterAtlas: 'မြေပုံသို့ ဝင်ရောက်ရန်',
     navPillars: 'စစိုင်',
-    navHeritage: 'အမွေအနှစ်',
-    navImpact: 'သက်ရောက်မှု',
+    navFeatures: 'အင်္ဂါရပ်များ',
     navAtlas: 'မြေပုံ',
     scrollTop: '↑ အပေါ်',
     ariaFooter: 'AETERNA နိဂုံး',

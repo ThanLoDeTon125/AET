@@ -1,17 +1,16 @@
-﻿/** ms.js — Bahasa Melayu */
+/** ms.js — Bahasa Melayu */
 const ms = {
   preloader: { initialising: 'Memulakan dunia…', loading: 'Memuat… {{pct}}%', entering: 'Memasuki dunia…' },
   nav: {
     logoSub: 'ASEAN Heritage RPG',
     platform: 'Platform',
+    features: 'Ciri-ciri',
     atlas: 'Atlas',
-    impact: 'Impak',
     manifesto: 'Manifesto',
     partner: 'Rakan Kongsi',
     journeyMap: 'Peta Perjalanan',
     intro: 'Intro',
     pillars: 'Tiang',
-    living: 'Hidup',
     openNav: 'Buka navigasi',
     closeNav: 'Tutup navigasi',
     goToIntro: 'Pergi ke pengenalan',
@@ -20,7 +19,7 @@ const ms = {
     language: 'Bahasa',
     changeLanguage: 'Tukar bahasa',
   },
-  journeyNav: { ariaIntro: 'Pergi ke bahagian pengenalan', ariaVision: 'Pergi ke bahagian penyelesaian', ariaPillars: 'Pergi ke bahagian tiang', ariaLiving: 'Pergi ke bahagian warisan hidup', ariaAtlas: 'Pergi ke bahagian atlas', ariaImpact: 'Pergi ke bahagian impak', intro: 'Intro', vision: 'Platform', pillars: 'Tiang', living: 'Hidup', atlas: 'Atlas', impact: 'Impak' },
+  journeyNav: { ariaIntro: 'Pergi ke bahagian pengenalan', ariaVision: 'Pergi ke bahagian penyelesaian', ariaPillars: 'Pergi ke bahagian tiang', ariaFeatures: 'Pergi ke bahagian ciri-ciri', ariaAtlas: 'Pergi ke bahagian atlas', intro: 'Intro', vision: 'Platform', pillars: 'Tiang', features: 'Ciri-ciri', atlas: 'Atlas' },
   hero: { kicker: 'Tiang pengalaman teras', hudLabel: 'DOSIER AETERNA', nextPillar: 'Tiang seterusnya', backToIntro: 'Kembali ke pengenalan projek', projectIntro: 'Pengenalan Projek', ariaLabel: 'Tiang-tiang AETERNA', openPillar: 'Buka tiang {{name}}' },
   bridge01: { eyebrow: 'dari manifesto ke pengalaman', text: 'Platform ini terwujud menjadi lima tiang yang boleh dimainkan yang mentakrifkan bagaimana AETERNA dipelajari, dirasai dan dihayati.', aria: 'Peralihan dari pengenalan ke tiang' },
   bridge02: { eyebrow: 'dari tiang ke dunia', text: 'Apa yang bermula sebagai reka bentuk sistem menjadi dunia warisan hidup yang boleh dilalui, dipengaruhi dan diingati pemain.', aria: 'Peralihan dari tiang ke warisan hidup' },
@@ -59,8 +58,7 @@ const ms = {
     replayIntro: 'Main semula pengenalan',
     enterAtlas: 'Masuk atlas',
     navPillars: 'Tiang',
-    navHeritage: 'Warisan',
-    navImpact: 'Impak',
+    navFeatures: 'Ciri-ciri',
     navAtlas: 'Atlas',
     scrollTop: '↑ Atas',
     ariaFooter: 'Finale AETERNA',

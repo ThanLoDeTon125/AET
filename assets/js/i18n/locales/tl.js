@@ -1,17 +1,16 @@
-﻿/** tl.js — Filipino */
+/** tl.js — Filipino */
 const tl = {
   preloader: { initialising: 'Sinisimulan ang mundo…', loading: 'Naglo-load… {{pct}}%', entering: 'Pumapasok sa mundo…' },
   nav: {
     logoSub: 'ASEAN Heritage RPG',
     platform: 'Platform',
+    features: 'Mga Tampok',
     atlas: 'Atlas',
-    impact: 'Epekto',
     manifesto: 'Manifesto',
     partner: 'Kasosyo',
     journeyMap: 'Mapa ng Paglalakbay',
     intro: 'Panimula',
     pillars: 'Haligi',
-    living: 'Buhay',
     openNav: 'Buksan ang navigation',
     closeNav: 'Isara ang navigation',
     goToIntro: 'Pumunta sa panimula',
@@ -20,7 +19,7 @@ const tl = {
     language: 'Wika',
     changeLanguage: 'Palitan ang wika',
   },
-  journeyNav: { ariaIntro: 'Pumunta sa seksyon ng panimula', ariaVision: 'Pumunta sa seksyon ng solusyon', ariaPillars: 'Pumunta sa seksyon ng haligi', ariaLiving: 'Pumunta sa seksyon ng pamana', ariaAtlas: 'Pumunta sa seksyon ng atlas', ariaImpact: 'Pumunta sa seksyon ng epekto', intro: 'Panimula', vision: 'Platform', pillars: 'Haligi', living: 'Buhay', atlas: 'Atlas', impact: 'Epekto' },
+  journeyNav: { ariaIntro: 'Pumunta sa seksyon ng panimula', ariaVision: 'Pumunta sa seksyon ng solusyon', ariaPillars: 'Pumunta sa seksyon ng haligi', ariaFeatures: 'Pumunta sa seksyon ng mga tampok', ariaAtlas: 'Pumunta sa seksyon ng atlas', intro: 'Panimula', vision: 'Platform', pillars: 'Haligi', features: 'Mga Tampok', atlas: 'Atlas' },
   hero: { kicker: 'Pangunahing haligi ng karanasan', hudLabel: 'DOSYE NG AETERNA', nextPillar: 'Susunod na haligi', backToIntro: 'Bumalik sa panimula ng proyekto', projectIntro: 'Panimula ng Proyekto', ariaLabel: 'Mga haligi ng AETERNA', openPillar: 'Buksan ang haligi ng {{name}}' },
   bridge01: { eyebrow: 'mula sa manifesto patungong karanasan', text: 'Ang platform ay nagbibigay ng limang laruin na haligi na nagtatakda kung paano natututo, nararamdaman, at nabubuhay ang AETERNA.', aria: 'Transisyon mula sa panimula patungong haligi' },
   bridge02: { eyebrow: 'mula sa haligi patungong mundo', text: 'Ang nagsimula bilang disenyo ng sistema ay nagiging isang buhay na mundong pamana kung saan maaaring gumalaw, mag-impluwensya, at maalaala ng mga manlalaro.', aria: 'Transisyon mula sa haligi patungong pamana' },
@@ -59,8 +58,7 @@ const tl = {
     replayIntro: 'I-replay ang panimula',
     enterAtlas: 'Pumasok sa atlas',
     navPillars: 'Haligi',
-    navHeritage: 'Pamana',
-    navImpact: 'Epekto',
+    navFeatures: 'Mga Tampok',
     navAtlas: 'Atlas',
     scrollTop: '↑ Taas',
     ariaFooter: 'Finale ng AETERNA',

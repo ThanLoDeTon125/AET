@@ -61,10 +61,13 @@ window.scrollTo(0, 0);
    ============================================================ */
 function smoothScrollToSection(id) {
   const target = document.getElementById(id);
+
   if (!target) return;
   const headerOffset = window.innerWidth <= 960 ? 92 : 108;
   window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerOffset, behavior: 'smooth' });
 }
+window.smoothScrollToSection = smoothScrollToSection;
+
 
 /* ============================================================
    3. Mount components
@@ -179,6 +182,7 @@ const journeyNavLinks   = Array.from(document.querySelectorAll('.journey-nav__li
     sliderSectionEl,
     featuresSectionEl,
     worldSectionEl,
+    document.getElementById('site-footer'),
   ].filter(Boolean);
 
   function closeMenu() {
