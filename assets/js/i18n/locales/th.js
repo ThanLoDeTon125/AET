@@ -1,4 +1,4 @@
-/** th.js — ภาษาไทย */
+﻿/** th.js — ภาษาไทย */
 const th = {
   preloader: { initialising: 'กำลังเริ่มต้นโลก…', loading: 'กำลังโหลด… {{pct}}%', entering: 'กำลังเข้าสู่โลก…' },
   nav: {
@@ -93,7 +93,7 @@ const th = {
   solution: {
     kicker: 'คำอธิบายแนวทาง',
     heading: '<em>AETERNA</em> คืออะไร?',
-    bodyP1: 'Aeterna คือแพลตฟอร์ม RPG มรดกทางดิจิทัลระดับ AAA ที่ใช้ AI เชิงบรรยายเพื่อทำให้จิตวิญญาณแห่งอาเซียนเป็นอมตะ เราก้าวข้ามเกมแบบดั้งเดิมด้วยการผสานกลไก RPG ที่ยุติธรรมเข้ากับเศรษฐกิจ O2O ที่ยั่งยืน',
+    bodyP1: 'Aeterna คือ<strong class=\"sol-hl sol-hl--gold\">แพลตฟอร์ม RPG มรดกทางดิจิทัลระดับ AAA</strong> ที่ใช้ <strong class=\"sol-hl sol-hl--gold\">AI เชิงบรรยาย</strong>เพื่อทำให้จิตวิญญาณแห่ง<strong class=\"sol-hl sol-hl--gold\">อาเซียน</strong>เป็นอมตะ เราก้าวข้ามเกมแบบดั้งเดิมด้วยการผสาน<strong class=\"sol-hl sol-hl--gold\">กลไก RPG ที่ยุติธรรม</strong>เข้ากับ<strong class=\"sol-hl sol-hl--gold\">เศรษฐกิจ O2O ที่ยั่งยืน</strong>',
     coreValue: '<span class="sol-hl sol-hl--teal">คุณค่าหลัก:</span> ให้เกียรติ<strong class="sol-hl sol-hl--gold">มรดก</strong> ผ่าน<strong class="sol-hl sol-hl--teal">เทคโนโลยีที่ยึดมนุษย์เป็นศูนย์กลาง</strong> เพื่อ<strong class="sol-hl sol-hl--gold">ความเจริญรุ่งร่วมกัน</strong> อย่างมีความหมาย.',
     formulaVerb1: 'ใช้',
     formulaNoun1: 'เทคโนโลยี',

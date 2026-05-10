@@ -80,3 +80,7 @@ Landing page được chia thành 6 phần chính (Sections). Dưới đây là 
 
 > [!TIP]
 > Để dự án đạt hiệu quả thẩm mỹ tốt nhất, hãy đảm bảo tất cả hình ảnh thay thế đều có chất lượng cao (HD/4K) và đồng nhất về phong cách nghệ thuật (Art Style).
+
+
+
+Aeterna is a AAA Digital Heritage RPG Platform that utilizes Narrative AI to immortalize the soul of ASEAN. We transcend traditional gaming by merging Fair-play RPG mechanics with a Sustainable O2O Economy.

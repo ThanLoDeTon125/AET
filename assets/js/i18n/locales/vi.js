@@ -102,7 +102,7 @@ const vi = {
   solution: {
     kicker: 'Mô Tả Giải Pháp',
     heading: '<em>AETERNA</em> là gì?',
-    bodyP1: 'Aeterna là nền tảng RPG Di sản Số AAA sử dụng AI Tự sự để bất tử hóa linh hồn của ASEAN. Chúng tôi vượt ra ngoài giới hạn của game truyền thống bằng cách kết hợp cơ chế RPG Công bằng với Nền kinh tế O2O Bền vững.',
+    bodyP1: 'Aeterna là <strong class="sol-hl sol-hl--gold">nền tảng RPG Di sản Số AAA</strong> sử dụng <strong class="sol-hl sol-hl--gold">AI Tự sự</strong> để bất tử hóa linh hồn của <strong class="sol-hl sol-hl--gold">ASEAN</strong>. Chúng tôi vượt ra ngoài giới hạn của game truyền thống bằng cách kết hợp <strong class="sol-hl sol-hl--gold">cơ chế RPG Công bằng</strong> với <strong class="sol-hl sol-hl--gold">Nền kinh tế O2O Bền vững</strong>.',
     coreValue: '<span class="sol-hl sol-hl--teal">GIÁ TRỊ CỐT LÕI:</span> Tôn vinh <strong class="sol-hl sol-hl--gold">di sản</strong> qua <strong class="sol-hl sol-hl--teal">công nghệ lấy con người làm trung tâm</strong> để thúc đẩy <strong class="sol-hl sol-hl--gold">thịnh vượng chung</strong> và <strong class="sol-hl sol-hl--gold">giải trí có mục đích.</strong>',
     formulaVerb1: 'DÙNG',
     formulaNoun1: 'Công Nghệ',

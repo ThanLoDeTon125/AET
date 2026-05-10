@@ -1,4 +1,4 @@
-/** id.js — Bahasa Indonesia */
+﻿/** id.js — Bahasa Indonesia */
 const id = {
   preloader: { initialising: 'Menginisialisasi dunia…', loading: 'Memuat… {{pct}}%', entering: 'Memasuki dunia…' },
   nav: {
@@ -93,7 +93,7 @@ const id = {
   solution: {
     kicker: 'Deskripsi Solusi',
     heading: 'Apa itu <em>AETERNA?</em>',
-    bodyP1: 'Aeterna adalah Platform RPG Warisan Digital AAA yang memanfaatkan AI Naratif untuk mengabadikan jiwa ASEAN. Kami melampaui game tradisional dengan menggabungkan mekanisme RPG yang adil dengan Ekonomi O2O yang berkelanjutan.',
+    bodyP1: 'Aeterna adalah <strong class=\"sol-hl sol-hl--gold\">Platform RPG Warisan Digital AAA</strong> yang memanfaatkan <strong class=\"sol-hl sol-hl--gold\">AI Naratif</strong> untuk mengabadikan jiwa <strong class=\"sol-hl sol-hl--gold\">ASEAN</strong>. Kami melampaui game tradisional dengan menggabungkan <strong class=\"sol-hl sol-hl--gold\">mekanisme RPG yang adil</strong> dengan <strong class=\"sol-hl sol-hl--gold\">Ekonomi O2O yang berkelanjutan</strong>.',
     coreValue: '<span class="sol-hl sol-hl--teal">NILAI INTI:</span> Menghormati <strong class="sol-hl sol-hl--gold">warisan</strong> melalui <strong class="sol-hl sol-hl--teal">teknologi berpusat pada manusia</strong> untuk mendorong <strong class="sol-hl sol-hl--gold">kemakmuran bersama</strong> dan <strong class="sol-hl sol-hl--gold">hiburan bermakna.</strong>',
     formulaVerb1: 'GUNAKAN',
     formulaNoun1: 'Teknologi',

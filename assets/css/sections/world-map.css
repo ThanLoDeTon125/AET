@@ -9,7 +9,7 @@
   min-height: 580px;
   background:
     linear-gradient(180deg, rgba(7, 18, 11, 0.8) 0%, rgba(7, 18, 11, 0.4) 100%),
-    url('../../media/images/backgrounds/10.png') center center / cover no-repeat;
+    url('../../media/images/backgrounds/BG web.png') center center / cover no-repeat;
   scroll-snap-align: start;
   overflow: hidden;
 

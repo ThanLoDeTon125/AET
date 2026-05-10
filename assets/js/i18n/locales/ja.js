@@ -93,7 +93,7 @@ const ja = {
   solution: {
     kicker: 'ソリューション説明',
     heading: '<em>AETERNA</em>とは何ですか？',
-    bodyP1: 'Aeternaは、ナラティブAIを活用してASEANの魂を永遠のものにするAAAデジタルヘリテージRPGプラットフォームです。フェアプレイのRPGメカニクスと持続可能なO2Oエコノミーを融合させることで、伝統的なゲームの枠を超越します。',
+    bodyP1: 'Aeternaは、<strong class="sol-hl sol-hl--gold">ナラティブAI</strong>を活用して<strong class="sol-hl sol-hl--gold">ASEAN</strong>の魂を永遠のものにする<strong class="sol-hl sol-hl--gold">AAAデジタルヘリテージRPGプラットフォーム</strong>です。<strong class="sol-hl sol-hl--gold">フェアプレイのRPGメカニクス</strong>と<strong class="sol-hl sol-hl--gold">持続可能なO2Oエコノミー</strong>を融合させることで、伝統的なゲームの枠を超越します。',
     coreValue: '<span class="sol-hl sol-hl--teal">コアバリュー：</span><strong class="sol-hl sol-hl--teal">人間中心のテクノロジー</strong>で<strong class="sol-hl sol-hl--gold">遣産</strong>を活かし、<strong class="sol-hl sol-hl--gold">共様の繁栄</strong>と<strong class="sol-hl sol-hl--gold">目的のあるエンターテインメント</strong>を実現。',
     formulaVerb1: '活用する',
     formulaNoun1: 'テクノロジー',

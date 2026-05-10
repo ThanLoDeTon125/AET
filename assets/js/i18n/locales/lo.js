@@ -1,4 +1,4 @@
-/** lo.js — ພາສາລາວ (Lao) */
+﻿/** lo.js — ພາສາລາວ (Lao) */
 const lo = {
   preloader: { initialising: 'ກຳລັງເລີ່ມຕົ້ນໂລກ…', loading: 'ກຳລັງໂຫລດ… {{pct}}%', entering: 'ກຳລັງເຂົ້າສູ່ໂລກ…' },
   nav: {
@@ -93,7 +93,7 @@ const lo = {
   solution: {
     kicker: 'ຄຳອທິບາຍແນວທາງ',
     heading: '<em>AETERNA</em> ມັນແມ່ນຫຍັງ?',
-    bodyP1: 'Aeterna ແມ່ນແພລດຟອມ RPG ມໍລະດົກດິຈິຕອລລະດັບ AAA ທີ່ໃຊ້ AI ການເລົ່າເລື່ອງເພື່ອເຮັດໃຫ້ຈິດວິນຍານຂອງອາຊຽນເປັນອະມະຕະ. ພວກເຮົາກ້າວຂ້າມເກມແບບດັ້ງເດີມໂດຍການລວມກົນໄກ RPG ທີ່ຍຸດຕິທຳເຂົ້າກັບເສດຖະກິດ O2O ທີ່ຍືນຍົງ.',
+    bodyP1: 'Aeterna ແມ່ນ<strong class=\"sol-hl sol-hl--gold\">ແພລດຟອມ RPG ມໍລະດົກດິຈິຕອລລະດັບ AAA</strong> ທີ່ໃຊ້ <strong class=\"sol-hl sol-hl--gold\">AI ການເລົ່າເລື່ອງ</strong>ເພື່ອເຮັດໃຫ້ຈິດວິນຍານຂອງ<strong class=\"sol-hl sol-hl--gold\">ອາຊຽນ</strong>ເປັນອະມະຕະ. ພວກເຮົາກ້າວຂ້າມເກມແບບດັ້ງເດີມໂດຍການລວມ<strong class=\"sol-hl sol-hl--gold\">ກົນໄກ RPG ທີ່ຍຸດຕິທຳ</strong>ເຂົ້າກັບ<strong class=\"sol-hl sol-hl--gold\">ເສດຖະກິດ O2O ທີ່ຍືນຍົງ</strong>.',
     coreValue: '<span class="sol-hl sol-hl--teal">ຄຸນຄ່າຫລັກ:</span> ໃຫ້ເກີດຕິກັນ<strong class="sol-hl sol-hl--gold">ມົລະດົກ</strong> ຜ່ານ<strong class="sol-hl sol-hl--teal">ເທກໂນໂລຍີ</strong> ເພື່ອ<strong class="sol-hl sol-hl--gold">ຄວາມເຈຣິຍຮຸ່ງຮ່ວມກັນ</strong>.',
     formulaVerb1: 'ໃຊ້',
     formulaNoun1: 'ເທກໂນໂລຍີ',

@@ -1,4 +1,4 @@
-/** tl.js — Filipino */
+﻿/** tl.js — Filipino */
 const tl = {
   preloader: { initialising: 'Sinisimulan ang mundo…', loading: 'Naglo-load… {{pct}}%', entering: 'Pumapasok sa mundo…' },
   nav: {
@@ -93,7 +93,7 @@ const tl = {
   solution: {
     kicker: 'Paglalarawan ng Solusyon',
     heading: 'Ano ang <em>AETERNA?</em>',
-    bodyP1: 'Ang Aeterna ay isang AAA Digital Heritage RPG Platform na gumagamit ng Narrative AI upang imortalisa ang kaluluwa ng ASEAN. Nilalampasan namin ang tradisyonal na paglalaro sa pamamagitan ng pagsasama ng patas na mekanika ng RPG sa isang Likas-kayang O2O na Ekonomiya.',
+    bodyP1: 'Ang Aeterna ay isang <strong class=\"sol-hl sol-hl--gold\">AAA Digital Heritage RPG Platform</strong> na gumagamit ng <strong class=\"sol-hl sol-hl--gold\">Narrative AI</strong> upang imortalisa ang kaluluwa ng <strong class=\"sol-hl sol-hl--gold\">ASEAN</strong>. Nilalampasan namin ang tradisyonal na paglalaro sa pamamagitan ng pagsasama ng <strong class=\"sol-hl sol-hl--gold\">patas na mekanika ng RPG</strong> sa isang <strong class=\"sol-hl sol-hl--gold\">Likas-kayang O2O na Ekonomiya</strong>.',
     coreValue: '<span class="sol-hl sol-hl--teal">PANGUNAHING HALAGA:</span> Parangalan ang <strong class="sol-hl sol-hl--gold">pamana</strong> sa pamamagitan ng <strong class="sol-hl sol-hl--teal">teknolohiyang nakasentro sa tao</strong> upang itaguyod ang <strong class="sol-hl sol-hl--gold">ibinahaging kasaganaan</strong> at <strong class="sol-hl sol-hl--gold">makahulugang libangan.</strong>',
     formulaVerb1: 'GAMITIN',
     formulaNoun1: 'Teknolohiya',

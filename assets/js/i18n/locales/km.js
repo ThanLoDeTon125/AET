@@ -1,4 +1,4 @@
-/** km.js — ភាសាខ្មែរ (Khmer) */
+﻿/** km.js — ភាសាខ្មែរ (Khmer) */
 const km = {
   preloader: { initialising: 'កំពុងចាប់ផ្តើមពិភពលោក…', loading: 'កំពុងផ្ទុក… {{pct}}%', entering: 'កំពុងចូលពិភពលោក…' },
   nav: {
@@ -93,7 +93,7 @@ const km = {
   solution: {
     kicker: 'ការពិពណ្ណនអ្វីការតកក្រមដ័លស័កម័ល',
     heading: '<em>AETERNA</em> គឺជាគ៝?',
-    bodyP1: 'Aeterna គឺជាវេទិកាហ្គេម RPG បេតិកភណ្ឌឌីជីថលកម្រិត AAA ដែលប្រើប្រាស់ AI និទានកថាដើម្បីធ្វើឱ្យព្រលឹងនៃអាស៊ានអមតៈ។ យើងផ្លាស់ប្តូរហ្គេមប្រពៃណីដោយការបញ្ចូលគ្នានូវយន្តការ RPG លេងដោយយុត្តិធម៌ជាមួយនឹងសេដ្ឋកិច្ច O2O ប្រកបដោយនិរន្តរភាព។',
+    bodyP1: 'Aeterna គឺជា<strong class=\"sol-hl sol-hl--gold\">វេទិកាហ្គេម RPG បេតិកភណ្ឌឌីជីថលកម្រិត AAA</strong> ដែលប្រើប្រាស់ <strong class=\"sol-hl sol-hl--gold\">AI និទានកថា</strong>ដើម្បីធ្វើឱ្យព្រលឹងនៃ<strong class=\"sol-hl sol-hl--gold\">អាស៊ាន</strong>អមតៈ។ យើងផ្លាស់ប្តូរហ្គេមប្រពៃណីដោយការបញ្ចូលគ្នានូវ<strong class=\"sol-hl sol-hl--gold\">យន្តការ RPG លេងដោយយុត្តិធម៌</strong>ជាមួយនឹង<strong class=\"sol-hl sol-hl--gold\">សេដ្ឋកិច្ច O2O ប្រកបដោយនិរន្តរភាព</strong>។',
     coreValue: '<span class="sol-hl sol-hl--teal">តម្ល័ប់ស្នួម:</span> តករឌត្ល<strong class="sol-hl sol-hl--gold">កើរ័ត្ណន័ល</strong> តាមរយ:កត្តិកាលកែសងស្កមលក្ឞនា័ ដើបញ័ឈ កើរញេរិញស្តិបភាពដែហួរគ្នាម្ណកម្មទដឹលតាមថ្ញឃ.',
     formulaVerb1: 'ប្រើប្រាស់',
     formulaNoun1: 'កត្តិកាល',

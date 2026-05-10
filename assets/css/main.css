@@ -219,9 +219,9 @@ body.nav-open {
   z-index: 2;
   opacity: 0.13;
   background-image:
-    radial-gradient(circle at 22% 34%, rgba(255,255,255,0.22) 0 1px, transparent 1px),
-    radial-gradient(circle at 68% 58%, rgba(255,255,255,0.18) 0 1px, transparent 1px),
-    radial-gradient(circle at 44% 82%, rgba(255,255,255,0.14) 0 1px, transparent 1px);
+    radial-gradient(circle at 22% 34%, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px),
+    radial-gradient(circle at 68% 58%, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px),
+    radial-gradient(circle at 44% 82%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px);
   background-size: 170px 170px, 220px 220px, 280px 280px;
   mix-blend-mode: screen;
   pointer-events: none;
@@ -242,8 +242,15 @@ body.nav-open {
 }
 
 @keyframes introContentReveal {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0);    }
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .intro-video__eyebrow {
@@ -267,7 +274,8 @@ body.nav-open {
   text-shadow:
     0 0 80px rgba(150, 255, 140, 0.28),
     0 12px 48px rgba(0, 0, 0, 0.52);
-  text-indent: 0.18em; /* optical balance for letter-spacing */
+  text-indent: 0.18em;
+  /* optical balance for letter-spacing */
 }
 
 .intro-video__tagline {
@@ -309,8 +317,15 @@ body.nav-open {
 }
 
 @keyframes introCtaArrowBounce {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(4px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
 }
 
 .intro-video__cta:hover {
@@ -355,8 +370,16 @@ body.nav-open {
 }
 
 @keyframes scrollCueDrop {
-  0%       { opacity: 1; top: 5px; }
-  80%, 100%{ opacity: 0; top: 20px; }
+  0% {
+    opacity: 1;
+    top: 5px;
+  }
+
+  80%,
+  100% {
+    opacity: 0;
+    top: 20px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -935,7 +958,7 @@ body.nav-open {
   transform: translateY(18px) scale(0.86);
   pointer-events: none;
   transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-              background 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+    background 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.28);
 }
 
@@ -986,7 +1009,7 @@ body.nav-open {
   inset: 0;
   background-image:
     linear-gradient(180deg, rgba(4, 10, 7, 0.62) 0%, rgba(4, 10, 7, 0.38) 40%, rgba(4, 10, 7, 0.70) 100%),
-    url('../media/images/backgrounds/bg.png');
+    url('../media/images/backgrounds/Background slides.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -1044,10 +1067,21 @@ body.nav-open {
 }
 
 /* ── Highlight tokens ── */
-.sol-hl { font-weight: 700; }
-.sol-hl--gold  { color: #f5c842; }
-.sol-hl--teal  { color: #3edfb5; }
-.sol-hl--red   { color: #e8403a; }
+.sol-hl {
+  font-weight: 700;
+}
+
+.sol-hl--gold {
+  color: #f5c842;
+}
+
+.sol-hl--teal {
+  color: #3edfb5;
+}
+
+.sol-hl--red {
+  color: #e8403a;
+}
 
 /* ── Description card ── */
 .solution-card--desc {
@@ -1106,7 +1140,10 @@ body.nav-open {
   /* Hide scrollbar but allow scroll on small screens */
   scrollbar-width: none;
 }
-.solution-formula::-webkit-scrollbar { display: none; }
+
+.solution-formula::-webkit-scrollbar {
+  display: none;
+}
 
 .solution-section.is-visible .solution-formula {
   opacity: 1;
@@ -1283,6 +1320,7 @@ body.nav-open {
   .solution-vm {
     grid-template-columns: 1fr;
   }
+
   .solution-formula {
     gap: 0 8px;
     padding: 14px 16px;
@@ -1294,18 +1332,23 @@ body.nav-open {
     gap: 0 6px;
     padding: 12px 14px;
   }
+
   .solution-formula__verb {
     font-size: 13px;
   }
+
   .solution-formula__noun {
     font-size: 12px;
   }
+
   .solution-formula__noun--sm {
     font-size: 9px;
   }
+
   .solution-formula__sub {
     font-size: 8px;
   }
+
   .solution-formula__sub-list span {
     font-size: 8px;
   }
@@ -1346,6 +1389,13 @@ body.nav-open {
 }
 
 @keyframes soonPulse {
-  0%, 100% { opacity: 0.88; }
-  50%       { opacity: 0.48; }
+
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+
+  50% {
+    opacity: 0.48;
+  }
 }

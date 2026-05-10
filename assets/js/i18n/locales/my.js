@@ -1,4 +1,4 @@
-/** my.js — မြန်မာဘာသာ (Burmese) — inherits EN for long content, translates UI */
+﻿/** my.js — မြန်မာဘာသာ (Burmese) — inherits EN for long content, translates UI */
 const my = {
   preloader: { initialising: 'ကမ္ဘာကို စတင်နေသည်…', loading: 'တင်နေသည်… {{pct}}%', entering: 'ကမ္ဘာသို့ ဝင်ရောက်နေသည်…' },
   nav: {
@@ -93,7 +93,7 @@ const my = {
   solution: {
     kicker: 'အဢးနည်မြု မိတ်ဆက်',
     heading: '<em>AETERNA</em> ဆိုဇဆြင်းဓည့်?',
-    bodyP1: 'Aeterna သည် အာဆီယံ၏ ဝိညာဉ်ကို ထာဝရတည်တံ့စေရန် Narrative AI ကို အသုံးပြုထားသော AAA Digital Heritage RPG Platform တစ်ခုဖြစ်သည်။ တရားမျှတသော RPG စနစ်များနှင့် ရေရှည်တည်တံ့သော O2O စီးပွားရေးကို ပေါင်းစပ်ခြင်းဖြင့် ရိုးရာဂိမ်းများကို ကျော်လွန်သွားပါသည်။',
+    bodyP1: 'Aeterna သည် <strong class=\"sol-hl sol-hl--gold\">အာဆီယံ</strong>၏ ဝိညာဉ်ကို ထာဝရတည်တံ့စေရန် <strong class=\"sol-hl sol-hl--gold\">Narrative AI</strong> ကို အသုံးပြုထားသော <strong class=\"sol-hl sol-hl--gold\">AAA Digital Heritage RPG Platform</strong> တစ်ခုဖြစ်သည်။ <strong class=\"sol-hl sol-hl--gold\">တရားမျှတသော RPG စနစ်များ</strong>နှင့် <strong class=\"sol-hl sol-hl--gold\">ရေရှည်တည်တံ့သော O2O စီးပွားရေး</strong>ကို ပေါင်းစပ်ခြင်းဖြင့် ရိုးရာဂိမ်းများကို ကျော်လွန်သွားပါသည်။',
     coreValue: '<span class="sol-hl sol-hl--teal">အဖြာခြန်ခြကွတ်ရား:</span> <strong class="sol-hl sol-hl--gold">အမြေအနှစ်</strong>ကို<strong class="sol-hl sol-hl--teal">မနုစ်အခ်မြုပလက်ဖောင်း</strong>ᅑသို့ <strong class="sol-hl sol-hl--gold">အမြသိုတ်ရောက်မြု</strong>အခ်သည့် <strong class="sol-hl sol-hl--gold">ရည်သောယော အပန်ခ်မြုကို</strong>နန်ဆုပမ်.',
     formulaVerb1: 'ခ်ပိုစ်',
     formulaNoun1: 'ပလက်ဖောင်းအသဆ်မြု',

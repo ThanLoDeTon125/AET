@@ -1,4 +1,4 @@
-/** ar.js — العربية (RTL) */
+﻿/** ar.js — العربية (RTL) */
 const ar = {
   preloader: { initialising: 'جارٍ تهيئة العالم…', loading: 'جارٍ التحميل… {{pct}}%', entering: 'الدخول إلى العالم…' },
   nav: {
@@ -93,7 +93,7 @@ const ar = {
   solution: {
     kicker: 'وصف الحل',
     heading: 'ما هو <em>AETERNA؟</em>',
-    bodyP1: 'أيتيرنا (Aeterna) هي منصة ألعاب تقمص أدوار للتراث الرقمي من فئة AAA تستخدم الذكاء الاصطناعي السردي لتخليد روح الآسيان. نحن نتجاوز الألعاب التقليدية من خلال دمج آليات اللعب العادل مع اقتصاد O2O المستدام.',
+    bodyP1: 'أيتيرنا (Aeterna) هي <strong class=\"sol-hl sol-hl--gold\">منصة ألعاب تقمص أدوار للتراث الرقمي من فئة AAA</strong> تستخدم <strong class=\"sol-hl sol-hl--gold\">الذكاء الاصطناعي السردي</strong> لتخليد روح <strong class=\"sol-hl sol-hl--gold\">الآسيان</strong>. نحن نتجاوز الألعاب التقليدية من خلال دمج <strong class=\"sol-hl sol-hl--gold\">آليات اللعب العادل</strong> مع <strong class=\"sol-hl sol-hl--gold\">اقتصاد O2O المستدام</strong>.',
     coreValue: '<span class="sol-hl sol-hl--teal">القيمة الجوهرية:</span> تكريم <strong class="sol-hl sol-hl--gold">التراث</strong> عبر <strong class="sol-hl sol-hl--teal">تكنولوجيا متمحورة حول الإنسان</strong> لتعزيز <strong class="sol-hl sol-hl--gold">الرخاء المشترك</strong> و<strong class="sol-hl sol-hl--gold">ترفيه هادف.</strong>',
     formulaVerb1: 'استخدم',
     formulaNoun1: 'التكنولوجيا',

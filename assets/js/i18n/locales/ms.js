@@ -1,4 +1,4 @@
-/** ms.js — Bahasa Melayu */
+﻿/** ms.js — Bahasa Melayu */
 const ms = {
   preloader: { initialising: 'Memulakan dunia…', loading: 'Memuat… {{pct}}%', entering: 'Memasuki dunia…' },
   nav: {
@@ -93,7 +93,7 @@ const ms = {
   solution: {
     kicker: 'Penerangan Penyelesaian',
     heading: 'Apakah itu <em>AETERNA?</em>',
-    bodyP1: 'Aeterna ialah Platform RPG Warisan Digital AAA yang menggunakan AI Naratif untuk mengabadikan jiwa ASEAN. Kami mengatasi permainan tradisional dengan menggabungkan mekanik RPG yang adil dengan Ekonomi O2O yang mampan.',
+    bodyP1: 'Aeterna ialah <strong class=\"sol-hl sol-hl--gold\">Platform RPG Warisan Digital AAA</strong> yang menggunakan <strong class=\"sol-hl sol-hl--gold\">AI Naratif</strong> untuk mengabadikan jiwa <strong class=\"sol-hl sol-hl--gold\">ASEAN</strong>. Kami mengatasi permainan tradisional dengan menggabungkan <strong class=\"sol-hl sol-hl--gold\">mekanik RPG yang adil</strong> dengan <strong class=\"sol-hl sol-hl--gold\">Ekonomi O2O yang mampan</strong>.',
     coreValue: '<span class="sol-hl sol-hl--teal">NILAI TERAS:</span> Menghormati <strong class="sol-hl sol-hl--gold">warisan</strong> melalui <strong class="sol-hl sol-hl--teal">teknologi berpusatkan manusia</strong> untuk mendorong <strong class="sol-hl sol-hl--gold">kemakmuran bersama</strong> dan <strong class="sol-hl sol-hl--gold">hiburan bermakna.</strong>',
     formulaVerb1: 'GUNA',
     formulaNoun1: 'Teknologi',
