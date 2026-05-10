@@ -190,6 +190,25 @@ const zh = {
     select: "Select {{name}}",
     aria: "ASEAN Chronicles — 11 Nations"
 },
+  featuresSection: {
+    kicker: "核心功能",
+    heading: "<em>AETERNA</em> 的七大支柱",
+    subheading: "每项功能都是通往活态遗产世界的大门 — 旨在保护、连接和启发。",
+    f1Title: "个性化 <span class='feature-card__title-highlight'>遗产任务</span>",
+    f1Desc: "Aeterna 以个人解放之旅开始，玩家化身穿越时空的冒险者，进入以精确 3D 技术重建的遗产之地。任务系统根据行为个性化定制，让玩家与当地文化价值深度互动。",
+    f2Title: "历史 <span class='feature-card__title-highlight'>人格化</span>",
+    f2Desc: "游戏的核心是"历史人格化"机制。通过抽卡系统，玩家获得基于 11 个东盟国家英雄和历史人物的角色。抽卡专为古代服饰和神话宠物设计。",
+    f3Title: "文化 <span class='feature-card__title-highlight'>积累点数</span>",
+    f3Desc: "为避免纯运气因素，Aeterna 整合了"文化积累点数"。每次不成功的抽卡都会转化为有价值的知识资源或物品，确保玩家始终获得相应的知识和精神价值。",
+    f4Title: "玩家驱动 <span class='feature-card__title-highlight'>经济</span>",
+    f4Desc: "Aeterna 建立了一个玩家驱动的经济体系，稀有物品、皮肤和角色成为可交易和存储的数字资产，将玩家的体验转化为有形的经济价值。",
+    f5Title: "团队 <span class='feature-card__title-highlight'>突袭与生态任务</span>",
+    f5Desc: "游戏强调通过团队突袭实现协同效应。玩家共同征服挑战，参与具有当代信息的任务，如消灭"污染怪物"和恢复绿色生态系统。",
+    f6Title: "个人展览 & <span class='feature-card__title-highlight'>社区活动</span>",
+    f6Desc: "个人展览和社区活动功能让玩家彰显个性，将遗产收藏变为骄傲的源泉和跨国文化连接的工具。",
+    f7Title: "混合奖励 — <span class='feature-card__title-highlight'>从虚拟到现实</span>",
+    f7Desc: "Aeterna 通过混合奖励模式直接连接旅游和现实消费。拥有游戏内稀有遗产收藏可解锁服务代金券、景点门票或有形文化工艺品等现实特权。"
+  },
   countries: {
     "vietnam": {
         "name": "越南",

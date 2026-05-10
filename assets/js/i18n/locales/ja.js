@@ -127,6 +127,25 @@ const ja = {
     select: "Select {{name}}",
     aria: "ASEAN Chronicles — 11 Nations"
 },
+  featuresSection: {
+    kicker: "コア機能",
+    heading: "<em>AETERNA</em> の七つの柱",
+    subheading: "各機能は生きた遺産世界への入り口 — 保存、つながり、インスピレーションのために設計されています。",
+    f1Title: "パーソナライズ <span class='feature-card__title-highlight'>遺産クエスト</span>",
+    f1Desc: "Aeternaは個人解放の旅から始まります。プレイヤーは時空を超えた冒険に身を投じ、精密な3D技術で再現された遺産の地に挑みます。",
+    f2Title: "歴史的 <span class='feature-card__title-highlight'>擬人化</span>",
+    f2Desc: "ゲームの核心は「歴史的擬人化」メカニズムです。ガチャシステムを通じて、ASEAN11カ国の英雄や歴史的人物に基づくキャラクターを獲得できます。",
+    f3Title: "文化 <span class='feature-card__title-highlight'>蓄積ポイント</span>",
+    f3Desc: "純粋な運を避けるため、Aeternaは「文化蓄積ポイント」を統合。ガチャの失敗は価値ある知識リソースやアイテムに変換されます。",
+    f4Title: "プレイヤー主導 <span class='feature-card__title-highlight'>経済</span>",
+    f4Desc: "Aeternaはプレイヤー主導の経済を確立し、レアアイテム、スキン、キャラクターが取引可能なデジタル資産となります。",
+    f5Title: "チーム <span class='feature-card__title-highlight'>レイド＆エコミッション</span>",
+    f5Desc: "チームベースのレイドを通じてシナジーを重視。プレイヤーは共に挑戦を征服し、「汚染モンスター」の排除などの現代的メッセージを持つミッションに参加します。",
+    f6Title: "個人展示 & <span class='feature-card__title-highlight'>コミュニティイベント</span>",
+    f6Desc: "個人展示とコミュニティイベント機能により、ゲーマーは個性を主張し、遺産コレクションを誇りの源と文化交流のツールに変えます。",
+    f7Title: "ハイブリッド報酬 — <span class='feature-card__title-highlight'>バーチャルからリアルへ</span>",
+    f7Desc: "Aeternaはハイブリッド報酬モデルを通じて観光と現実消費を直接つなぎます。ゲーム内の希少な遺産コレクションはサービスバウチャーや観光チケットなどの実特典を解放します。"
+  },
   countries: {
     "vietnam": {
         "name": "ベトナム",

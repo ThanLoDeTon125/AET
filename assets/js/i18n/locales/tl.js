@@ -127,6 +127,25 @@ const tl = {
     select: "Select {{name}}",
     aria: "ASEAN Chronicles — 11 Nations"
 },
+  featuresSection: {
+    kicker: "Pangunahing Tampok",
+    heading: "Pitong Haligi ng <em>AETERNA</em>",
+    subheading: "Bawat tampok ay isang daan patungo sa buhay na mundo ng pamana — dinisenyo upang pangalagaan, ikonekta at magbigay inspirasyon.",
+    f1Title: "Personalisadong <span class='feature-card__title-highlight'>Misyon ng Pamana</span>",
+    f1Desc: "Nagsisimula ang Aeterna sa isang paglalakbay ng personal na kalayaan, kung saan ang mga manlalaro ay nag-aadbentura sa mga lupain ng pamana na nilikha gamit ang tumpak na 3D na teknolohiya.",
+    f2Title: "Makasaysayang <span class='feature-card__title-highlight'>Pagkakatawang-tao</span>",
+    f2Desc: "Ang puso ng laro ay ang mekanismong 'Makasaysayang Pagkakatawang-tao'. Sa pamamagitan ng sistema ng Gacha, nakakakuha ang mga manlalaro ng mga karakter mula sa 11 bansang ASEAN.",
+    f3Title: "Puntos ng <span class='feature-card__title-highlight'>Akumulasyon ng Kultura</span>",
+    f3Desc: "Upang maiwasan ang purong swerte, isinasama ng Aeterna ang 'Puntos ng Akumulasyon ng Kultura'. Bawat nabigong pagtatangka sa Gacha ay nagiging mahalagang mapagkukunan ng kaalaman.",
+    f4Title: "Ekonomiyang <span class='feature-card__title-highlight'>Pinapatakbo ng Manlalaro</span>",
+    f4Desc: "Nagtatag ang Aeterna ng ekonomiyang pinapatakbo ng manlalaro kung saan ang mga bihirang item ay nagiging mga digital asset na maaaring ipagpalit.",
+    f5Title: "Team-Based <span class='feature-card__title-highlight'>Raids & Eco Missions</span>",
+    f5Desc: "Binibigyang-diin ng laro ang synergy sa pamamagitan ng team-based raids at mga misyon tulad ng pag-aalis ng 'Halimaw ng Polusyon' at pagpapanumbalik ng ecosystem.",
+    f6Title: "Personal na Exhibit & <span class='feature-card__title-highlight'>Mga Kaganapan sa Komunidad</span>",
+    f6Desc: "Ang mga tampok ng personal na exhibit ay nagbibigay-daan sa mga gamer na ipahayag ang kanilang pagkakakilanlan at gawing instrumento ng koneksyon sa kultura ang kanilang koleksyon.",
+    f7Title: "Hybrid na Gantimpala — <span class='feature-card__title-highlight'>Mula Virtual Tungo sa Totoo</span>",
+    f7Desc: "Direktang ikinokonekta ng Aeterna ang turismo at tunay na konsumo sa pamamagitan ng hybrid reward model. Ang mga bihirang koleksyon ay nag-a-unlock ng mga tunay na pribilehiyo."
+  },
   countries: {
     "vietnam": {
         "name": "VIETNAM",

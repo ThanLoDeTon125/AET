@@ -127,6 +127,25 @@ const fr = {
     select: "Select {{name}}",
     aria: "ASEAN Chronicles — 11 Nations"
 },
+  featuresSection: {
+    kicker: "Fonctionnalités principales",
+    heading: "Les sept piliers d'<em>AETERNA</em>",
+    subheading: "Chaque fonctionnalité est une porte vers un monde patrimonial vivant — conçue pour préserver, connecter et inspirer.",
+    f1Title: "Quêtes <span class='feature-card__title-highlight'>patrimoniales personnalisées</span>",
+    f1Desc: "Aeterna commence par un voyage de libération personnelle, où les joueurs s'aventurent dans des terres patrimoniales recréées en 3D précise.",
+    f2Title: "<span class='feature-card__title-highlight'>Personnification</span> historique",
+    f2Desc: "Le cœur du jeu est son mécanisme de 'Personnification historique'. Via le système Gacha, les joueurs acquièrent des personnages basés sur les héros de 11 pays de l'ASEAN.",
+    f3Title: "Points d'<span class='feature-card__title-highlight'>accumulation culturelle</span>",
+    f3Desc: "Pour éviter le pur hasard, Aeterna intègre des 'Points d'accumulation culturelle'. Chaque tentative Gacha infructueuse est convertie en ressources de connaissance précieuses.",
+    f4Title: "Économie <span class='feature-card__title-highlight'>dirigée par les joueurs</span>",
+    f4Desc: "Aeterna établit une économie dirigée par les joueurs où les objets rares deviennent des actifs numériques échangeables.",
+    f5Title: "Raids <span class='feature-card__title-highlight'>d'équipe & missions écologiques</span>",
+    f5Desc: "Le jeu met l'accent sur la synergie à travers des raids d'équipe et des missions contemporaines comme l'élimination des 'Monstres de pollution'.",
+    f6Title: "Exposition personnelle & <span class='feature-card__title-highlight'>événements communautaires</span>",
+    f6Desc: "Les fonctionnalités d'exposition personnelle permettent aux joueurs d'affirmer leur individualité et de transformer leurs collections en outils de connexion culturelle.",
+    f7Title: "Récompense hybride — <span class='feature-card__title-highlight'>du virtuel au réel</span>",
+    f7Desc: "Aeterna connecte directement le tourisme et la consommation réelle via son modèle de récompense hybride. Les collections rares débloquent des privilèges réels."
+  },
   countries: {
     "vietnam": {
         "name": "VIETNAM",

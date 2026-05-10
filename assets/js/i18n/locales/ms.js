@@ -127,6 +127,25 @@ const ms = {
     select: "Select {{name}}",
     aria: "ASEAN Chronicles — 11 Nations"
 },
+  featuresSection: {
+    kicker: "Ciri Utama",
+    heading: "Tujuh Tiang <em>AETERNA</em>",
+    subheading: "Setiap ciri adalah pintu masuk ke dunia warisan yang hidup — direka untuk memelihara, menghubungkan dan memberi inspirasi.",
+    f1Title: "Misi <span class='feature-card__title-highlight'>Warisan Peribadi</span>",
+    f1Desc: "Aeterna bermula dengan perjalanan pembebasan peribadi, di mana pemain menerokai tanah warisan yang dibina semula dengan teknologi 3D tepat.",
+    f2Title: "<span class='feature-card__title-highlight'>Penjelmaan</span> Sejarah",
+    f2Desc: "Teras permainan ialah mekanisme 'Penjelmaan Sejarah'. Melalui sistem Gacha, pemain memperoleh watak berdasarkan wira dari 11 negara ASEAN.",
+    f3Title: "Mata <span class='feature-card__title-highlight'>Pengumpulan Budaya</span>",
+    f3Desc: "Untuk mengelak nasib semata-mata, Aeterna menggabungkan 'Mata Pengumpulan Budaya'. Setiap percubaan Gacha yang gagal ditukar kepada sumber pengetahuan bernilai.",
+    f4Title: "Ekonomi <span class='feature-card__title-highlight'>Didorong Pemain</span>",
+    f4Desc: "Aeterna membina ekonomi yang didorong pemain di mana item nadir menjadi aset digital yang boleh didagangkan.",
+    f5Title: "Serbuan <span class='feature-card__title-highlight'>Pasukan & Misi Ekologi</span>",
+    f5Desc: "Permainan menekankan sinergi melalui serbuan pasukan dan misi kontemporari seperti membasmi 'Raksasa Pencemaran' dan memulihkan ekosistem.",
+    f6Title: "Pameran Peribadi & <span class='feature-card__title-highlight'>Acara Komuniti</span>",
+    f6Desc: "Ciri pameran peribadi membolehkan pemain menonjolkan keperibadian mereka dan mengubah koleksi warisan menjadi kebanggaan dan alat hubungan budaya.",
+    f7Title: "Ganjaran Hibrid — <span class='feature-card__title-highlight'>Maya ke Nyata</span>",
+    f7Desc: "Aeterna menghubungkan pelancongan dan penggunaan sebenar secara langsung melalui model ganjaran hibrid. Koleksi nadir membuka keistimewaan seperti baucar perkhidmatan."
+  },
   countries: {
     "vietnam": {
         "name": "VIETNAM",

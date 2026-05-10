@@ -106,6 +106,19 @@ const journeyNavLinks   = Array.from(document.querySelectorAll('.journey-nav__li
   const cards = Array.from(document.querySelectorAll('.feature-card'));
   if (!cards.length) return;
 
+  // One-shot reveal for the features-section itself (header + section bg)
+  // Uses a separate observer so the header stays visible once revealed,
+  // even when the tall section scrolls partially out of view.
+  if (featuresSectionEl) {
+    const sectionRevealObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        featuresSectionEl.classList.add('is-visible');
+        sectionRevealObs.disconnect();
+      }
+    }, { threshold: 0.05 });
+    sectionRevealObs.observe(featuresSectionEl);
+  }
+
   // Stagger reveal animation
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -250,7 +263,7 @@ const journeyNavLinks   = Array.from(document.querySelectorAll('.journey-nav__li
   const revealTargets = [
     document.getElementById('solution-section'),
     sliderSectionEl,
-    featuresSectionEl,
+    // featuresSectionEl excluded — handled by one-shot observer in initFeatureCards
     worldSectionEl,
     document.getElementById('site-footer'),
     ...Array.from(document.querySelectorAll('.journey-bridge')),

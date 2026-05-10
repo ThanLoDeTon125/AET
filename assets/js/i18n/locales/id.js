@@ -127,6 +127,25 @@ const id = {
     select: "Select {{name}}",
     aria: "ASEAN Chronicles — 11 Nations"
 },
+  featuresSection: {
+    kicker: "Fitur Utama",
+    heading: "Tujuh Pilar <em>AETERNA</em>",
+    subheading: "Setiap fitur adalah gerbang menuju dunia warisan yang hidup — dirancang untuk melestarikan, menghubungkan, dan menginspirasi.",
+    f1Title: "Misi <span class='feature-card__title-highlight'>Warisan Personal</span>",
+    f1Desc: "Aeterna dimulai dengan perjalanan pembebasan pribadi, di mana pemain berpetualang di tanah warisan yang direkonstruksi dengan teknologi 3D presisi.",
+    f2Title: "<span class='feature-card__title-highlight'>Personifikasi</span> Sejarah",
+    f2Desc: "Inti permainan adalah mekanisme 'Personifikasi Sejarah'. Melalui sistem Gacha, pemain memperoleh karakter berdasarkan pahlawan dari 11 negara ASEAN.",
+    f3Title: "Poin <span class='feature-card__title-highlight'>Akumulasi Budaya</span>",
+    f3Desc: "Untuk menghindari keberuntungan murni, Aeterna mengintegrasikan 'Poin Akumulasi Budaya'. Setiap percobaan Gacha yang gagal dikonversi menjadi sumber daya pengetahuan berharga.",
+    f4Title: "Ekonomi <span class='feature-card__title-highlight'>Berbasis Pemain</span>",
+    f4Desc: "Aeterna membangun ekonomi berbasis pemain di mana item langka menjadi aset digital yang dapat diperdagangkan.",
+    f5Title: "Raid <span class='feature-card__title-highlight'>Tim & Misi Ekologi</span>",
+    f5Desc: "Permainan menekankan sinergi melalui raid tim dan misi bertema kontemporer seperti mengalahkan 'Monster Polusi' dan memulihkan ekosistem.",
+    f6Title: "Pameran Pribadi & <span class='feature-card__title-highlight'>Acara Komunitas</span>",
+    f6Desc: "Fitur pameran pribadi memungkinkan gamer menegaskan individualitas mereka dan mengubah koleksi warisan menjadi kebanggaan dan alat koneksi budaya.",
+    f7Title: "Hadiah Hibrida — <span class='feature-card__title-highlight'>Virtual ke Nyata</span>",
+    f7Desc: "Aeterna langsung menghubungkan pariwisata dan konsumsi nyata melalui model hadiah hibrida. Koleksi langka membuka hak istimewa seperti voucher layanan dan tiket wisata."
+  },
   countries: {
     "vietnam": {
         "name": "VIETNAM",

@@ -127,6 +127,25 @@ const ko = {
     select: "Select {{name}}",
     aria: "ASEAN Chronicles — 11 Nations"
 },
+  featuresSection: {
+    kicker: "핵심 기능",
+    heading: "<em>AETERNA</em>의 일곱 기둥",
+    subheading: "각 기능은 살아있는 유산 세계로의 관문입니다 — 보존, 연결, 영감을 위해 설계되었습니다.",
+    f1Title: "개인화 <span class='feature-card__title-highlight'>유산 퀘스트</span>",
+    f1Desc: "Aeterna는 개인 해방의 여정으로 시작됩니다. 플레이어는 정밀한 3D 기술로 재현된 유산의 땅에서 시간여행 모험을 합니다.",
+    f2Title: "역사적 <span class='feature-card__title-highlight'>의인화</span>",
+    f2Desc: "게임의 핵심은 '역사적 의인화' 메커니즘입니다. 가챠 시스템을 통해 ASEAN 11개국의 영웅과 역사적 인물 기반 캐릭터를 획득합니다.",
+    f3Title: "문화 <span class='feature-card__title-highlight'>누적 포인트</span>",
+    f3Desc: "순수한 운을 피하기 위해 Aeterna는 '문화 누적 포인트'를 통합합니다. 실패한 가챠는 가치 있는 지식 자원이나 아이템으로 전환됩니다.",
+    f4Title: "플레이어 주도 <span class='feature-card__title-highlight'>경제</span>",
+    f4Desc: "Aeterna는 희귀 아이템, 스킨, 캐릭터가 거래 가능한 디지털 자산이 되는 플레이어 주도 경제를 구축합니다.",
+    f5Title: "팀 기반 <span class='feature-card__title-highlight'>레이드 & 에코 미션</span>",
+    f5Desc: "팀 기반 레이드를 통한 시너지를 강조합니다. '오염 몬스터' 제거와 생태계 복원 등 현대적 메시지의 미션에 참여합니다.",
+    f6Title: "개인 전시 & <span class='feature-card__title-highlight'>커뮤니티 이벤트</span>",
+    f6Desc: "개인 전시와 커뮤니티 이벤트 기능을 통해 게이머들은 유산 컬렉션을 자부심의 원천이자 문화 교류의 도구로 활용합니다.",
+    f7Title: "하이브리드 보상 — <span class='feature-card__title-highlight'>가상에서 현실로</span>",
+    f7Desc: "Aeterna는 하이브리드 보상 모델을 통해 관광과 현실 소비를 직접 연결합니다. 게임 내 희귀 유산 컬렉션은 서비스 바우처, 관광 티켓 등 실제 혜택을 제공합니다."
+  },
   countries: {
     "vietnam": {
         "name": "베트남",

@@ -127,6 +127,25 @@ const ar = {
     select: "Select {{name}}",
     aria: "ASEAN Chronicles — 11 Nations"
 },
+  featuresSection: {
+    kicker: "الميزات الأساسية",
+    heading: "الركائز السبع لـ <em>AETERNA</em>",
+    subheading: "كل ميزة هي بوابة إلى عالم تراثي حي — مصممة للحفظ والتواصل والإلهام.",
+    f1Title: "مهام <span class='feature-card__title-highlight'>تراثية مخصصة</span>",
+    f1Desc: "تبدأ Aeterna برحلة تحرر شخصي، حيث يغامر اللاعبون في أراضٍ تراثية أُعيد إنشاؤها بتقنية ثلاثية الأبعاد دقيقة.",
+    f2Title: "<span class='feature-card__title-highlight'>تجسيد</span> تاريخي",
+    f2Desc: "جوهر اللعبة هو آلية 'التجسيد التاريخي'. من خلال نظام الغاتشا، يحصل اللاعبون على شخصيات مبنية على أبطال من 11 دولة آسيانية.",
+    f3Title: "نقاط <span class='feature-card__title-highlight'>التراكم الثقافي</span>",
+    f3Desc: "لتجنب الحظ المحض، تدمج Aeterna 'نقاط التراكم الثقافي'. كل محاولة غاتشا فاشلة تتحول إلى موارد معرفية قيّمة.",
+    f4Title: "اقتصاد <span class='feature-card__title-highlight'>يقوده اللاعبون</span>",
+    f4Desc: "تؤسس Aeterna اقتصادًا يقوده اللاعبون حيث تصبح العناصر النادرة أصولًا رقمية قابلة للتداول.",
+    f5Title: "غارات <span class='feature-card__title-highlight'>جماعية ومهام بيئية</span>",
+    f5Desc: "تؤكد اللعبة على التآزر من خلال الغارات الجماعية والمهام ذات الرسائل المعاصرة مثل القضاء على 'وحوش التلوث'.",
+    f6Title: "معرض شخصي & <span class='feature-card__title-highlight'>فعاليات مجتمعية</span>",
+    f6Desc: "تتيح ميزات المعرض الشخصي للاعبين إبراز فرديتهم وتحويل مجموعاتهم التراثية إلى أدوات للتواصل الثقافي.",
+    f7Title: "مكافأة هجينة — <span class='feature-card__title-highlight'>من الافتراضي إلى الواقع</span>",
+    f7Desc: "تربط Aeterna مباشرة بين السياحة والاستهلاك الحقيقي عبر نموذج المكافأة الهجينة. المجموعات النادرة تفتح امتيازات حقيقية."
+  },
   countries: {
     "vietnam": {
         "name": "فيتنام",
